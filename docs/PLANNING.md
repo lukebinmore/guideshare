@@ -7,6 +7,11 @@
   - [**Site Concept**](#site-concept)
   - [**Site Goals**](#site-goals)
   - [**Proposed Features**](#proposed-features)
+  - [**Site Design**](#site-design)
+    - [**Wireframes**](#wireframes)
+    - [**Logo**](#logo)
+    - [**Color Schemes**](#color-schemes)
+    - [**Fonts**](#fonts)
   - [**Development Management**](#development-management)
     - [**Development Process**](#development-process)
     - [**Testing Methodologies**](#testing-methodologies)
@@ -85,10 +90,51 @@ Based on the goals of the site listed above, the below features have been consid
 | Post list ordering | 4 | 5 | M |
 | Profile list | 3 | 5 | S |
 | Profile page | 4 | 5 | M |
+| Follow User Profiles | 4 | 4 | M
 | User to User messaging | 1 | 1 | W |
-| Help page | 5 | 5 | M |
+| Contact Us Form | 5 | 5 | M |
 |---|---|---|---|
-| Totals | 89 | 114 |---|
+| Totals | 93 | 118 |---|
+
+To view the project board for this site, please [Click Here](https://github.com/users/lukebinmore/projects/7/views/1)
+
+***
+
+## **Site Design**
+
+### **Wireframes**
+
+Below are the initial wireframes for the site, created with [Wireframes CC](https://wireframe.cc/). These are basic designs, meant for guidance and may change as the project progresses.
+
+**Landing Page / Feed Page / Saved Posts Page**
+
+These pages will consist of the same layout, with the main difference being the content that is filtered into them, and the title of the page.
+
+![Landing Page](/docs/wireframes/landing-page.png)
+![Landing Page - Mobile](/docs/wireframes/landing-page-mobile.png)
+
+**Post Page / New Post Page**
+
+![Post Page](/docs/wireframes/post-page.png)
+![Post Page - Mobile](/docs/wireframes/post-page-mobile.png)
+
+**Profile Page**
+
+![Profile Page](/docs/wireframes/profile-page.png)
+![Profile Page - Mobile](/docs/wireframes/profile-page-mobile.png)
+
+**Contact Page**
+
+![Contact Page](/docs/wireframes/contact-page.png)
+![Contact Page - Mobile](/docs/wireframes/contact-page-mobile.png)
+
+### **Logo**
+
+### **Color Schemes**
+
+### **Fonts**
+
+***
 
 ## **Development Management**
 

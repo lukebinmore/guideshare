@@ -19,6 +19,12 @@
 
 ## **Applications**
 
+ - [GitHub](https://github.com/)
+   - Code version control.
+   - Project management.
+ - [Wireframes CC](https://wireframe.cc/)
+   - Creation of site wireframes.
+
 ***
 
 ## **Services**
