@@ -110,23 +110,27 @@ Below are the initial wireframes for the site, created with [Wireframes CC](http
 
 These pages will consist of the same layout, with the main difference being the content that is filtered into them, and the title of the page.
 
-![Landing Page](/docs/wireframes/landing-page.png)
-![Landing Page - Mobile](/docs/wireframes/landing-page-mobile.png)
+| Desktop | Mobile |
+|---|---|
+| ![Landing Page](/docs/wireframes/landing-page.png) | ![Landing Page - Mobile](/docs/wireframes/landing-page-mobile.png) |
 
 **Post Page / New Post Page**
 
-![Post Page](/docs/wireframes/post-page.png)
-![Post Page - Mobile](/docs/wireframes/post-page-mobile.png)
+| Desktop | Mobile |
+|---|---|
+| ![Post Page](/docs/wireframes/post-page.png) | ![Post Page - Mobile](/docs/wireframes/post-page-mobile.png) |
 
 **Profile Page**
 
-![Profile Page](/docs/wireframes/profile-page.png)
-![Profile Page - Mobile](/docs/wireframes/profile-page-mobile.png)
+| Desktop | Mobile |
+|---|---|
+| ![Profile Page](/docs/wireframes/profile-page.png) | ![Profile Page - Mobile](/docs/wireframes/profile-page-mobile.png) |
 
 **Contact Page**
 
-![Contact Page](/docs/wireframes/contact-page.png)
-![Contact Page - Mobile](/docs/wireframes/contact-page-mobile.png)
+| Desktop | Mobile |
+|---|---|
+| ![Contact Page](/docs/wireframes/contact-page.png) | ![Contact Page - Mobile](/docs/wireframes/contact-page-mobile.png) |
 
 ***
 
@@ -157,6 +161,13 @@ The below logo was created using [Canva](https://www.canva.com/).
 ***
 
 ### **Fonts**
+
+The following fonts have been selected for use from [Google Fonts](https://fonts.google.com/).
+
+| Font Name | Used For | Example |
+|---|---|---|
+| Koulen | Headings | ![Koulen](/docs/fontexamples/koulen.png) |
+| Hind | General Text | ![Hind](/docs/fontexamples/hind.png) |
 
 ***
 

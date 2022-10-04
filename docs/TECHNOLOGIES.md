@@ -4,16 +4,16 @@
 - [**Go Back**](#go-back)
 - [**Table Of Contents**](#table-of-contents)
 - [**Technologies Used**](#technologies-used)
-  - [**Languages / Libraries / Frameworks**](#languages--libraries--frameworks)
+  - [**Languages / Frameworks**](#languages--frameworks)
   - [**Applications**](#applications)
   - [**Services**](#services)
-  - [**Packages**](#packages)
+  - [**Packages / Libraries**](#packages--libraries)
 
 ***
 
 # **Technologies Used**
 
-## **Languages / Libraries / Frameworks**
+## **Languages / Frameworks**
 
 ***
 
@@ -37,9 +37,11 @@
    - Creation of solid color squares for documentation.
  - [Canva](https://www.canva.com/)
    - Creation of logo.
+ - [Google Fonts](https://fonts.google.com/)
+   - Supplier of fonts.
 
 ***
 
-## **Packages**
+## **Packages / Libraries**
 
 ***
