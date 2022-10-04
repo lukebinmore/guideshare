@@ -8,7 +8,6 @@
 - [**Table Of Contents**](#table-of-contents)
 - [GuideShare](#guideshare)
   - [**Planning Phase**](#planning-phase)
-  - [**Project Management**](#project-management)
   - [**Features/Future Development**](#featuresfuture-development)
   - [**Testing Results**](#testing-results)
   - [**Technologies Used**](#technologies-used)
@@ -21,10 +20,6 @@
 # GuideShare
 
 ## [**Planning Phase**](/docs/PLANNING.md)
-
-***
-
-## [**Project Management**](/docs/PROJECTMANAGEMENT.md)
 
 ***
 

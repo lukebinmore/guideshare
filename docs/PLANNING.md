@@ -16,7 +16,7 @@
     - [**Development Process**](#development-process)
     - [**Testing Methodologies**](#testing-methodologies)
     - [**Periodic Reviews**](#periodic-reviews)
-    - [**User Stories**](#user-stories)
+    - [**Epics / User Stories**](#epics--user-stories)
 
 ***
 
@@ -200,8 +200,10 @@ To view the project (KanBan) for this site, please [Click Here](https://github.c
 
 ***
 
-### **User Stories**
+### **Epics / User Stories**
 
-For user stories relating to this project, please [Click Here](https://github.com/lukebinmore/guideshare/issues?q=label%3A%22User+Story%22+).
+For Epics relating to this project, please [Click Here](https://github.com/lukebinmore/guideshare/milestones?state=open).
+
+For User Stories relating to this project, please [Click Here](https://github.com/lukebinmore/guideshare/issues?q=label%3A%22User+Story%22+).
 
 ***
