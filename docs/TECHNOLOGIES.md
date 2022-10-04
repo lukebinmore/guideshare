@@ -35,6 +35,8 @@
    - Creation of contrast appropriate color pallets.
  - [Solid Color Image Generator](https://mdigi.tools/solid-color-image-generator/)
    - Creation of solid color squares for documentation.
+ - [Canva](https://www.canva.com/)
+   - Creation of logo.
 
 ***
 

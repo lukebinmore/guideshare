@@ -150,6 +150,10 @@ A base color scheme has been created for this project.
 
 ### **Logo**
 
+The below logo was created using [Canva](https://www.canva.com/).
+
+![Logo](../src/assets/logo.png)
+
 ***
 
 ### **Fonts**
