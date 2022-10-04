@@ -2,6 +2,8 @@
 
 # **Project Overview**
 
+Please [Click Here](https://github.com/lukebinmore/guideshare-api) to view the GuideShare API repository.
+
 # **Table Of Contents**
 - [**GuideShare** - Live Site](#guideshare---live-site)
 - [**Project Overview**](#project-overview)
