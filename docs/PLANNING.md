@@ -16,6 +16,7 @@
     - [**Development Process**](#development-process)
     - [**Testing Methodologies**](#testing-methodologies)
     - [**Periodic Reviews**](#periodic-reviews)
+    - [**User Stories**](#user-stories)
 
 ***
 
@@ -152,6 +153,8 @@ A base color scheme has been created for this project.
 | ![#000000](/docs/colorscheme/000000.png) | #000000 | Text |
 | ![#FFFFFF](/docs/colorscheme/FFFFFF.png) | #FFFFFF | Text Alt |
 
+***
+
 ### **Logo**
 
 The below logo was created using [Canva](https://www.canva.com/).
@@ -175,12 +178,30 @@ The following fonts have been selected for use from [Google Fonts](https://fonts
 
 ### **Development Process**
 
+This project will be developed using an Agile process, utalizing an iterative approach to progression and prioritisation. Github's issues, milestones and Project (KanBan) features will be used to track progress during the development lifecycle, utilizing the MoSCoW methodology to manage task priority and iteration task assignement.
+
+Github's Milestones will be used to track Epics, and will be comprised of User Stories in the form of Issues. These will be managed and tracked via the Projects (KanBan) feature.
+
 ***
 
 ### **Testing Methodologies**
 
+During each iteration of developement, the project will be manually tested for bugs and issues. On discovery of a bug or issue, a commit will be made with a message detailing what has been found, and the steps taken to resolve the issue / bug.
+
+For bugs / issues found and fixed during development of this project, please [Click Here](https://github.com/search?q=repo%3Alukebinmore%2Fguideshare+%22Bug+Fix+-+%22&type=commits).
+
 ***
 
 ### **Periodic Reviews**
+
+Each iteration will span a period of one week, ending with a review of the progress made. Incomplete Epics and user stories from the current iteration will be relocated back into the backlog for future assignment. The results of these reviews will determin what epics and user stories will be included in the next development iteration.
+
+To view the project (KanBan) for this site, please [Click Here](https://github.com/users/lukebinmore/projects/7/views/1).
+
+***
+
+### **User Stories**
+
+For user stories relating to this project, please [Click Here](https://github.com/lukebinmore/guideshare/issues?q=label%3A%22User+Story%22+).
 
 ***
