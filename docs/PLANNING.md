@@ -9,8 +9,8 @@
   - [**Proposed Features**](#proposed-features)
   - [**Site Design**](#site-design)
     - [**Wireframes**](#wireframes)
-    - [**Logo**](#logo)
     - [**Color Schemes**](#color-schemes)
+    - [**Logo**](#logo)
     - [**Fonts**](#fonts)
   - [**Development Management**](#development-management)
     - [**Development Process**](#development-process)
@@ -128,9 +128,29 @@ These pages will consist of the same layout, with the main difference being the 
 ![Contact Page](/docs/wireframes/contact-page.png)
 ![Contact Page - Mobile](/docs/wireframes/contact-page-mobile.png)
 
-### **Logo**
+***
 
 ### **Color Schemes**
+
+A base color scheme has been created for this project.
+
+[Color Review](https://color.review/) was used to create this contrast appropriate color scheme.
+
+[Solid Color Image Generator](https://mdigi.tools/solid-color-image-generator/) was used to create the solid color images in this documentation.
+
+| Color Image | Hex | Use |
+|---|---|---|
+| ![#3AD555](/docs/colorscheme/3AD555.png) | #3AD555 | Primary |
+| ![#FF7200](/docs/colorscheme/FF7200.png) | #FF7200 | Secondary |
+| ![#FFFFFF](/docs/colorscheme/FFFFFF.png) | #FFFFFF | Background |
+| ![#DDDDDD](/docs/colorscheme/DDDDDD.png) | #DDDDDD | Background Alt |
+| ![#DDDDDD](/docs/colorscheme/DDDDDD.png) | #DDDDDD | Border |
+| ![#000000](/docs/colorscheme/000000.png) | #000000 | Text |
+| ![#FFFFFF](/docs/colorscheme/FFFFFF.png) | #FFFFFF | Text Alt |
+
+### **Logo**
+
+***
 
 ### **Fonts**
 

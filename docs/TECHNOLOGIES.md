@@ -19,15 +19,22 @@
 
 ## **Applications**
 
+ - [Visual Studio Code](https://code.visualstudio.com/)
+   - IDE used for development.
+
+***
+
+## **Services**
+
  - [GitHub](https://github.com/)
    - Code version control.
    - Project management.
  - [Wireframes CC](https://wireframe.cc/)
    - Creation of site wireframes.
-
-***
-
-## **Services**
+ - [Color.Review](https://color.review/)
+   - Creation of contrast appropriate color pallets.
+ - [Solid Color Image Generator](https://mdigi.tools/solid-color-image-generator/)
+   - Creation of solid color squares for documentation.
 
 ***
 
