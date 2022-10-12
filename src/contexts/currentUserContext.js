@@ -39,6 +39,7 @@ export const CurrentUserProvider = ({ children }) => {
           } catch (err) {
             setCurrentUser((prevCurrentUser) => {
               if (prevCurrentUser) {
+                navigate("/");
                 setAuthModal({ show: true, page: "expired" });
               }
               return null;
@@ -60,6 +61,7 @@ export const CurrentUserProvider = ({ children }) => {
           } catch (err) {
             setCurrentUser((prevCurrentUser) => {
               if (prevCurrentUser) {
+                navigate("/");
                 setAuthModal({ show: true, page: "expired" });
               }
               return null;
@@ -74,7 +76,7 @@ export const CurrentUserProvider = ({ children }) => {
         return Promise.reject(err);
       }
     );
-  }, [navigate]);
+  }, [navigate, setAuthModal]);
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
