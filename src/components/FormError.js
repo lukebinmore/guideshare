@@ -1,13 +1,13 @@
 import React from "react";
-import { Alert } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 
 export default function FormError({ data }) {
   return (
     <>
       {data?.map((message, idx) => (
-        <Alert key={idx} variant="warning">
-          {message}
-        </Alert>
+        <Form.Text key={idx} className="text-danger">
+          *{message}
+        </Form.Text>
       ))}
     </>
   );
