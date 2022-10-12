@@ -3,6 +3,7 @@ import { axiosReq, axiosRes } from "../api/axiosDefaults";
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router";
 import { removeTokenTimestamp, shouldRefreshToken } from "../utils/utils";
+import { useSetAuthModal } from "./authModalContext";
 
 export const CurrentUserContext = createContext();
 export const SetCurrentUserContext = createContext();
@@ -12,6 +13,7 @@ export const useSetCurrentUser = () => useContext(SetCurrentUserContext);
 
 export const CurrentUserProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
+  const setAuthModal = useSetAuthModal();
   const navigate = useNavigate();
 
   const handleMount = async () => {
@@ -37,7 +39,7 @@ export const CurrentUserProvider = ({ children }) => {
           } catch (err) {
             setCurrentUser((prevCurrentUser) => {
               if (prevCurrentUser) {
-                navigate("/login/prompt");
+                setAuthModal({ show: true, page: "expired" });
               }
               return null;
             });
@@ -53,11 +55,12 @@ export const CurrentUserProvider = ({ children }) => {
       async (config) => {
         if (shouldRefreshToken()) {
           try {
+            console.log("first");
             await axios.post("auth/token/refresh/");
           } catch (err) {
             setCurrentUser((prevCurrentUser) => {
               if (prevCurrentUser) {
-                navigate("/login/prompt");
+                setAuthModal({ show: true, page: "expired" });
               }
               return null;
             });
