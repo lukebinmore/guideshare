@@ -1,30 +1,60 @@
 import React, { useState } from "react";
-import { Container, Fade, Image } from "react-bootstrap";
+import { Fade, Form, Image } from "react-bootstrap";
 import profilePlaceholder from "../assets/profile-placeholder.png";
 import changePicture from "../assets/change-picture.png";
 import styles from "../styles/Avatar.module.css";
 
-const Avatar = ({ src = profilePlaceholder, alt = "Avatar", change }) => {
-  const [show, setShow] = useState(false);
+const Avatar = ({ src = profilePlaceholder, forwardRef, change }) => {
+  const [showChange, setShowChange] = useState(false);
+
+  const [picture, setPicture] = useState(src);
+
+  const handlePictureChange = (event) => {
+    if (event.target.files.length) {
+      URL.revokeObjectURL(picture);
+      setPicture(URL.createObjectURL(event.target.files[0]));
+    }
+  };
+
   return (
     <div className={styles.Container}>
       <Image
-        src={src}
-        alt={alt}
+        src={picture}
+        alt="Profile Picture"
         roundedCircle
-        className={`w-100 ${styles.AvatarImage}`}
+        className={styles.AvatarImage}
       />
+
       {change && (
-        <Fade in={show}>
-          <Image
-            src={changePicture}
-            alt="Change Profile Picture"
-            roundedCircle
-            className={`w-100 ${styles.ChangeOverlay}`}
-            onMouseEnter={() => setShow(true)}
-            onMouseLeave={() => setShow(false)}
-          />
-        </Fade>
+        <>
+          <Form.Group>
+            <Form.Label htmlFor="profile-picture">
+              <Fade in={showChange}>
+                <Image
+                  src={changePicture}
+                  alt="Change Profile Picture"
+                  roundedCircle
+                  className={styles.ChangeOverlay}
+                  onMouseEnter={() => setShowChange(true)}
+                  onMouseLeave={() => setShowChange(false)}
+                />
+              </Fade>
+            </Form.Label>
+
+            <Form.Text className="text-muted">
+              Select the picture to change it.
+            </Form.Text>
+
+            <Form.Control
+              type="file"
+              id="profile-picture"
+              accept="image/*"
+              onChange={handlePictureChange}
+              className="d-none"
+              ref={forwardRef}
+            />
+          </Form.Group>
+        </>
       )}
     </div>
   );

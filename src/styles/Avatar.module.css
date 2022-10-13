@@ -5,6 +5,7 @@
 }
 
 .AvatarImage {
+  width: 100%;
   border: solid 2px var(--primary);
   box-sizing: border-box;
 }
@@ -15,7 +16,9 @@
   bottom: 0;
   right: 0;
   left: 0;
+  width: 100%;
   z-index: 1;
   border: solid 2px var(--secondary);
   box-sizing: border-box;
+  cursor: pointer;
 }
