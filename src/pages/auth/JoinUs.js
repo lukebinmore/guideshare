@@ -3,17 +3,25 @@ import { Button, Modal } from "react-bootstrap";
 import { useAuthModal, useSetAuthModal } from "../../contexts/authModalContext";
 import logoEmblem from "../../assets/logo-emblem.png";
 
-const JoinUs = () => {
+const JoinUs = ({ expired }) => {
   const authModal = useAuthModal();
   const setAuthModal = useSetAuthModal();
 
   return (
     <>
       <Modal show={authModal.show} onHide={() => setAuthModal({ show: false })}>
-        <Modal.Header closeButton />
+        <Modal.Header closeButton>
+          {expired && <Modal.Title>Session Expired</Modal.Title>}
+        </Modal.Header>
 
         <Modal.Body>
-          <h1>Join Us!</h1>
+          {!expired && <h1>Join Us!</h1>}
+          {expired && (
+            <p>
+              Your session has expired, please login again or sign up for an
+              account.
+            </p>
+          )}
           <img src={logoEmblem} alt="Logo Emblem" className="w-100" />
         </Modal.Body>
         <Modal.Body>
@@ -25,17 +33,17 @@ const JoinUs = () => {
         <Modal.Footer>
           <Button
             variant="primary"
-            onClick={() => setAuthModal({ show: true, page: "signup" })}
-            className="w-75"
-            size="lg">
-            Sign Up
-          </Button>
-          <Button
-            variant="primary"
             onClick={() => setAuthModal({ show: true, page: "login" })}
             className="w-75"
             size="lg">
             Login
+          </Button>
+          <Button
+            variant="primary"
+            onClick={() => setAuthModal({ show: true, page: "signup" })}
+            className="w-75"
+            size="lg">
+            Sign Up
           </Button>
         </Modal.Footer>
       </Modal>

@@ -56,7 +56,6 @@ export const CurrentUserProvider = ({ children }) => {
       async (config) => {
         if (shouldRefreshToken()) {
           try {
-            console.log("first");
             await axios.post("auth/token/refresh/");
           } catch (err) {
             setCurrentUser((prevCurrentUser) => {

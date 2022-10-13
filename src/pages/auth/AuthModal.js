@@ -12,6 +12,8 @@ const AuthModal = () => {
       return <LoginForm />;
     case "signup":
       return <SignupForm />;
+    case "expired":
+      return <JoinUs expired />;
     default:
       return <JoinUs />;
   }
