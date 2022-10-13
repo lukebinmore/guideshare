@@ -1,16 +1,15 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
-import { useNavigate } from "react-router";
 import FormError from "../../components/FormError";
 import { useAuthModal, useSetAuthModal } from "../../contexts/authModalContext";
 import { useSetCurrentUser } from "../../contexts/currentUserContext";
 
-const LoginForm = () => {
+const SignupForm = () => {
   const authModal = useAuthModal();
   const setAuthModal = useSetAuthModal();
-
   const setCurrentUser = useSetCurrentUser();
+
   const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
     username: "",
@@ -18,7 +17,6 @@ const LoginForm = () => {
     password2: "",
   });
   const { username, password1, password2 } = formData;
-  const navigate = useNavigate();
 
   const handleChange = (event) => {
     setFormData({
@@ -32,8 +30,7 @@ const LoginForm = () => {
     try {
       const { data } = await axios.post("auth/registration/", formData);
       setCurrentUser(data.user);
-      setAuthModal({ show: false });
-      navigate(0);
+      setAuthModal({ show: true, page: "profile" });
     } catch (err) {
       setErrors(err.response?.data);
     }
@@ -44,7 +41,7 @@ const LoginForm = () => {
       <Modal show={authModal.show} onHide={() => setAuthModal({ show: false })}>
         <Form onSubmit={handleSubmit}>
           <Modal.Header closeButton>
-            <Modal.Title>Login</Modal.Title>
+            <Modal.Title>Sign Up</Modal.Title>
           </Modal.Header>
 
           <Modal.Body>
@@ -128,4 +125,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default SignupForm;

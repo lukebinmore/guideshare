@@ -10,15 +10,15 @@ import { setTokenTimestamp } from "../../utils/utils";
 const LoginForm = () => {
   const authModal = useAuthModal();
   const setAuthModal = useSetAuthModal();
-
   const setCurrentUser = useSetCurrentUser();
+  const navigate = useNavigate();
+
   const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
     username: "",
     password: "",
   });
   const { username, password } = formData;
-  const navigate = useNavigate();
 
   const handleChange = (event) => {
     setFormData({
