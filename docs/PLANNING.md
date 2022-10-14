@@ -149,7 +149,7 @@ A base color scheme has been created for this project.
 | ![#FF7200](/docs/colorscheme/FF7200.png) | #FF7200 | Secondary |
 | ![#FFFFFF](/docs/colorscheme/FFFFFF.png) | #FFFFFF | Background |
 | ![#DDDDDD](/docs/colorscheme/DDDDDD.png) | #DDDDDD | Background Alt |
-| ![#DDDDDD](/docs/colorscheme/DDDDDD.png) | #DDDDDD | Border |
+| ![#B0B0B0](/docs/colorscheme/B0B0B0.png) | #B0B0B0 | Border |
 | ![#000000](/docs/colorscheme/000000.png) | #000000 | Text |
 | ![#FFFFFF](/docs/colorscheme/FFFFFF.png) | #FFFFFF | Text Alt |
 

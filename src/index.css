@@ -57,7 +57,7 @@ h1 {
 
 .btn-secondary {
   background-color: var(--secondary);
-  color: var(--text);
+  color: var(--text-alt);
   border-color: var(--secondary);
 }
 
