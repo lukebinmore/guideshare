@@ -2,6 +2,7 @@ import React from "react";
 import { useAuthModal } from "../../contexts/authModalContext";
 import JoinUs from "./JoinUs";
 import LoginForm from "./LoginForm";
+import SignoutForm from "./SignoutForm";
 import SignupForm from "./SignupForm";
 import SignupProfileForm from "./SignupProfileForm";
 
@@ -11,6 +12,8 @@ const AuthModal = () => {
   switch (authModal.page) {
     case "login":
       return <LoginForm />;
+    case "signout":
+      return <SignoutForm />;
     case "signup":
       return <SignupForm />;
     case "profile":
