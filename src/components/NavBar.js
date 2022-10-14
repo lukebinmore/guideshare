@@ -36,12 +36,13 @@ const NavBar = () => {
         <Dropdown.Toggle className={appStyles.RemoveArrow}>
           <i className="fa-solid fa-bars" />
         </Dropdown.Toggle>
-        <Dropdown.Menu className={styles.Menu}>
+        <Dropdown.Menu className={styles.NavMenu}>
           <Dropdown.Item>
             <NavLink end to="/" className={(navData) => setActive(navData)}>
               <i className="fa-solid fa-house" /> Home
             </NavLink>
           </Dropdown.Item>
+          <Dropdown.Divider />
           <Dropdown.Item>
             <NavLink to="/feed" className={(navData) => setActive(navData)}>
               <i className="fa-solid fa-square-rss" /> Feed
@@ -52,6 +53,7 @@ const NavBar = () => {
               <i className="fa-solid fa-floppy-disk" /> Saved
             </NavLink>
           </Dropdown.Item>
+          <Dropdown.Divider />
           <Dropdown.Item>
             <NavLink to="/contact" className={(navData) => setActive(navData)}>
               <i className="fa-solid fa-envelope-open" /> Contact Us
@@ -70,9 +72,29 @@ const NavBar = () => {
         </NavLink>
         <dt className="d-inline-block px-1">{currentUser?.username}</dt>
       </div>
-      <div className={styles.Profile}>
-        <Avatar src={currentUser?.profile_picture} />
-      </div>
+      <Dropdown className="d-inline-block border-0">
+        <Dropdown.Toggle
+          className={`rounded-circle p-0 ${styles.Profile} ${appStyles.RemoveArrow}`}>
+          <Avatar src={currentUser?.profile_picture} />
+        </Dropdown.Toggle>
+        <Dropdown.Menu className={styles.UserMenu}>
+          <Dropdown.Item>
+            <NavLink
+              to={`/profile/${currentUser?.profile_id}`}
+              className={(navData) => setActive(navData)}>
+              My Profile <i className="fa-solid fa-user" />
+            </NavLink>
+          </Dropdown.Item>
+          <Dropdown.Divider />
+          <Dropdown.Item>
+            <Button
+              variant="danger"
+              onClick={() => setAuthModal({ show: true, page: "signout" })}>
+              Sign Out <i className="fa-solid fa-right-from-bracket" />
+            </Button>
+          </Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
     </>
   );
 
@@ -89,7 +111,9 @@ const NavBar = () => {
 
   return (
     <>
-      <Image src={logo} className="w-50 mx-auto d-block d-md-none" />
+      <NavLink to="/">
+        <Image src={logo} className="w-50 mx-auto d-block d-md-none" />
+      </NavLink>
       <Container fluid className={styles.NavBar}>
         <Row className={styles.NavBarRow}>
           <Col>
