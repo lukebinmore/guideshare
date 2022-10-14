@@ -133,7 +133,7 @@ const SignupProfileForm = () => {
 
           <Modal.Footer>
             <Button type="submit" variant="primary" className="w-75" size="lg">
-              <i class="fa-solid fa-floppy-disk" /> Save Profile
+              <i className="fa-solid fa-floppy-disk" /> Save Profile
             </Button>
             <p>Don't feel like doing this yet?</p>
             <Button
@@ -143,7 +143,7 @@ const SignupProfileForm = () => {
                 setAuthModal({ show: false });
                 navigate(0);
               }}>
-              <i class="fa-solid fa-clock" /> Do It Later
+              <i className="fa-solid fa-clock" /> Do It Later
             </Button>
           </Modal.Footer>
         </Form>

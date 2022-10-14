@@ -36,14 +36,14 @@ const JoinUs = ({ expired }) => {
             onClick={() => setAuthModal({ show: true, page: "login" })}
             className="w-75"
             size="lg">
-            <i class="fa-solid fa-right-to-bracket" /> Login
+            <i className="fa-solid fa-right-to-bracket" /> Login
           </Button>
           <Button
             variant="primary"
             onClick={() => setAuthModal({ show: true, page: "signup" })}
             className="w-75"
             size="lg">
-            <i class="fa-solid fa-user-plus" /> Sign Up
+            <i className="fa-solid fa-user-plus" /> Sign Up
           </Button>
         </Modal.Footer>
       </Modal>

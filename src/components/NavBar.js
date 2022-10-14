@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  Button,
-  Col,
-  Container,
-  Dropdown,
-  Image,
-  Navbar,
-  Row,
-} from "react-bootstrap";
+import { Button, Col, Container, Dropdown, Image, Row } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { useSetAuthModal } from "../contexts/authModalContext";
 import { useCurrentUser } from "../contexts/currentUserContext";
@@ -27,13 +19,13 @@ const NavBar = () => {
   const navLinks = (
     <>
       <NavLink end to="/" className={(navData) => setActive(navData)}>
-        <i class="fa-solid fa-house" /> Home
+        <i className="fa-solid fa-house" /> Home
       </NavLink>
       <NavLink to="/feed" className={(navData) => setActive(navData)}>
-        <i class="fa-solid fa-square-rss" /> Feed
+        <i className="fa-solid fa-square-rss" /> Feed
       </NavLink>
       <NavLink to="/saved" className={(navData) => setActive(navData)}>
-        <i class="fa-solid fa-floppy-disk" /> Saved
+        <i className="fa-solid fa-floppy-disk" /> Saved
       </NavLink>
     </>
   );
@@ -42,27 +34,27 @@ const NavBar = () => {
     <>
       <Dropdown>
         <Dropdown.Toggle className={appStyles.RemoveArrow}>
-          <i class="fa-solid fa-bars" />
+          <i className="fa-solid fa-bars" />
         </Dropdown.Toggle>
         <Dropdown.Menu className={styles.Menu}>
           <Dropdown.Item>
             <NavLink end to="/" className={(navData) => setActive(navData)}>
-              <i class="fa-solid fa-house" /> Home
+              <i className="fa-solid fa-house" /> Home
             </NavLink>
           </Dropdown.Item>
           <Dropdown.Item>
             <NavLink to="/feed" className={(navData) => setActive(navData)}>
-              <i class="fa-solid fa-square-rss" /> Feed
+              <i className="fa-solid fa-square-rss" /> Feed
             </NavLink>
           </Dropdown.Item>
           <Dropdown.Item>
             <NavLink to="/saved" className={(navData) => setActive(navData)}>
-              <i class="fa-solid fa-floppy-disk" /> Saved
+              <i className="fa-solid fa-floppy-disk" /> Saved
             </NavLink>
           </Dropdown.Item>
           <Dropdown.Item>
             <NavLink to="/contact" className={(navData) => setActive(navData)}>
-              <i class="fa-solid fa-envelope-open" /> Contact Us
+              <i className="fa-solid fa-envelope-open" /> Contact Us
             </NavLink>
           </Dropdown.Item>
         </Dropdown.Menu>
@@ -74,7 +66,7 @@ const NavBar = () => {
     <>
       <div className="d-md-inline-block d-none">
         <NavLink to="/contact" className={(navData) => setActive(navData)}>
-          <i class="fa-solid fa-envelope-open" /> Contact Us
+          <i className="fa-solid fa-envelope-open" /> Contact Us
         </NavLink>
         <dt className="d-inline-block px-1">{currentUser?.username}</dt>
       </div>
@@ -87,10 +79,10 @@ const NavBar = () => {
   const loggedOutItems = (
     <>
       <Button onClick={() => setAuthModal({ show: true, page: "login" })}>
-        <i class="fa-solid fa-right-to-bracket" /> Login
+        <i className="fa-solid fa-right-to-bracket" /> Login
       </Button>
       <Button onClick={() => setAuthModal({ show: true, page: "signup" })}>
-        <i class="fa-solid fa-user-plus" /> Sign Up
+        <i className="fa-solid fa-user-plus" /> Sign Up
       </Button>
     </>
   );
@@ -118,7 +110,7 @@ const NavBar = () => {
               className={(navData) =>
                 setActive(navData) + " d-inline-block mx-4"
               }>
-              <i class="fa-solid fa-square-plus" /> New Post
+              <i className="fa-solid fa-square-plus" /> New Post
             </NavLink>
           </Col>
           <Col className="text-end"></Col>
