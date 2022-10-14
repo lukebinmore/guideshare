@@ -109,14 +109,14 @@ const SignupForm = () => {
 
           <Modal.Footer>
             <Button type="submit" variant="primary" className="w-75" size="lg">
-              Sign Up
+              <i class="fa-solid fa-user-plus" /> Sign Up
             </Button>
             <p className="text-muted">Already have an account?</p>
             <Button
               variant="secondary"
               onClick={() => setAuthModal({ show: true, page: "login" })}
               size="sm">
-              Login
+              <i class="fa-solid fa-right-to-bracket" /> Login
             </Button>
           </Modal.Footer>
         </Form>

@@ -42,14 +42,14 @@ const SignoutForm = () => {
             onClick={() => setAuthModal({ show: false })}
             className="w-75"
             size="lg">
-            No, Take me back
+            <i class="fa-solid fa-ban" /> No, Take me back
           </Button>
           <Button
             variant="danger"
             onClick={handleSignOut}
             className="w-75"
             size="lg">
-            Sign Out
+            <i class="fa-solid fa-right-from-bracket" /> Sign Out
           </Button>
         </Modal.Footer>
       </Modal>
