@@ -1,14 +1,19 @@
 .NavBar {
   position: sticky;
   top: 0;
-  padding: 0.5em 0;
+  padding: 0;
   background-color: var(--background-alt);
-  border-bottom: solid 1px var(--border);
 }
 
 .NavBar a,
 .NavBar button {
   margin: 0 5px;
+}
+
+.NavBarRow {
+  padding: 0.5em 0;
+  margin: 0;
+  border-bottom: solid 2px var(--border);
 }
 
 .Menu {
@@ -23,6 +28,13 @@
 }
 
 .Profile {
+  display: inline-block;
   margin: 0 5px;
-  width: 38px;
+  width: 2.5em;
+}
+
+.Logo {
+  min-height: 2.5em;
+  height: 5vw;
+  max-height: 5em;
 }

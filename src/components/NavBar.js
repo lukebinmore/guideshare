@@ -1,5 +1,13 @@
 import React from "react";
-import { Button, Container, Dropdown, Image, Navbar } from "react-bootstrap";
+import {
+  Button,
+  Col,
+  Container,
+  Dropdown,
+  Image,
+  Navbar,
+  Row,
+} from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { useSetAuthModal } from "../contexts/authModalContext";
 import { useCurrentUser } from "../contexts/currentUserContext";
@@ -91,13 +99,30 @@ const NavBar = () => {
     <>
       <Image src={logo} className="w-50 mx-auto d-block d-md-none" />
       <Container fluid className={styles.NavBar}>
-        <div className="d-flex">
-          <div className="d-md-block d-none">{navLinks}</div>
-          <div className="d-md-none d-block">{navLinksDropdown}</div>
-          <div className="d-flex position-absolute end-0">
-            {currentUser ? loggedInItems : loggedOutItems}
-          </div>
-        </div>
+        <Row className={styles.NavBarRow}>
+          <Col>
+            <div className="d-md-block d-none">{navLinks}</div>
+            <div className="d-md-none d-block">{navLinksDropdown}</div>
+          </Col>
+          <Col>
+            <div className="text-end">
+              {currentUser ? loggedInItems : loggedOutItems}
+            </div>
+          </Col>
+        </Row>
+        <Row className={`d-md-flex d-none ${styles.NavBarRow}`}>
+          <Col>
+            <Image src={logo} className={styles.Logo} />
+            <NavLink
+              to="/new-post"
+              className={(navData) =>
+                setActive(navData) + " d-inline-block mx-4"
+              }>
+              <i class="fa-solid fa-square-plus" /> New Post
+            </NavLink>
+          </Col>
+          <Col className="text-end"></Col>
+        </Row>
       </Container>
     </>
   );
