@@ -88,3 +88,15 @@ h1 {
   padding: 0;
   border-radius: 6px;
 }
+
+.card-header,
+.card-footer {
+  background-color: var(--background-alt);
+  border-color: var(--border);
+}
+
+.card,
+.card-body {
+  border-color: var(--border);
+  background-color: var(--background);
+}
