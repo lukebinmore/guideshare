@@ -68,9 +68,6 @@ const NavBar = () => {
   const loggedInItems = (
     <>
       <div className="d-md-inline-block d-none">
-        <NavLink to="/contact" className={(navData) => setActive(navData)}>
-          <i className="fa-solid fa-envelope-open" /> Contact Us
-        </NavLink>
         <dt className="d-inline-block px-1">{currentUser?.username}</dt>
       </div>
       <Dropdown className="d-inline-block border-0">
@@ -84,6 +81,14 @@ const NavBar = () => {
               to={`/profile/${currentUser?.profile_id}`}
               className={(navData) => setActive(navData)}>
               My Profile <i className="fa-solid fa-user" />
+            </NavLink>
+          </Dropdown.Item>
+          <Dropdown.Divider />
+          <Dropdown.Item as="div">
+            <NavLink
+              to="/contact-us"
+              className={(navData) => setActive(navData)}>
+              Contact Us <i className="fa-solid fa-envelope-open" />
             </NavLink>
           </Dropdown.Item>
           <Dropdown.Divider />
@@ -107,6 +112,9 @@ const NavBar = () => {
       <Button onClick={() => setAuthModal({ show: true, page: "signup" })}>
         <i className="fa-solid fa-user-plus" /> Sign Up
       </Button>
+      <NavLink to="/contact-us" className={(navData) => setActive(navData)}>
+        <i className="fa-solid fa-envelope-open" /> Contact Us
+      </NavLink>
     </>
   );
 
