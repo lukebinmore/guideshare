@@ -37,24 +37,25 @@ const NavBar = () => {
           <i className="fa-solid fa-bars" />
         </Dropdown.Toggle>
         <Dropdown.Menu className={styles.NavMenu}>
-          <Dropdown.Item>
+          <Dropdown.Item as="div">
             <NavLink end to="/" className={(navData) => setActive(navData)}>
               <i className="fa-solid fa-house" /> Home
             </NavLink>
           </Dropdown.Item>
           <Dropdown.Divider />
-          <Dropdown.Item>
+          <Dropdown.Item as="div">
             <NavLink to="/feed" className={(navData) => setActive(navData)}>
               <i className="fa-solid fa-square-rss" /> Feed
             </NavLink>
           </Dropdown.Item>
-          <Dropdown.Item>
+          <Dropdown.Divider />
+          <Dropdown.Item as="div">
             <NavLink to="/saved" className={(navData) => setActive(navData)}>
               <i className="fa-solid fa-floppy-disk" /> Saved
             </NavLink>
           </Dropdown.Item>
           <Dropdown.Divider />
-          <Dropdown.Item>
+          <Dropdown.Item as="div">
             <NavLink to="/contact" className={(navData) => setActive(navData)}>
               <i className="fa-solid fa-envelope-open" /> Contact Us
             </NavLink>
@@ -78,7 +79,7 @@ const NavBar = () => {
           <Avatar src={currentUser?.profile_picture} />
         </Dropdown.Toggle>
         <Dropdown.Menu className={styles.UserMenu}>
-          <Dropdown.Item>
+          <Dropdown.Item as="div">
             <NavLink
               to={`/profile/${currentUser?.profile_id}`}
               className={(navData) => setActive(navData)}>
@@ -86,7 +87,7 @@ const NavBar = () => {
             </NavLink>
           </Dropdown.Item>
           <Dropdown.Divider />
-          <Dropdown.Item>
+          <Dropdown.Item as="div">
             <Button
               variant="danger"
               onClick={() => setAuthModal({ show: true, page: "signout" })}>

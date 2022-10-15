@@ -79,3 +79,12 @@ h1 {
   border-color: var(--danger);
   box-shadow: 0 0 0 0.15rem var(--danger);
 }
+
+.dropdown-menu {
+  padding: 0.5em;
+}
+
+.dropdown-item {
+  padding: 0;
+  border-radius: 6px;
+}
