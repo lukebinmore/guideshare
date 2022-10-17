@@ -4,6 +4,7 @@ import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 import { useNavigate } from "react-router";
 import { NavLink } from "react-router-dom";
 import FormError from "../../components/FormError";
+import AdminButton from "../../components/AdminButton";
 import { useCurrentUser } from "../../contexts/currentUserContext";
 
 const ContactUs = () => {
@@ -82,6 +83,14 @@ const ContactUs = () => {
             <Form className="card" onSubmit={handleSubmit}>
               <Card.Header>
                 <h1>Contact Us</h1>
+                {currentUser?.is_admin && (
+                  <AdminButton
+                    leftIcon
+                    rightIcon
+                    href="admin/contactforms/contactform/"
+                    text="Submitted Contact Forms"
+                  />
+                )}
               </Card.Header>
 
               <Card.Body>

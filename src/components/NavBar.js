@@ -13,8 +13,6 @@ const NavBar = () => {
   const currentUser = useCurrentUser();
   const setAuthModal = useSetAuthModal();
 
-  console.log(currentUser);
-
   const setActive = (navData) => {
     return navData.isActive ? "btn btn-secondary" : "btn btn-primary";
   };
