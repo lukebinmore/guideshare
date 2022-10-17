@@ -112,7 +112,11 @@ const NavBar = () => {
       <Button onClick={() => setAuthModal({ show: true, page: "signup" })}>
         <i className="fa-solid fa-user-plus" /> Sign Up
       </Button>
-      <NavLink to="/contact-us" className={(navData) => setActive(navData)}>
+      <NavLink
+        to="/contact-us"
+        className={(navData) =>
+          setActive(navData) + " d-none d-md-inline-block"
+        }>
         <i className="fa-solid fa-envelope-open" /> Contact Us
       </NavLink>
     </>
@@ -125,11 +129,11 @@ const NavBar = () => {
       </NavLink>
       <Container fluid className={styles.NavBar}>
         <Row className={styles.NavBarRow}>
-          <Col>
+          <Col xs="1" sm="1" md="6">
             <div className="d-md-block d-none">{navLinks}</div>
             <div className="d-md-none d-block">{navLinksDropdown}</div>
           </Col>
-          <Col>
+          <Col xs="11" sm="11" md="6">
             <div className="text-end">
               {currentUser ? loggedInItems : loggedOutItems}
             </div>
