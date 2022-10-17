@@ -7,7 +7,7 @@ import FormError from "../../components/FormError";
 import AdminButton from "../../components/AdminButton";
 import { useCurrentUser } from "../../contexts/currentUserContext";
 
-const ContactUs = () => {
+const ContactForm = () => {
   const currentUser = useCurrentUser();
   const navigate = useNavigate();
 
@@ -248,4 +248,4 @@ const ContactUs = () => {
   );
 };
 
-export default ContactUs;
+export default ContactForm;
