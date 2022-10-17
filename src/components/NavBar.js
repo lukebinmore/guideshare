@@ -58,7 +58,9 @@ const NavBar = () => {
           </Dropdown.Item>
           <Dropdown.Divider />
           <Dropdown.Item as="div">
-            <NavLink to="/contact" className={(navData) => setActive(navData)}>
+            <NavLink
+              to="/contact-us"
+              className={(navData) => setActive(navData)}>
               <ButtonText text="Contact Us" icon="envelope-open" left />
             </NavLink>
           </Dropdown.Item>
