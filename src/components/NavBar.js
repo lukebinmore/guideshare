@@ -151,7 +151,9 @@ const NavBar = () => {
         </Row>
         <Row className={`d-md-flex d-none ${styles.NavBarRow}`}>
           <Col>
-            <Image src={logo} className={styles.Logo} />
+            <NavLink to="/">
+              <Image src={logo} className={styles.Logo} />
+            </NavLink>
             <NavLink
               to="/new-post"
               className={(navData) =>
