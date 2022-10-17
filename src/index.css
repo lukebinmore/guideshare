@@ -12,6 +12,7 @@
 * {
   box-sizing: border-box;
   font-family: "Hind", sans-serif;
+  color: var(--text);
 }
 
 body {
@@ -38,6 +39,10 @@ h6 {
 ul {
   padding: 0;
   list-style-type: none;
+}
+
+i {
+  color: inherit;
 }
 
 .modal-content {
@@ -89,6 +94,10 @@ ul {
   background-color: var(--danger-tint);
   border-color: var(--danger);
   box-shadow: 0 0 0 0.15rem var(--danger);
+}
+
+.btn-group .btn {
+  width: 25%;
 }
 
 .dropdown-menu {

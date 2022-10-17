@@ -1,18 +1,21 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 import { useNavigate } from "react-router";
+import { NavLink } from "react-router-dom";
 import FormError from "../../components/FormError";
 import { useCurrentUser } from "../../contexts/currentUserContext";
 
 const ContactUs = () => {
   const currentUser = useCurrentUser();
   const navigate = useNavigate();
+
   const [formSent, setFormSent] = useState(false);
+  const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
     title: "",
-    email: "",
     username: "",
+    email: "",
     first_name: "",
     last_name: "",
     reason: 0,
@@ -20,7 +23,12 @@ const ContactUs = () => {
   });
   const { title, email, username, first_name, last_name, reason, content } =
     formData;
-  const [errors, setErrors] = useState({});
+
+  useEffect(() => {
+    setFormData((prevFormData) => {
+      return { ...prevFormData, username: currentUser?.username };
+    });
+  }, [navigate, currentUser]);
 
   const handleChange = (event) => {
     setFormData({
@@ -32,18 +40,6 @@ const ContactUs = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (currentUser) {
-      setFormData({
-        ...formData,
-        username: currentUser.username,
-      });
-    }
-
-    setFormData({
-      ...formData,
-      reason: event.target["reason"].value,
-    });
-
     try {
       await axios.post("contact-form/", formData);
       setFormSent(true);
@@ -54,20 +50,42 @@ const ContactUs = () => {
 
   return (
     <>
-      <Container className="my-3">
-        {formSent ? (
+      <Container className="my-3 text-center">
+        {!formSent ? (
           <>
-            <h1>Thanks, our team will read this shortly!</h1>
+            <Card>
+              <Card.Header>
+                <h1>Submitted!</h1>
+              </Card.Header>
+
+              <Card.Body>
+                <p className="my-1">
+                  Your message has been sent, and will be reviewed by our team
+                  shortly.
+                </p>
+              </Card.Body>
+
+              <Card.Footer className="btn-group p-0">
+                <Button variant="secondary" onClick={() => navigate(0)}>
+                  <i className="fa-solid fa-square-plus" /> Submit Another{" "}
+                  <i className="fa-solid fa-square-plus" />
+                </Button>
+                <NavLink end to="/" className="btn btn-primary">
+                  <i className="fa-solid fa-home" /> Home{" "}
+                  <i className="fa-solid fa-home" />
+                </NavLink>
+              </Card.Footer>
+            </Card>
           </>
         ) : (
           <>
             <Form className="card" onSubmit={handleSubmit}>
               <Card.Header>
-                <h1 className="text-center">Contact Us</h1>
+                <h1>Contact Us</h1>
               </Card.Header>
 
               <Card.Body>
-                <Form.Group className="text-center">
+                <Form.Group className="mb-3">
                   <Form.Label className="d-none">Title</Form.Label>
                   <Form.Control
                     type="text"
@@ -81,11 +99,12 @@ const ContactUs = () => {
                     data={errors?.title}
                     text="*Please provide a title for your message."
                   />
+                  <hr />
                 </Form.Group>
 
                 <Row>
-                  <Col>
-                    <Form.Group className="my-3 text-center">
+                  <Col md="6">
+                    <Form.Group>
                       <Form.Label className="d-none">First Name</Form.Label>
                       <Form.Control
                         type="text"
@@ -99,11 +118,12 @@ const ContactUs = () => {
                         data={errors?.first_name}
                         text="(OPTIONAL) Please provide your first name."
                       />
+                      <hr />
                     </Form.Group>
                   </Col>
 
-                  <Col>
-                    <Form.Group className="my-3 text-center">
+                  <Col md="6">
+                    <Form.Group>
                       <Form.Label className="d-none">Last Name</Form.Label>
                       <Form.Control
                         type="text"
@@ -117,33 +137,33 @@ const ContactUs = () => {
                         data={errors?.last_name}
                         text="(OPTIONAL) Please provide your last name."
                       />
+                      <hr />
                     </Form.Group>
                   </Col>
                 </Row>
 
                 <Row>
-                  {!currentUser && (
-                    <Col>
-                      <Form.Group className="my-3 text-center">
-                        <Form.Label className="d-none">Username</Form.Label>
-                        <Form.Control
-                          type="text"
-                          placeholder="Username"
-                          name="username"
-                          value={username}
-                          onChange={handleChange}
-                          className="text-center"
-                        />
-                        <FormError
-                          data={errors?.username}
-                          text="(OPTIONAL) Please enter your username."
-                        />
-                      </Form.Group>
-                    </Col>
-                  )}
+                  <Col md="6">
+                    <Form.Group>
+                      <Form.Label className="d-none">Username</Form.Label>
+                      <Form.Control
+                        type="text"
+                        placeholder="Username"
+                        name="username"
+                        value={username}
+                        onChange={handleChange}
+                        className="text-center"
+                      />
+                      <FormError
+                        data={errors?.username}
+                        text="(OPTIONAL) Please enter your username."
+                      />
+                      <hr />
+                    </Form.Group>
+                  </Col>
 
-                  <Col>
-                    <Form.Group className="my-3 text-center">
+                  <Col md="6">
+                    <Form.Group>
                       <Form.Label className="d-none">Email Address</Form.Label>
                       <Form.Control
                         type="email"
@@ -157,28 +177,31 @@ const ContactUs = () => {
                         data={errors?.email}
                         text="*Please enter your email address."
                       />
+                      <hr />
                     </Form.Group>
                   </Col>
                 </Row>
 
-                <Form.Group className="my-3 text-center">
+                <Form.Group>
                   <Form.Select
                     className="text-center"
                     name="reason"
+                    value={reason}
                     onChange={handleChange}>
-                    <option value="0">Support</option>
-                    <option value="1">Bug Report</option>
-                    <option value="2">Feedback</option>
-                    <option value="3">Compliment</option>
-                    <option value="4">Complaint</option>
+                    <option value={0}>Support</option>
+                    <option value={1}>Bug Report</option>
+                    <option value={2}>Feedback</option>
+                    <option value={3}>Compliment</option>
+                    <option value={4}>Complaint</option>
                   </Form.Select>
                   <FormError
                     data={errors?.reason}
                     text="*Please select your reason for contacting us."
                   />
+                  <hr />
                 </Form.Group>
 
-                <Form.Group className="mb-3 mt-4 text-center">
+                <Form.Group>
                   <Form.Label className="d-none">Contact Message</Form.Label>
                   <Form.Control
                     as="textarea"
