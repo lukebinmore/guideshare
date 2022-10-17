@@ -51,7 +51,7 @@ const ContactUs = () => {
   return (
     <>
       <Container className="my-3 text-center">
-        {!formSent ? (
+        {formSent ? (
           <>
             <Card>
               <Card.Header>
