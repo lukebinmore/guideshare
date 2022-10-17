@@ -2,6 +2,7 @@ import React from "react";
 import { Button, Modal } from "react-bootstrap";
 import { useAuthModal, useSetAuthModal } from "../../contexts/authModalContext";
 import logoEmblem from "../../assets/logo-emblem.png";
+import ButtonText from "../../components/ButtonText";
 
 const JoinUs = ({ expired }) => {
   const authModal = useAuthModal();
@@ -36,14 +37,14 @@ const JoinUs = ({ expired }) => {
             onClick={() => setAuthModal({ show: true, page: "login" })}
             className="w-75"
             size="lg">
-            <i className="fa-solid fa-right-to-bracket" /> Login
+            <ButtonText text="Login" icon="right-to-bracket" left />
           </Button>
           <Button
             variant="primary"
             onClick={() => setAuthModal({ show: true, page: "signup" })}
             className="w-75"
             size="lg">
-            <i className="fa-solid fa-user-plus" /> Sign Up
+            <ButtonText text="Sign Up" icon="user-plus" left />
           </Button>
         </Modal.Footer>
       </Modal>

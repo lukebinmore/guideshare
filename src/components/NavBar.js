@@ -8,6 +8,7 @@ import logo from "../assets/logo.png";
 import styles from "../styles/NavBar.module.css";
 import appStyles from "../App.module.css";
 import AdminButton from "./AdminButton";
+import ButtonText from "./ButtonText";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
@@ -20,13 +21,13 @@ const NavBar = () => {
   const navLinks = (
     <>
       <NavLink end to="/" className={(navData) => setActive(navData)}>
-        <i className="fa-solid fa-house" /> Home
+        <ButtonText text="Home" icon="house" left />
       </NavLink>
       <NavLink to="/feed" className={(navData) => setActive(navData)}>
-        <i className="fa-solid fa-square-rss" /> Feed
+        <ButtonText text="Feed" icon="square-rss" left />
       </NavLink>
       <NavLink to="/saved" className={(navData) => setActive(navData)}>
-        <i className="fa-solid fa-floppy-disk" /> Saved
+        <ButtonText text="Saved" icon="floppy-disk" left />
       </NavLink>
     </>
   );
@@ -40,25 +41,25 @@ const NavBar = () => {
         <Dropdown.Menu className={styles.NavMenu}>
           <Dropdown.Item as="div">
             <NavLink end to="/" className={(navData) => setActive(navData)}>
-              <i className="fa-solid fa-house" /> Home
+              <ButtonText text="Home" icon="house" left />
             </NavLink>
           </Dropdown.Item>
           <Dropdown.Divider />
           <Dropdown.Item as="div">
             <NavLink to="/feed" className={(navData) => setActive(navData)}>
-              <i className="fa-solid fa-square-rss" /> Feed
+              <ButtonText text="Feed" icon="square-rss" left />
             </NavLink>
           </Dropdown.Item>
           <Dropdown.Divider />
           <Dropdown.Item as="div">
             <NavLink to="/saved" className={(navData) => setActive(navData)}>
-              <i className="fa-solid fa-floppy-disk" /> Saved
+              <ButtonText text="Saved" icon="floppy-disk" left />
             </NavLink>
           </Dropdown.Item>
           <Dropdown.Divider />
           <Dropdown.Item as="div">
             <NavLink to="/contact" className={(navData) => setActive(navData)}>
-              <i className="fa-solid fa-envelope-open" /> Contact Us
+              <ButtonText text="Contact Us" icon="envelope-open" left />
             </NavLink>
           </Dropdown.Item>
         </Dropdown.Menu>
@@ -89,7 +90,7 @@ const NavBar = () => {
             <NavLink
               to={`/profile/${currentUser?.profile_id}`}
               className={(navData) => setActive(navData)}>
-              My Profile <i className="fa-solid fa-user" />
+              <ButtonText text="My Profile" icon="user" right />
             </NavLink>
           </Dropdown.Item>
           <Dropdown.Divider />
@@ -97,7 +98,7 @@ const NavBar = () => {
             <NavLink
               to="/contact-us"
               className={(navData) => setActive(navData)}>
-              Contact Us <i className="fa-solid fa-envelope-open" />
+              <ButtonText text="Contact Us" icon="envelope-open" right />
             </NavLink>
           </Dropdown.Item>
           <Dropdown.Divider />
@@ -105,7 +106,7 @@ const NavBar = () => {
             <Button
               variant="danger"
               onClick={() => setAuthModal({ show: true, page: "signout" })}>
-              Sign Out <i className="fa-solid fa-right-from-bracket" />
+              <ButtonText text="Sign Out" icon="right-from-bracket" right />
             </Button>
           </Dropdown.Item>
         </Dropdown.Menu>
@@ -116,17 +117,17 @@ const NavBar = () => {
   const loggedOutItems = (
     <>
       <Button onClick={() => setAuthModal({ show: true, page: "login" })}>
-        <i className="fa-solid fa-right-to-bracket" /> Login
+        <ButtonText text="Login" icon="right-to-bracket" left />
       </Button>
       <Button onClick={() => setAuthModal({ show: true, page: "signup" })}>
-        <i className="fa-solid fa-user-plus" /> Sign Up
+        <ButtonText text="Sign Up" icon="user-plus" left />
       </Button>
       <NavLink
         to="/contact-us"
         className={(navData) =>
           setActive(navData) + " d-none d-md-inline-block"
         }>
-        <i className="fa-solid fa-envelope-open" /> Contact Us
+        <ButtonText text="Contact Us" icon="envelope-open" left />
       </NavLink>
     </>
   );
@@ -156,7 +157,7 @@ const NavBar = () => {
               className={(navData) =>
                 setActive(navData) + " d-inline-block mx-4"
               }>
-              <i className="fa-solid fa-square-plus" /> New Post
+              <ButtonText text="New Post" icon="square-plus" left />
             </NavLink>
           </Col>
           <Col className="text-end"></Col>

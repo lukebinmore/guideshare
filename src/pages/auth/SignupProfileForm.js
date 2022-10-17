@@ -3,6 +3,7 @@ import { Button, Form, Modal } from "react-bootstrap";
 import { useNavigate } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import Avatar from "../../components/Avatar";
+import ButtonText from "../../components/ButtonText";
 import FormError from "../../components/FormError";
 import { useAuthModal, useSetAuthModal } from "../../contexts/authModalContext";
 import { useCurrentUser } from "../../contexts/currentUserContext";
@@ -129,7 +130,7 @@ const SignupProfileForm = () => {
 
           <Modal.Footer>
             <Button type="submit" variant="primary" className="w-75" size="lg">
-              <i className="fa-solid fa-floppy-disk" /> Save Profile
+              <ButtonText text="Save Profile" icon="floppy-disk" left />
             </Button>
             <p>Don't feel like doing this yet?</p>
             <Button
@@ -139,7 +140,7 @@ const SignupProfileForm = () => {
                 setAuthModal({ show: false });
                 navigate(0);
               }}>
-              <i className="fa-solid fa-clock" /> Do It Later
+              <ButtonText text="Do It Later" icon="clock" left />
             </Button>
           </Modal.Footer>
         </Form>

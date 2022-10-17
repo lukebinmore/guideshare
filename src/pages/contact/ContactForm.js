@@ -6,6 +6,7 @@ import { NavLink } from "react-router-dom";
 import FormError from "../../components/FormError";
 import AdminButton from "../../components/AdminButton";
 import { useCurrentUser } from "../../contexts/currentUserContext";
+import ButtonText from "../../components/ButtonText";
 
 const ContactForm = () => {
   const currentUser = useCurrentUser();
@@ -67,12 +68,15 @@ const ContactForm = () => {
 
             <Card.Footer className="btn-group p-0">
               <Button variant="secondary" onClick={() => navigate(0)}>
-                <i className="fa-solid fa-square-plus" /> Submit Another{" "}
-                <i className="fa-solid fa-square-plus" />
+                <ButtonText
+                  text="Submit Another"
+                  icon="square-plus"
+                  left
+                  right
+                />
               </Button>
               <NavLink end to="/" className="btn btn-primary">
-                <i className="fa-solid fa-home" /> Home{" "}
-                <i className="fa-solid fa-home" />
+                <ButtonText text="Home" icon="home" left right />
               </NavLink>
             </Card.Footer>
           </Card>
@@ -231,12 +235,10 @@ const ContactForm = () => {
 
             <Card.Footer className="btn-group p-0">
               <Button onClick={() => navigate(0)} variant="danger">
-                <i className="fa-solid fa-trash" /> Clear{" "}
-                <i className="fa-solid fa-trash" />
+                <ButtonText text="Clear" icon="trash" left right />
               </Button>
               <Button type="submit">
-                <i className="fa-solid fa-paper-plane" /> Submit{" "}
-                <i className="fa-solid fa-paper-plane" />
+                <ButtonText text="Submit" icon="paper-plane" left right />
               </Button>
             </Card.Footer>
           </Form>
