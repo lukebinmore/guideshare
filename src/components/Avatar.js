@@ -27,33 +27,27 @@ const Avatar = ({ src = profilePlaceholder, forwardRef, change }) => {
 
       {change && (
         <>
-          <Form.Group>
-            <Form.Label htmlFor="profile-picture">
-              <Fade in={showChange}>
-                <Image
-                  src={changePicture}
-                  alt="Change Profile Picture"
-                  roundedCircle
-                  className={styles.ChangeOverlay}
-                  onMouseEnter={() => setShowChange(true)}
-                  onMouseLeave={() => setShowChange(false)}
-                />
-              </Fade>
-            </Form.Label>
+          <Form.Label htmlFor="profile-picture">
+            <Fade in={showChange}>
+              <Image
+                src={changePicture}
+                alt="Change Profile Picture"
+                roundedCircle
+                className={styles.ChangeOverlay}
+                onMouseEnter={() => setShowChange(true)}
+                onMouseLeave={() => setShowChange(false)}
+              />
+            </Fade>
+          </Form.Label>
 
-            <Form.Text className="text-muted">
-              Select the picture to change it.
-            </Form.Text>
-
-            <Form.Control
-              type="file"
-              id="profile-picture"
-              accept="image/*"
-              onChange={handlePictureChange}
-              className="d-none"
-              ref={forwardRef}
-            />
-          </Form.Group>
+          <Form.Control
+            type="file"
+            id="profile-picture"
+            accept="image/*"
+            onChange={handlePictureChange}
+            className="d-none"
+            ref={forwardRef}
+          />
         </>
       )}
     </div>

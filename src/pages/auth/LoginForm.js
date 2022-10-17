@@ -59,11 +59,7 @@ const LoginForm = () => {
                 onChange={handleChange}
                 className="text-center"
               />
-              {errors.username ? (
-                <FormError data={errors.username} />
-              ) : (
-                <Form.Text>Enter your username.</Form.Text>
-              )}
+              <FormError data={errors?.username} text="*Enter your username." />
             </Form.Group>
 
             <hr />
@@ -78,15 +74,9 @@ const LoginForm = () => {
                 onChange={handleChange}
                 className="text-center"
               />
-              {errors.password ? (
-                <FormError data={errors.password} />
-              ) : (
-                <Form.Text>Enter your password.</Form.Text>
-              )}
+              <FormError data={errors?.password} text="Enter your password." />
             </Form.Group>
-            {errors.non_field_errors && (
-              <FormError data={errors.non_field_errors} />
-            )}
+            <FormError data={errors?.non_field_errors} />
           </Modal.Body>
 
           <Modal.Footer>

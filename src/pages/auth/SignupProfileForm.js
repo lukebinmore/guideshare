@@ -41,16 +41,11 @@ const SignupProfileForm = () => {
       allFormData.append("picture", picture.current?.files[0]);
     }
 
-    for (var pair of allFormData.entries()) {
-      console.log(pair[0] + ", " + pair[1]);
-    }
-
     try {
       await axiosReq.put(`profiles/${currentUser.profile_id}`, allFormData);
       setAuthModal({ show: false });
       navigate(0);
     } catch (err) {
-      console.log(err);
       setErrors(err.response?.data);
     }
   };
@@ -68,7 +63,13 @@ const SignupProfileForm = () => {
           </Modal.Header>
 
           <Modal.Body>
-            <Avatar change forwardRef={picture} />
+            <Form.Group>
+              <Avatar change forwardRef={picture} />
+              <FormError
+                data={errors?.picture}
+                text="(OPTIONAL) Upload a profile picture."
+              />
+            </Form.Group>
 
             <hr />
 
@@ -82,11 +83,10 @@ const SignupProfileForm = () => {
                 onChange={handleChange}
                 className="text-center"
               />
-              {errors.first_name ? (
-                <FormError data={errors.first_name} />
-              ) : (
-                <Form.Text>Enter your first name.</Form.Text>
-              )}
+              <FormError
+                data={errors?.first_name}
+                text="(OPTIONAL) Enter your first name."
+              />
             </Form.Group>
 
             <hr />
@@ -101,11 +101,10 @@ const SignupProfileForm = () => {
                 onChange={handleChange}
                 className="text-center"
               />
-              {errors.last_name ? (
-                <FormError data={errors.last_name} />
-              ) : (
-                <Form.Text>Enter your last name.</Form.Text>
-              )}
+              <FormError
+                data={errors?.last_name}
+                text="(OPTIONAL) Enter your last name."
+              />
             </Form.Group>
 
             <hr />
@@ -120,15 +119,12 @@ const SignupProfileForm = () => {
                 onChange={handleChange}
                 className="text-center"
               />
-              {errors.dob ? (
-                <FormError data={errors.dob} />
-              ) : (
-                <Form.Text>Enter your first name.</Form.Text>
-              )}
+              <FormError
+                data={errors?.dob}
+                text="(OPTIONAL) Enter your date of birth."
+              />
             </Form.Group>
-            {errors.non_field_errors && (
-              <FormError data={errors.non_field_errors} />
-            )}
+            <FormError data={errors?.non_field_errors} />
           </Modal.Body>
 
           <Modal.Footer>

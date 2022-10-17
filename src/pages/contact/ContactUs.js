@@ -77,13 +77,10 @@ const ContactUs = () => {
                     onChange={handleChange}
                     className="text-center"
                   />
-                  {errors.title ? (
-                    <FormError data={errors.title} />
-                  ) : (
-                    <Form.Text className="text-muted">
-                      *Please provide a title for your message.
-                    </Form.Text>
-                  )}
+                  <FormError
+                    data={errors?.title}
+                    text="*Please provide a title for your message."
+                  />
                 </Form.Group>
 
                 <Row>
@@ -98,13 +95,10 @@ const ContactUs = () => {
                         onChange={handleChange}
                         className="text-center"
                       />
-                      {errors.first_name ? (
-                        <FormError data={errors.first_name} />
-                      ) : (
-                        <Form.Text className="text-muted">
-                          (OPTIONAL) Please provide your first name.
-                        </Form.Text>
-                      )}
+                      <FormError
+                        data={errors?.first_name}
+                        text="(OPTIONAL) Please provide your first name."
+                      />
                     </Form.Group>
                   </Col>
 
@@ -119,13 +113,10 @@ const ContactUs = () => {
                         onChange={handleChange}
                         className="text-center"
                       />
-                      {errors.last_name ? (
-                        <FormError data={errors.last_name} />
-                      ) : (
-                        <Form.Text className="text-muted">
-                          (OPTIONAL) Please provide your last name.
-                        </Form.Text>
-                      )}
+                      <FormError
+                        data={errors?.last_name}
+                        text="(OPTIONAL) Please provide your last name."
+                      />
                     </Form.Group>
                   </Col>
                 </Row>
@@ -143,13 +134,10 @@ const ContactUs = () => {
                           onChange={handleChange}
                           className="text-center"
                         />
-                        {errors.username ? (
-                          <FormError data={errors.username} />
-                        ) : (
-                          <Form.Text className="text-muted">
-                            (OPTIONAL) Please enter your username.
-                          </Form.Text>
-                        )}
+                        <FormError
+                          data={errors?.username}
+                          text="(OPTIONAL) Please enter your username."
+                        />
                       </Form.Group>
                     </Col>
                   )}
@@ -165,13 +153,10 @@ const ContactUs = () => {
                         onChange={handleChange}
                         className="text-center"
                       />
-                      {errors.email ? (
-                        <FormError data={errors.email} />
-                      ) : (
-                        <Form.Text className="text-muted">
-                          *Please enter your email address.
-                        </Form.Text>
-                      )}
+                      <FormError
+                        data={errors?.email}
+                        text="*Please enter your email address."
+                      />
                     </Form.Group>
                   </Col>
                 </Row>
@@ -180,7 +165,6 @@ const ContactUs = () => {
                   <Form.Select
                     className="text-center"
                     name="reason"
-                    isValid
                     onChange={handleChange}>
                     <option value="0">Support</option>
                     <option value="1">Bug Report</option>
@@ -188,13 +172,10 @@ const ContactUs = () => {
                     <option value="3">Compliment</option>
                     <option value="4">Complaint</option>
                   </Form.Select>
-                  {errors.reason ? (
-                    <FormError data={errors.reason} />
-                  ) : (
-                    <Form.Text className="text-muted">
-                      *Please select your reason for contacting us.
-                    </Form.Text>
-                  )}
+                  <FormError
+                    data={errors?.reason}
+                    text="*Please select your reason for contacting us."
+                  />
                 </Form.Group>
 
                 <Form.Group className="mb-3 mt-4 text-center">
@@ -209,18 +190,12 @@ const ContactUs = () => {
                     onChange={handleChange}
                     className="text-center"
                   />
-                  {errors.content ? (
-                    <FormError data={errors.content} />
-                  ) : (
-                    <Form.Text className="text-muted">
-                      *Please enter your message for our team.
-                    </Form.Text>
-                  )}
+                  <FormError
+                    data={errors.content}
+                    text="*Please enter your message for our team."
+                  />
                 </Form.Group>
-
-                {errors.non_field_errors && (
-                  <FormError data={errors.non_field_errors} />
-                )}
+                <FormError data={errors?.non_field_errors} />
               </Card.Body>
 
               <Card.Footer className="btn-group p-0">

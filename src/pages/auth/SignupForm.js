@@ -55,11 +55,7 @@ const SignupForm = () => {
                 onChange={handleChange}
                 className="text-center"
               />
-              {errors.username ? (
-                <FormError data={errors.username} />
-              ) : (
-                <Form.Text>Enter your username.</Form.Text>
-              )}
+              <FormError data={errors?.username} text="*Enter your username." />
             </Form.Group>
 
             <hr />
@@ -74,15 +70,16 @@ const SignupForm = () => {
                 onChange={handleChange}
                 className="text-center"
               />
-              {errors.password1 ? (
-                <FormError data={errors.password1} />
-              ) : (
-                <Form.Text>
-                  Enter your password. Password must contain at least 8
-                  characters and must not be a common password.
-                </Form.Text>
-              )}
+              <FormError data={errors?.password1} text="*Enter a password." />
             </Form.Group>
+
+            <hr />
+
+            <ul>
+              <li>Password must:</li>
+              <li className="text-muted">Contain at least 8 characters</li>
+              <li className="text-muted">Not be a common password</li>
+            </ul>
 
             <hr />
 
@@ -96,15 +93,12 @@ const SignupForm = () => {
                 onChange={handleChange}
                 className="text-center"
               />
-              {errors.password2 ? (
-                <FormError data={errors.password2} />
-              ) : (
-                <Form.Text>Enter your password again.</Form.Text>
-              )}
+              <FormError
+                data={errors?.password2}
+                text="*Enter your password again."
+              />
             </Form.Group>
-            {errors.non_field_errors && (
-              <FormError data={errors.non_field_errors} />
-            )}
+            <FormError data={errors?.non_field_errors} />
           </Modal.Body>
 
           <Modal.Footer>
