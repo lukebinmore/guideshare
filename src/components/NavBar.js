@@ -7,10 +7,13 @@ import Avatar from "../components/Avatar";
 import logo from "../assets/logo.png";
 import styles from "../styles/NavBar.module.css";
 import appStyles from "../App.module.css";
+import AdminButton from "./AdminButton";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
   const setAuthModal = useSetAuthModal();
+
+  console.log(currentUser);
 
   const setActive = (navData) => {
     return navData.isActive ? "btn btn-secondary" : "btn btn-primary";
@@ -76,6 +79,14 @@ const NavBar = () => {
           <Avatar src={currentUser?.profile_picture} />
         </Dropdown.Toggle>
         <Dropdown.Menu className={styles.UserMenu}>
+          {currentUser?.is_admin && (
+            <>
+              <Dropdown.Item as="div">
+                <AdminButton rightIcon />
+              </Dropdown.Item>
+              <Dropdown.Divider />
+            </>
+          )}
           <Dropdown.Item as="div">
             <NavLink
               to={`/profile/${currentUser?.profile_id}`}
