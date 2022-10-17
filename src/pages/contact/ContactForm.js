@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
+import { Button, Card, Col, Form, Row } from "react-bootstrap";
 import { useNavigate } from "react-router";
 import { NavLink } from "react-router-dom";
 import FormError from "../../components/FormError";
@@ -195,6 +195,7 @@ const ContactForm = () => {
               </Row>
 
               <Form.Group>
+                <Form.Label className="d-none">Reason For Contact</Form.Label>
                 <Form.Select
                   className="text-center"
                   name="reason"
@@ -226,7 +227,7 @@ const ContactForm = () => {
                   className="text-center"
                 />
                 <FormError
-                  data={errors.content}
+                  data={errors?.content}
                   text="*Please enter your message for our team."
                 />
               </Form.Group>
