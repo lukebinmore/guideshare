@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Button, Card, Form } from "react-bootstrap";
 import { useNavigate } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
@@ -8,6 +8,7 @@ import FormError from "../../components/FormError";
 const NewPostForm = () => {
   const navigate = useNavigate();
 
+  const [categories, setCategories] = useState([]);
   const [errors, setErrors] = useState();
   const [formData, setFormData] = useState({
     title: "",
@@ -18,6 +19,19 @@ const NewPostForm = () => {
   });
   const { title, category, content, cover_image, wip } = formData;
   const imageInput = useRef(null);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const { data } = await axiosReq.get("posts/categories");
+        setCategories(data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetchCategories();
+  }, [navigate]);
 
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
@@ -42,7 +56,7 @@ const NewPostForm = () => {
     });
 
     if (cover_image) {
-      allFormData.append("cover_image", imageInput.current?.files[0]);
+      allFormData.set("cover_image", imageInput.current.files[0]);
     }
 
     try {
@@ -106,10 +120,12 @@ const NewPostForm = () => {
               name="category"
               value={category}
               onChange={handleChange}>
-              <option value={0}>Temporary 0</option>
-              <option value={1}>Temporary 1</option>
-              <option value={2}>Temporary 2</option>
-              <option value={3}>Temporary 3</option>
+              <option value="">Please select</option>
+              {categories.map((option) => (
+                <option key={option.id} value={option.id}>
+                  {option.title}
+                </option>
+              ))}
             </Form.Select>
             <FormError
               data={errors?.category}
