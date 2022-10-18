@@ -2,11 +2,14 @@ import React, { useEffect, useRef, useState } from "react";
 import { Button, Card, Form } from "react-bootstrap";
 import { useNavigate } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
+import { useCurrentUser } from "../../contexts/currentUserContext";
 import ButtonText from "../../components/ButtonText";
 import FormError from "../../components/FormError";
+import AdminButton from "../../components/AdminButton";
 
 const NewPostForm = () => {
   const navigate = useNavigate();
+  const currentUser = useCurrentUser();
 
   const [categories, setCategories] = useState([]);
   const [errors, setErrors] = useState();
@@ -113,6 +116,18 @@ const NewPostForm = () => {
             <hr />
           </Form.Group>
 
+          {currentUser?.is_admin && (
+            <>
+              <AdminButton
+                leftIcon
+                rightIcon
+                href="admin/posts/category/"
+                text="Categories Admin Page"
+              />
+              <hr />
+            </>
+          )}
+
           <Form.Group>
             <Form.Label className="d-none">Category</Form.Label>
             <Form.Select
@@ -120,7 +135,7 @@ const NewPostForm = () => {
               name="category"
               value={category}
               onChange={handleChange}>
-              <option value="">Please select</option>
+              <option value="">Choose Category</option>
               {categories.map((option) => (
                 <option key={option.id} value={option.id}>
                   {option.title}
