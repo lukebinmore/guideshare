@@ -45,6 +45,15 @@ i {
   color: inherit;
 }
 
+a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--text);
+}
+
 .modal-content {
   text-align: center;
 }
