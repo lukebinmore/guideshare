@@ -146,7 +146,7 @@ const NavBar = () => {
   return (
     <>
       <NavLink to="/">
-        <Image src={logo} className="w-50 mx-auto d-block d-md-none" />
+        <Image src={logo} className="w-50 mx-auto d-block d-md-none p-1" />
       </NavLink>
       <Container fluid className={styles.NavBar}>
         <Row className={styles.NavBarRow}>
