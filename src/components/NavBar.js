@@ -97,6 +97,15 @@ const NavBar = () => {
           </Dropdown.Item>
           <Dropdown.Divider />
           <Dropdown.Item as="div">
+            <Button
+              onClick={() =>
+                setAuthModal({ show: true, page: "passwordChange" })
+              }>
+              <ButtonText text="Change Password" icon="key" right />
+            </Button>
+          </Dropdown.Item>
+          <Dropdown.Divider />
+          <Dropdown.Item as="div">
             <NavLink
               to="/contact-us"
               className={(navData) => setActive(navData)}>

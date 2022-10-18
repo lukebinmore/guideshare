@@ -1,5 +1,6 @@
 import React from "react";
 import { useAuthModal } from "../../contexts/authModalContext";
+import ChangePasswordForm from "./ChangePasswordForm";
 import JoinUs from "./JoinUs";
 import LoginForm from "./LoginForm";
 import SignoutForm from "./SignoutForm";
@@ -18,6 +19,8 @@ const AuthModal = () => {
       return <SignupForm />;
     case "profile":
       return <SignupProfileForm />;
+    case "passwordChange":
+      return <ChangePasswordForm />;
     case "expired":
       return <JoinUs expired />;
     default:
