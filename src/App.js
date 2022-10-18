@@ -5,6 +5,7 @@ import AuthModal from "./pages/auth/AuthModal";
 import NavBar from "./components/NavBar";
 import ContactForm from "./pages/contact/ContactForm";
 import NewPostForm from "./pages/posts/NewPostForm";
+import PostsPage from "./pages/posts/PostsPage";
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
       <NavBar />
       <Container className="my-3 text-center g-0">
         <Routes>
-          <Route index element={<h1>Home</h1>} />
+          <Route index element={<PostsPage />} />
           <Route path="/feed" element={<h1>Feed</h1>} />
           <Route path="/saved" element={<h1>Saved</h1>} />
           <Route path="/profile/:id" element={<h1>Profile Page</h1>} />
