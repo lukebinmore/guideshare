@@ -30,3 +30,15 @@ export const fetchMoreData = async (resource, setResource) => {
     console.log(err);
   }
 };
+
+export const collectFormData = (event) => {
+  const allFormData = new FormData();
+
+  for (var target of event.target) {
+    if (target.name) {
+      allFormData.append(target.name, target.value);
+    }
+  }
+
+  return allFormData;
+};
