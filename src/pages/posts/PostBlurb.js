@@ -32,7 +32,7 @@ const PostBlurb = (props) => {
           <Col className="text-center px-0 py-0">
             <h5>{category_title}</h5>
           </Col>
-          <Col xs="auto" className={`p-0 ${styles.PostLikes}`}>
+          <Col xs="auto" className={`p-0 ${styles.PostDislikes}`}>
             <ButtonText text={dislikes_count} icon="thumbs-down" right />
           </Col>
         </Row>

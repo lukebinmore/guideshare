@@ -1,9 +1,17 @@
 .PostBlurb {
-  width: 330px;
+  width: 318px;
   transition: transform 0.2s;
 }
 
 .PostBlurb:hover {
   transform: scale(1.1);
   z-index: 1;
+}
+
+.PostLikes i {
+  color: var(--primary);
+}
+
+.PostDislikes i {
+  color: var(--danger);
 }

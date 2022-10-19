@@ -26,8 +26,8 @@ const PostsPage = () => {
 
   const sizes = [
     { columns: 1, gutter: 16 },
-    { mq: "576px", columns: 2, gutter: 16 },
-    { mq: "992px", columns: 3, gutter: 16 },
+    { mq: "768px", columns: 2, gutter: 16 },
+    { mq: "1200px", columns: 3, gutter: 16 },
     { mq: "1400px", columns: 4, gutter: 16 },
   ];
 
