@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import IconText from "../../components/IconText";
 import FormError from "../../components/FormError";
+import FormInput from "../../components/FormInput";
+import { collectFormData } from "../../utils/utils";
 import { useAuthModal, useSetAuthModal } from "../../contexts/authModalContext";
 
 const ChangePasswordForm = () => {
@@ -10,22 +12,12 @@ const ChangePasswordForm = () => {
   const setAuthModal = useSetAuthModal();
 
   const [errors, setErrors] = useState({});
-  const [formData, setFormData] = useState({
-    new_password1: "",
-    new_password2: "",
-    old_password: "",
-  });
-  const { new_password1, new_password2, old_password } = formData;
-
-  const handleChange = (event) => {
-    setFormData({
-      ...formData,
-      [event.target.name]: event.target.value,
-    });
-  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    const formData = collectFormData(event);
+
     try {
       await axios.post("auth/password/change/", formData);
       setAuthModal({ show: false });
@@ -43,41 +35,23 @@ const ChangePasswordForm = () => {
           </Modal.Header>
 
           <Modal.Body>
-            <Form.Group controlId="old-password">
-              <Form.Label className="d-none">Old Password</Form.Label>
-              <Form.Control
-                type="password"
-                placeholder="Old Password"
-                name="old_password"
-                value={old_password}
-                onChange={handleChange}
-                className="text-center"
-              />
-              <FormError
-                data={errors?.old_password}
-                text="*Enter your current password."
-              />
-            </Form.Group>
+            <FormInput
+              placeholder="Old Password"
+              type="password"
+              name="old_password"
+              errorData={errors?.old_password}
+              text="*Enter your current password."
+              hr
+            />
 
-            <hr />
-
-            <Form.Group controlId="new-password1">
-              <Form.Label className="d-none">New Password</Form.Label>
-              <Form.Control
-                type="password"
-                placeholder="New Password"
-                name="new_password1"
-                value={new_password1}
-                onChange={handleChange}
-                className="text-center"
-              />
-              <FormError
-                data={errors?.new_password1}
-                text="*Enter a new password."
-              />
-            </Form.Group>
-
-            <hr />
+            <FormInput
+              placeholder="New Password"
+              type="password"
+              name="new_password1"
+              errorData={errors?.new_password1}
+              text="*Enter a new password ."
+              hr
+            />
 
             <ul>
               <li>Password must:</li>
@@ -87,21 +61,14 @@ const ChangePasswordForm = () => {
 
             <hr />
 
-            <Form.Group controlId="password2">
-              <Form.Label className="d-none">Confirm New Password</Form.Label>
-              <Form.Control
-                type="password"
-                placeholder="Confirm New Password"
-                name="new_password2"
-                value={new_password2}
-                onChange={handleChange}
-                className="text-center"
-              />
-              <FormError
-                data={errors?.new_password2}
-                text="*Enter your new password again."
-              />
-            </Form.Group>
+            <FormInput
+              placeholder="Confirm New Password"
+              type="password"
+              name="new_password2"
+              errorData={errors?.new_password2}
+              text="*Enter your new password again."
+            />
+
             <FormError data={errors?.non_field_errors} />
           </Modal.Body>
 
