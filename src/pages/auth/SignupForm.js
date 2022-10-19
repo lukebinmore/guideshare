@@ -3,8 +3,10 @@ import React, { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import IconText from "../../components/IconText";
 import FormError from "../../components/FormError";
+import FormInput from "../../components/FormInput";
 import { useAuthModal, useSetAuthModal } from "../../contexts/authModalContext";
 import { useSetCurrentUser } from "../../contexts/currentUserContext";
+import { collectFormData } from "../../utils/utils";
 
 const SignupForm = () => {
   const authModal = useAuthModal();
@@ -12,22 +14,12 @@ const SignupForm = () => {
   const setCurrentUser = useSetCurrentUser();
 
   const [errors, setErrors] = useState({});
-  const [formData, setFormData] = useState({
-    username: "",
-    password1: "",
-    password2: "",
-  });
-  const { username, password1, password2 } = formData;
-
-  const handleChange = (event) => {
-    setFormData({
-      ...formData,
-      [event.target.name]: event.target.value,
-    });
-  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    const formData = collectFormData(event);
+
     try {
       const { data } = await axios.post("auth/registration/", formData);
       setCurrentUser(data.user);
@@ -46,35 +38,22 @@ const SignupForm = () => {
           </Modal.Header>
 
           <Modal.Body>
-            <Form.Group controlId="username">
-              <Form.Label className="d-none">Username</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Username"
-                name="username"
-                value={username}
-                onChange={handleChange}
-                className="text-center"
-              />
-              <FormError data={errors?.username} text="*Enter your username." />
-            </Form.Group>
+            <FormInput
+              placeholder="Username"
+              name="username"
+              errorData={errors?.username}
+              text="*Enter your desired username."
+              hr
+            />
 
-            <hr />
-
-            <Form.Group controlId="password1">
-              <Form.Label className="d-none">Password</Form.Label>
-              <Form.Control
-                type="password"
-                placeholder="Password"
-                name="password1"
-                value={password1}
-                onChange={handleChange}
-                className="text-center"
-              />
-              <FormError data={errors?.password1} text="*Enter a password." />
-            </Form.Group>
-
-            <hr />
+            <FormInput
+              placeholder="Password"
+              type="password"
+              name="password1"
+              errorData={errors?.password1}
+              text="*Enter a password."
+              hr
+            />
 
             <ul>
               <li>Password must:</li>
@@ -84,21 +63,14 @@ const SignupForm = () => {
 
             <hr />
 
-            <Form.Group controlId="password2">
-              <Form.Label className="d-none">Confirm Password</Form.Label>
-              <Form.Control
-                type="password"
-                placeholder="Confirm Password"
-                name="password2"
-                value={password2}
-                onChange={handleChange}
-                className="text-center"
-              />
-              <FormError
-                data={errors?.password2}
-                text="*Enter your password again."
-              />
-            </Form.Group>
+            <FormInput
+              placeholder="Confirm Password"
+              type="password"
+              name="password2"
+              errorData={errors?.password2}
+              text="*Enter your password again."
+            />
+
             <FormError data={errors?.non_field_errors} />
           </Modal.Body>
 
