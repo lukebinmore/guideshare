@@ -4,7 +4,7 @@ import { Button, Card, Col, Form, Row } from "react-bootstrap";
 import { useNavigate } from "react-router";
 import { NavLink } from "react-router-dom";
 import FormError from "../../components/FormError";
-import AdminButton from "../../components/AdminButton";
+import { AdminButton } from "../../components/Buttons";
 import { useCurrentUser } from "../../contexts/currentUserContext";
 import IconText from "../../components/IconText";
 import FormInput from "../../components/FormInput";

@@ -5,7 +5,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/currentUserContext";
 import IconText from "../../components/IconText";
 import FormError from "../../components/FormError";
-import AdminButton from "../../components/AdminButton";
+import { AdminButton } from "../../components/Buttons";
 import FormInput from "../../components/FormInput";
 import { collectFormData } from "../../utils/utils";
 

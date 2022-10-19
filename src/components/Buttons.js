@@ -1,12 +1,9 @@
 import React from "react";
 import IconText from "./IconText";
 
-const AdminButton = ({
-  href = "",
-  text = "Admin Panel",
-  leftIcon,
-  rightIcon,
-}) => {
+export const AdminButton = (props) => {
+  const { href = "", text = "Admin Panel", leftIcon, rightIcon } = props;
+
   return (
     <a
       target="_blank"
@@ -22,5 +19,3 @@ const AdminButton = ({
     </a>
   );
 };
-
-export default AdminButton;

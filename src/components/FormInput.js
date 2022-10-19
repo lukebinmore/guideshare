@@ -4,67 +4,82 @@ import FormError from "./FormError";
 import IconText from "./IconText";
 
 const FormInput = (props) => {
-  const [value, setValue] = useState(props.initialValue);
-  const [check, setCheck] = useState(
-    props.initialValue ? props.initialValue : false
-  );
+  const {
+    initialValue,
+    name,
+    placeholder,
+    className,
+    type,
+    children,
+    setPreview,
+    variant,
+    size,
+    as,
+    rows,
+    errorData,
+    text,
+    hr,
+  } = props;
+
+  const [value, setValue] = useState(initialValue);
+  const [check, setCheck] = useState(initialValue ? initialValue : false);
 
   return (
-    <Form.Group className={props.className} controlId={props.name}>
-      <Form.Label className="d-none">{props.placeholder}</Form.Label>
-      {props.type === "select" ? (
+    <Form.Group className={className} controlId={name}>
+      <Form.Label className="d-none">{placeholder}</Form.Label>
+      {type === "select" ? (
         <Form.Select
           className="text-center"
-          name={props.name}
+          name={name}
           value={value}
           onChange={() => setValue()}>
-          {props.children}
+          {children}
         </Form.Select>
-      ) : props.type === "file" ? (
+      ) : type === "file" ? (
         <>
           <Form.Control
             type="file"
-            name={props.name}
+            name={name}
             accept="image/*"
             onChange={(event) =>
-              props.setPreview(URL.createObjectURL(event.target.files[0]))
+              setPreview(URL.createObjectURL(event.target.files[0]))
             }
             className="d-none"
           />
-          {props.children}
+          {children}
         </>
-      ) : props.type === "check" ? (
+      ) : type === "check" ? (
         <>
           <Button
-            variant={props.variant}
-            size={props.size}
+            variant={variant}
+            size={size}
             className="d-block mx-auto"
             onClick={() => setCheck(!check)}>
             <IconText
-              text={props.placeholder}
+              text={placeholder}
               icon={check ? "square-check" : "square"}
               left
               right
             />
           </Button>
-          <Form.Check name={props.name} value={check} className="d-none" />
+          <Form.Check name={name} value={check} className="d-none" />
         </>
       ) : (
         <Form.Control
-          as={props.as}
-          rows={props.rows}
-          type={props.type}
-          placeholder={props.placeholder}
-          name={props.name}
+          as={as}
+          rows={rows}
+          type={type}
+          placeholder={placeholder}
+          name={name}
           value={value}
           onChange={() => setValue()}
           className="text-center"
         />
       )}
 
-      <FormError data={props.errorData} text={props.text} />
+      <FormError data={errorData} text={text} />
 
-      {props.hr && <hr />}
+      {hr && <hr />}
     </Form.Group>
   );
 };

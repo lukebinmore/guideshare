@@ -7,7 +7,7 @@ import Avatar from "../components/Avatar";
 import logo from "../assets/logo.png";
 import styles from "../styles/NavBar.module.css";
 import appStyles from "../App.module.css";
-import AdminButton from "./AdminButton";
+import { AdminButton } from "./Buttons";
 import IconText from "./IconText";
 
 const NavBar = () => {
