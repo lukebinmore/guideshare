@@ -1,6 +1,7 @@
 import React from "react";
-import { Dropdown } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { Button, Dropdown } from "react-bootstrap";
+import { useNavigate, NavLink } from "react-router-dom";
+import { useSetAuthModal } from "../contexts/authModalContext";
 import { useCurrentUser } from "../contexts/currentUserContext";
 import IconText from "./IconText";
 
@@ -87,6 +88,61 @@ export const NavButton = (props) => {
             right={right}
           />
         </NavLink>
+      </DropperParent>
+      {hr && !dropdown && <hr />}
+      {hr && dropdown && <Dropdown.Divider />}
+    </>
+  );
+};
+
+export const AuthButton = (props) => {
+  const { page, size, variant, left, right, dropdown, hr, className, refresh } =
+    props;
+
+  const setAuthModal = useSetAuthModal();
+  const navigate = useNavigate();
+
+  const locations = {
+    login: { page: "login", text: "Login", icon: "right-to-bracket" },
+    signup: { page: "signup", text: "Sign Up", icon: "user-plus" },
+    signout: {
+      page: "signout",
+      text: "Sign Out",
+      icon: "right-from-bracket",
+    },
+    changePassword: {
+      page: "changePassword",
+      text: "Change Password",
+      icon: "key",
+    },
+    cancel: { text: "Cancel", icon: "ban" },
+    later: { text: "Do It Later", icon: "clock" },
+  };
+
+  const target = locations[page];
+
+  return (
+    <>
+      <DropperParent
+        dropdown={dropdown}
+        wrapper={(children) => (
+          <Dropdown.Item as="div">{children}</Dropdown.Item>
+        )}>
+        <Button
+          variant={variant}
+          size={size}
+          className={className}
+          onClick={() => {
+            setAuthModal({ show: !!target.page, page: target.page });
+            refresh && navigate(0);
+          }}>
+          <IconText
+            text={target.text}
+            icon={target.icon}
+            left={left}
+            right={right}
+          />
+        </Button>
       </DropperParent>
       {hr && !dropdown && <hr />}
       {hr && dropdown && <Dropdown.Divider />}
