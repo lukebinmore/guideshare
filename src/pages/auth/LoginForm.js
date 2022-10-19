@@ -63,8 +63,8 @@ const LoginForm = () => {
           </Modal.Body>
 
           <Modal.Footer>
-            <Button type="submit" variant="primary" className="w-75" size="lg">
-              <IconText text="login" icon="right-to-bracket" left />
+            <Button type="submit" className="w-75" size="lg">
+              <IconText text="login" icon="right-to-bracket" left right />
             </Button>
             <p className="text-muted">Don't have an account?</p>
             <AuthButton page="signup" size="sm" left variant="secondary" />

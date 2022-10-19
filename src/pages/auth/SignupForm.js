@@ -76,8 +76,8 @@ const SignupForm = () => {
           </Modal.Body>
 
           <Modal.Footer>
-            <Button type="submit" variant="primary" className="w-75" size="lg">
-              <IconText text="Sign Up" icon="user-plus" left />
+            <Button type="submit" className="w-75" size="lg">
+              <IconText text="Sign Up" icon="user-plus" left right />
             </Button>
             <p className="text-muted">Already have an account?</p>
             <AuthButton page="login" variant="secondary" size="sm" left />

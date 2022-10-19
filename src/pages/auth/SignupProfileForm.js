@@ -84,8 +84,8 @@ const SignupProfileForm = () => {
           </Modal.Body>
 
           <Modal.Footer>
-            <Button type="submit" variant="primary" className="w-75" size="lg">
-              <IconText text="Save Profile" icon="floppy-disk" left />
+            <Button type="submit" className="w-75" size="lg">
+              <IconText text="Save Profile" icon="floppy-disk" left right />
             </Button>
             <p>Don't feel like doing this yet?</p>
             <AuthButton
