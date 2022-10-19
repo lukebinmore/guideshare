@@ -9,6 +9,7 @@ import FormInput from "../../components/FormInput";
 import { useAuthModal, useSetAuthModal } from "../../contexts/authModalContext";
 import { useCurrentUser } from "../../contexts/currentUserContext";
 import { collectFormData } from "../../utils/utils";
+import { AuthButton } from "../../components/Buttons";
 
 const SignupProfileForm = () => {
   const authModal = useAuthModal();
@@ -49,16 +50,6 @@ const SignupProfileForm = () => {
           </Modal.Header>
 
           <Modal.Body>
-            {/* <Form.Group>
-              <Avatar change forwardRef={picture} />
-              <FormError
-                data={errors?.picture}
-                text="(OPTIONAL) Upload a profile picture."
-              />
-            </Form.Group>
-
-            <hr /> */}
-
             <FormInput
               placeholder="Profile Picture"
               type="file"
@@ -97,15 +88,13 @@ const SignupProfileForm = () => {
               <IconText text="Save Profile" icon="floppy-disk" left />
             </Button>
             <p>Don't feel like doing this yet?</p>
-            <Button
-              variant="secondary"
+            <AuthButton
+              page="later"
               size="sm"
-              onClick={() => {
-                setAuthModal({ show: false });
-                navigate(0);
-              }}>
-              <IconText text="Do It Later" icon="clock" left />
-            </Button>
+              variant="secondary"
+              left
+              refresh
+            />
           </Modal.Footer>
         </Form>
       </Modal>

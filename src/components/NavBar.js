@@ -1,22 +1,15 @@
 import React from "react";
-import { Button, Col, Container, Dropdown, Image, Row } from "react-bootstrap";
+import { Col, Container, Dropdown, Image, Row } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-import { useSetAuthModal } from "../contexts/authModalContext";
 import { useCurrentUser } from "../contexts/currentUserContext";
 import Avatar from "../components/Avatar";
 import logo from "../assets/logo.png";
 import styles from "../styles/NavBar.module.css";
 import appStyles from "../App.module.css";
-import { AdminButton, NavButton } from "./Buttons";
-import IconText from "./IconText";
+import { AdminButton, AuthButton, NavButton } from "./Buttons";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
-  const setAuthModal = useSetAuthModal();
-
-  const setActive = (navData) => {
-    return navData.isActive ? "btn btn-secondary" : "btn btn-primary";
-  };
 
   const navLinks = (
     <>
@@ -55,23 +48,9 @@ const NavBar = () => {
         <Dropdown.Menu className={styles.UserMenu}>
           <AdminButton dropdown right hr />
           <NavButton to="myProfile" dropdown right hr />
-          <Dropdown.Item as="div">
-            <Button
-              onClick={() =>
-                setAuthModal({ show: true, page: "passwordChange" })
-              }>
-              <IconText text="Change Password" icon="key" right />
-            </Button>
-          </Dropdown.Item>
-          <Dropdown.Divider />
+          <AuthButton page="changePassword" dropdown right hr />
           <NavButton to="contactUs" dropdown right hr />
-          <Dropdown.Item as="div">
-            <Button
-              variant="danger"
-              onClick={() => setAuthModal({ show: true, page: "signout" })}>
-              <IconText text="Sign Out" icon="right-from-bracket" right />
-            </Button>
-          </Dropdown.Item>
+          <AuthButton page="signout" variant="danger" dropdown right />
         </Dropdown.Menu>
       </Dropdown>
     </>
@@ -79,13 +58,9 @@ const NavBar = () => {
 
   const loggedOutItems = (
     <>
-      <Button onClick={() => setAuthModal({ show: true, page: "login" })}>
-        <IconText text="Login" icon="right-to-bracket" left />
-      </Button>
-      <Button onClick={() => setAuthModal({ show: true, page: "signup" })}>
-        <IconText text="Sign Up" icon="user-plus" left />
-      </Button>
-      <NavButton to="contactUs" left />
+      <AuthButton page="login" right />
+      <AuthButton page="signup" right />
+      <NavButton to="contactUs" right />
     </>
   );
 

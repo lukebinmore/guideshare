@@ -7,6 +7,7 @@ import FormInput from "../../components/FormInput";
 import { useAuthModal, useSetAuthModal } from "../../contexts/authModalContext";
 import { useSetCurrentUser } from "../../contexts/currentUserContext";
 import { collectFormData } from "../../utils/utils";
+import { AuthButton } from "../../components/Buttons";
 
 const SignupForm = () => {
   const authModal = useAuthModal();
@@ -79,12 +80,7 @@ const SignupForm = () => {
               <IconText text="Sign Up" icon="user-plus" left />
             </Button>
             <p className="text-muted">Already have an account?</p>
-            <Button
-              variant="secondary"
-              onClick={() => setAuthModal({ show: true, page: "login" })}
-              size="sm">
-              <IconText text="Login" icon="right-to-bracket" left />
-            </Button>
+            <AuthButton page="login" variant="secondary" size="sm" left />
           </Modal.Footer>
         </Form>
       </Modal>

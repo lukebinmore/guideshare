@@ -8,6 +8,7 @@ import FormInput from "../../components/FormInput";
 import { useAuthModal, useSetAuthModal } from "../../contexts/authModalContext";
 import { useSetCurrentUser } from "../../contexts/currentUserContext";
 import { collectFormData, setTokenTimestamp } from "../../utils/utils";
+import { AuthButton } from "../../components/Buttons";
 
 const LoginForm = () => {
   const authModal = useAuthModal();
@@ -66,12 +67,7 @@ const LoginForm = () => {
               <IconText text="login" icon="right-to-bracket" left />
             </Button>
             <p className="text-muted">Don't have an account?</p>
-            <Button
-              variant="secondary"
-              onClick={() => setAuthModal({ show: true, page: "signup" })}
-              size="sm">
-              <IconText text="Sign Up" icon="user-plus" left />
-            </Button>
+            <AuthButton page="signup" size="sm" left variant="secondary" />
           </Modal.Footer>
         </Form>
       </Modal>

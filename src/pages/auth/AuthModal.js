@@ -19,7 +19,7 @@ const AuthModal = () => {
       return <SignupForm />;
     case "profile":
       return <SignupProfileForm />;
-    case "passwordChange":
+    case "changePassword":
       return <ChangePasswordForm />;
     case "expired":
       return <JoinUs expired />;

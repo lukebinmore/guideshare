@@ -6,6 +6,7 @@ import FormError from "../../components/FormError";
 import FormInput from "../../components/FormInput";
 import { collectFormData } from "../../utils/utils";
 import { useAuthModal, useSetAuthModal } from "../../contexts/authModalContext";
+import { AuthButton } from "../../components/Buttons";
 
 const ChangePasswordForm = () => {
   const authModal = useAuthModal();
@@ -77,12 +78,7 @@ const ChangePasswordForm = () => {
               <IconText text="Change Password" icon="check" left right />
             </Button>
             <p className="text-muted">Changed your mind?</p>
-            <Button
-              variant="secondary"
-              onClick={() => setAuthModal({ show: false })}
-              size="sm">
-              <IconText text="Cancel" icon="ban" left />
-            </Button>
+            <AuthButton page="cancel" size="sm" left variant="secondary" />
           </Modal.Footer>
         </Form>
       </Modal>
