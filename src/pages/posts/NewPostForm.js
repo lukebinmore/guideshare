@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Card, Form } from "react-bootstrap";
 import { useNavigate } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
@@ -6,6 +6,8 @@ import { useCurrentUser } from "../../contexts/currentUserContext";
 import IconText from "../../components/IconText";
 import FormError from "../../components/FormError";
 import AdminButton from "../../components/AdminButton";
+import FormInput from "../../components/FormInput";
+import { collectFormData } from "../../utils/utils";
 
 const NewPostForm = () => {
   const navigate = useNavigate();
@@ -13,15 +15,7 @@ const NewPostForm = () => {
 
   const [categories, setCategories] = useState([]);
   const [errors, setErrors] = useState();
-  const [formData, setFormData] = useState({
-    title: "",
-    category: "",
-    content: "",
-    cover_image: "",
-    wip: false,
-  });
-  const { title, category, content, cover_image, wip } = formData;
-  const imageInput = useRef(null);
+  const [cover_image, setCoverImage] = useState();
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -36,34 +30,17 @@ const NewPostForm = () => {
     fetchCategories();
   }, [navigate]);
 
-  const handleChange = (event) => {
-    setFormData({ ...formData, [event.target.name]: event.target.value });
-  };
-
-  const handleChangeImage = (event) => {
-    if (event.target.files.length) {
-      URL.revokeObjectURL(cover_image);
-      setFormData({
-        ...formData,
-        cover_image: URL.createObjectURL(event.target.files[0]),
-      });
-    }
-  };
-
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const allFormData = new FormData();
 
-    Object.keys(formData).map((key) => {
-      return allFormData.append(key, formData[key]);
-    });
+    const formData = collectFormData(event);
 
-    if (cover_image) {
-      allFormData.set("cover_image", imageInput.current.files[0]);
+    if (event?.target["cover_image"]?.files[0]) {
+      formData.set("cover_image", event.target["cover_image"].files[0]);
     }
 
     try {
-      const { data } = await axiosReq.post(`posts/create/`, allFormData);
+      const { data } = await axiosReq.post(`posts/create/`, formData);
       navigate(`posts/${data.id}`);
     } catch (err) {
       setErrors(err.response?.data);
@@ -74,11 +51,14 @@ const NewPostForm = () => {
     <>
       <Form className="card" onSubmit={handleSubmit}>
         <Card.Header className="p-0">
-          <Form.Group>
+          <FormInput
+            placeholder="Cover Image"
+            name="cover_image"
+            type="file"
+            errorData={errors?.cover_image}
+            setPreview={setCoverImage}>
             {cover_image && <Card.Img src={cover_image} />}
-            <Form.Label
-              htmlFor="image-upload"
-              className="btn btn-primary m-0 w-100">
+            <Form.Label className="btn btn-primary m-0 w-100">
               <IconText
                 text={cover_image ? "Change Image" : "Upload a Cover Image"}
                 icon="upload"
@@ -86,35 +66,17 @@ const NewPostForm = () => {
                 right
               />
             </Form.Label>
-            <Form.Control
-              className="d-none"
-              type="file"
-              id="image-upload"
-              accept="image/*"
-              onChange={handleChangeImage}
-              ref={imageInput}
-            />
-            <FormError data={errors?.cover_image} />
-          </Form.Group>
+          </FormInput>
         </Card.Header>
 
         <Card.Body>
-          <Form.Group className="mb-3">
-            <Form.Label className="d-none">Title</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Title"
-              name="title"
-              value={title}
-              onChange={handleChange}
-              className="text-center"
-            />
-            <FormError
-              data={errors?.title}
-              text="*Please provide a title for your post."
-            />
-            <hr />
-          </Form.Group>
+          <FormInput
+            placeholder="Title"
+            name="title"
+            errorData={errors?.title}
+            text="*Please enter a title for your post."
+            hr
+          />
 
           {currentUser?.is_admin && (
             <>
@@ -128,65 +90,40 @@ const NewPostForm = () => {
             </>
           )}
 
-          <Form.Group>
-            <Form.Label className="d-none">Category</Form.Label>
-            <Form.Select
-              className="text-center"
-              name="category"
-              value={category}
-              onChange={handleChange}>
-              <option value="">Choose Category</option>
-              {categories.map((option) => (
-                <option key={option.id} value={option.id}>
-                  {option.title}
-                </option>
-              ))}
-            </Form.Select>
-            <FormError
-              data={errors?.category}
-              text="*Please select your reason for contacting us."
-            />
-            <hr />
-          </Form.Group>
+          <FormInput
+            placeholder="Category"
+            name="category"
+            type="select"
+            errorData={errors?.category}
+            text="*Please select your guides category."
+            hr>
+            <option value="">Choose Category</option>
+            {categories.map((option) => (
+              <option key={option.id} value={option.id}>
+                {option.title}
+              </option>
+            ))}
+          </FormInput>
 
-          <Form.Group>
-            <Form.Label className="d-none">Post Content</Form.Label>
-            <Form.Control
-              as="textarea"
-              rows={5}
-              type="text"
-              placeholder="Your Guide"
-              name="content"
-              value={content}
-              onChange={handleChange}
-              className="text-center"
-            />
-            <FormError
-              data={errors?.content}
-              text="*Please enter your guide here."
-            />
-            <hr />
-          </Form.Group>
+          <FormInput
+            placeholder="Your Guide"
+            name="content"
+            as="textarea"
+            rows={14}
+            errorData={errors?.content}
+            text="*Please enter your guide here."
+            hr
+          />
 
-          <Form.Group>
-            <Form.Label className="d-none">Work In Progress</Form.Label>
-            <Button
-              size="lg"
-              variant="secondary"
-              className="d-block mx-auto"
-              onClick={() => setFormData({ ...formData, wip: !wip })}>
-              <IconText
-                text="Work In Progress"
-                icon={wip ? "square-check" : "square"}
-                left
-                right
-              />
-            </Button>
-            <FormError
-              data={errors?.content}
-              text="Is this still a work in progress?"
-            />
-          </Form.Group>
+          <FormInput
+            placeholder="Work In Progress"
+            name="wip"
+            type="check"
+            errrorData={errors?.wip}
+            text="Is this still a work in progress?"
+            variant="secondary"
+            size="lg"
+          />
 
           <FormError data={errors?.non_field_errors} />
         </Card.Body>
