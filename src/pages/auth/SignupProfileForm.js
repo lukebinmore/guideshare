@@ -1,12 +1,14 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import { useNavigate } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import Avatar from "../../components/Avatar";
 import IconText from "../../components/IconText";
 import FormError from "../../components/FormError";
+import FormInput from "../../components/FormInput";
 import { useAuthModal, useSetAuthModal } from "../../contexts/authModalContext";
 import { useCurrentUser } from "../../contexts/currentUserContext";
+import { collectFormData } from "../../utils/utils";
 
 const SignupProfileForm = () => {
   const authModal = useAuthModal();
@@ -15,35 +17,18 @@ const SignupProfileForm = () => {
   const navigate = useNavigate();
 
   const [errors, setErrors] = useState({});
-  const [formData, setFormData] = useState({
-    first_name: "",
-    last_name: "",
-    dob: "",
-  });
-  const { first_name, last_name, dob } = formData;
-  const picture = useRef(null);
-
-  const handleChange = (event) => {
-    setFormData({
-      ...formData,
-      [event.target.name]: event.target.value,
-    });
-  };
+  const [picture, setPicture] = useState();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const allFormData = new FormData();
 
-    Object.keys(formData).map((key) => {
-      return allFormData.append(key, formData[key]);
-    });
+    const formData = collectFormData(event);
 
-    if (picture) {
-      allFormData.append("picture", picture.current?.files[0]);
-    }
+    if (event.target["picture"].files[0])
+      formData.set("picture", event.target["picture"].files[0]);
 
     try {
-      await axiosReq.put(`profiles/${currentUser.profile_id}`, allFormData);
+      await axiosReq.put(`profiles/${currentUser.profile_id}`, formData);
       setAuthModal({ show: false });
       navigate(0);
     } catch (err) {
@@ -64,7 +49,7 @@ const SignupProfileForm = () => {
           </Modal.Header>
 
           <Modal.Body>
-            <Form.Group>
+            {/* <Form.Group>
               <Avatar change forwardRef={picture} />
               <FormError
                 data={errors?.picture}
@@ -72,59 +57,38 @@ const SignupProfileForm = () => {
               />
             </Form.Group>
 
-            <hr />
+            <hr /> */}
 
-            <Form.Group controlId="first-name">
-              <Form.Label className="d-none">First Name</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="First Name"
-                name="first_name"
-                value={first_name}
-                onChange={handleChange}
-                className="text-center"
-              />
-              <FormError
-                data={errors?.first_name}
-                text="(OPTIONAL) Enter your first name."
-              />
-            </Form.Group>
-
-            <hr />
-
-            <Form.Group controlId="last-name">
-              <Form.Label className="d-none">Last Name</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Last Name"
-                name="last_name"
-                value={last_name}
-                onChange={handleChange}
-                className="text-center"
-              />
-              <FormError
-                data={errors?.last_name}
-                text="(OPTIONAL) Enter your last name."
-              />
-            </Form.Group>
-
-            <hr />
-
-            <Form.Group controlId="dob">
-              <Form.Label className="d-none">Date of Birth</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Date of Birth"
-                name="dob"
-                value={dob}
-                onChange={handleChange}
-                className="text-center"
-              />
-              <FormError
-                data={errors?.dob}
-                text="(OPTIONAL) Enter your date of birth."
-              />
-            </Form.Group>
+            <FormInput
+              placeholder="Profile Picture"
+              type="file"
+              name="picture"
+              errorData={errors?.picture}
+              text="(OPTIONAL) Upload a profile picture."
+              setPreview={setPicture}
+              hr>
+              <Avatar change src={picture} />
+            </FormInput>
+            <FormInput
+              placeholder="First Name"
+              name="first_name"
+              errorData={errors?.first_name}
+              text="(OPTIONAL) Enter your first name."
+              hr
+            />
+            <FormInput
+              placeholder="Last Name"
+              name="last_name"
+              errorData={errors?.last_name}
+              text="(OPTIONAL) Enter your last name."
+              hr
+            />
+            <FormInput
+              placeholder="Date Of Birth"
+              name="dob"
+              errorData={errors?.dob}
+              text="(OPTIONAL) Enter your date of birth."
+            />
             <FormError data={errors?.non_field_errors} />
           </Modal.Body>
 
