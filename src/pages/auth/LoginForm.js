@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import { useNavigate } from "react-router";
-import ButtonText from "../../components/ButtonText";
+import IconText from "../../components/IconText";
 import FormError from "../../components/FormError";
 import { useAuthModal, useSetAuthModal } from "../../contexts/authModalContext";
 import { useSetCurrentUser } from "../../contexts/currentUserContext";
@@ -82,14 +82,14 @@ const LoginForm = () => {
 
           <Modal.Footer>
             <Button type="submit" variant="primary" className="w-75" size="lg">
-              <ButtonText text="login" icon="right-to-bracket" left />
+              <IconText text="login" icon="right-to-bracket" left />
             </Button>
             <p className="text-muted">Don't have an account?</p>
             <Button
               variant="secondary"
               onClick={() => setAuthModal({ show: true, page: "signup" })}
               size="sm">
-              <ButtonText text="Sign Up" icon="user-plus" left />
+              <IconText text="Sign Up" icon="user-plus" left />
             </Button>
           </Modal.Footer>
         </Form>

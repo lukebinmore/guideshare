@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import ButtonText from "../../components/ButtonText";
+import IconText from "../../components/IconText";
 import styles from "../../styles/PostBlurb.module.css";
 
 const PostBlurb = (props) => {
@@ -27,13 +27,13 @@ const PostBlurb = (props) => {
       <Card.Footer className="px-4 py-2">
         <Row>
           <Col xs="auto" className={`p-0 ${styles.PostLikes}`}>
-            <ButtonText text={likes_count} icon="thumbs-up" left />
+            <IconText text={likes_count} icon="thumbs-up" left />
           </Col>
           <Col className="text-center px-0 py-0">
             <h5>{category_title}</h5>
           </Col>
           <Col xs="auto" className={`p-0 ${styles.PostDislikes}`}>
-            <ButtonText text={dislikes_count} icon="thumbs-down" right />
+            <IconText text={dislikes_count} icon="thumbs-down" right />
           </Col>
         </Row>
       </Card.Footer>

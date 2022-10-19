@@ -1,6 +1,6 @@
 import React from "react";
 
-const ButtonText = ({ text, icon, left, right }) => {
+const IconText = ({ text, icon, left, right }) => {
   return (
     <>
       {left && <i className={`fa-solid fa-${icon}`} />}
@@ -12,4 +12,4 @@ const ButtonText = ({ text, icon, left, right }) => {
   );
 };
 
-export default ButtonText;
+export default IconText;

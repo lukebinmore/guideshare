@@ -1,5 +1,5 @@
 import React from "react";
-import ButtonText from "./ButtonText";
+import IconText from "./IconText";
 
 const AdminButton = ({
   href = "",
@@ -13,7 +13,7 @@ const AdminButton = ({
       rel="noreferrer"
       className="btn btn-primary"
       href={process.env.REACT_APP_API_URL + href}>
-      <ButtonText
+      <IconText
         text={text}
         icon="screwdriver-wrench"
         left={leftIcon}

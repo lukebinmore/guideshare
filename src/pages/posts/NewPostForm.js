@@ -3,7 +3,7 @@ import { Button, Card, Form } from "react-bootstrap";
 import { useNavigate } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/currentUserContext";
-import ButtonText from "../../components/ButtonText";
+import IconText from "../../components/IconText";
 import FormError from "../../components/FormError";
 import AdminButton from "../../components/AdminButton";
 
@@ -79,7 +79,7 @@ const NewPostForm = () => {
             <Form.Label
               htmlFor="image-upload"
               className="btn btn-primary m-0 w-100">
-              <ButtonText
+              <IconText
                 text={cover_image ? "Change Image" : "Upload a Cover Image"}
                 icon="upload"
                 left
@@ -175,7 +175,7 @@ const NewPostForm = () => {
               variant="secondary"
               className="d-block mx-auto"
               onClick={() => setFormData({ ...formData, wip: !wip })}>
-              <ButtonText
+              <IconText
                 text="Work In Progress"
                 icon={wip ? "square-check" : "square"}
                 left
@@ -193,10 +193,10 @@ const NewPostForm = () => {
 
         <Card.Footer className="btn-group p-0">
           <Button variant="danger" onClick={() => navigate(0)}>
-            <ButtonText text="Clear" icon="trash" left right />
+            <IconText text="Clear" icon="trash" left right />
           </Button>
           <Button type="submit">
-            <ButtonText text="Create" icon="square-plus" left right />
+            <IconText text="Create" icon="square-plus" left right />
           </Button>
         </Card.Footer>
       </Form>

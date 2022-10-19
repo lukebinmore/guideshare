@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
-import ButtonText from "../../components/ButtonText";
+import IconText from "../../components/IconText";
 import FormError from "../../components/FormError";
 import { useAuthModal, useSetAuthModal } from "../../contexts/authModalContext";
 
@@ -107,14 +107,14 @@ const ChangePasswordForm = () => {
 
           <Modal.Footer>
             <Button type="submit" variant="primary" className="w-75" size="lg">
-              <ButtonText text="Change Password" icon="check" left right />
+              <IconText text="Change Password" icon="check" left right />
             </Button>
             <p className="text-muted">Changed your mind?</p>
             <Button
               variant="secondary"
               onClick={() => setAuthModal({ show: false })}
               size="sm">
-              <ButtonText text="Cancel" icon="ban" left />
+              <IconText text="Cancel" icon="ban" left />
             </Button>
           </Modal.Footer>
         </Form>

@@ -2,7 +2,7 @@ import axios from "axios";
 import React from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import { useNavigate } from "react-router";
-import ButtonText from "../../components/ButtonText";
+import IconText from "../../components/IconText";
 import { useAuthModal, useSetAuthModal } from "../../contexts/authModalContext";
 import { useSetCurrentUser } from "../../contexts/currentUserContext";
 import { removeTokenTimestamp } from "../../utils/utils";
@@ -43,14 +43,14 @@ const SignoutForm = () => {
             onClick={() => setAuthModal({ show: false })}
             className="w-75"
             size="lg">
-            <ButtonText text="No, Take me back" icon="ban" left />
+            <IconText text="No, Take me back" icon="ban" left />
           </Button>
           <Button
             variant="danger"
             onClick={handleSignOut}
             className="w-75"
             size="lg">
-            <ButtonText text="Sign Out" icon="right-from-bracket" left />
+            <IconText text="Sign Out" icon="right-from-bracket" left />
           </Button>
         </Modal.Footer>
       </Modal>

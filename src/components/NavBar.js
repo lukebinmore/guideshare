@@ -8,7 +8,7 @@ import logo from "../assets/logo.png";
 import styles from "../styles/NavBar.module.css";
 import appStyles from "../App.module.css";
 import AdminButton from "./AdminButton";
-import ButtonText from "./ButtonText";
+import IconText from "./IconText";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
@@ -21,13 +21,13 @@ const NavBar = () => {
   const navLinks = (
     <>
       <NavLink end to="/" className={(navData) => setActive(navData)}>
-        <ButtonText text="Home" icon="house" left />
+        <IconText text="Home" icon="house" left />
       </NavLink>
       <NavLink to="/feed" className={(navData) => setActive(navData)}>
-        <ButtonText text="Feed" icon="square-rss" left />
+        <IconText text="Feed" icon="square-rss" left />
       </NavLink>
       <NavLink to="/saved" className={(navData) => setActive(navData)}>
-        <ButtonText text="Saved" icon="floppy-disk" left />
+        <IconText text="Saved" icon="floppy-disk" left />
       </NavLink>
     </>
   );
@@ -41,19 +41,19 @@ const NavBar = () => {
         <Dropdown.Menu className={styles.NavMenu}>
           <Dropdown.Item as="div">
             <NavLink end to="/" className={(navData) => setActive(navData)}>
-              <ButtonText text="Home" icon="house" left />
+              <IconText text="Home" icon="house" left />
             </NavLink>
           </Dropdown.Item>
           <Dropdown.Divider />
           <Dropdown.Item as="div">
             <NavLink to="/feed" className={(navData) => setActive(navData)}>
-              <ButtonText text="Feed" icon="square-rss" left />
+              <IconText text="Feed" icon="square-rss" left />
             </NavLink>
           </Dropdown.Item>
           <Dropdown.Divider />
           <Dropdown.Item as="div">
             <NavLink to="/saved" className={(navData) => setActive(navData)}>
-              <ButtonText text="Saved" icon="floppy-disk" left />
+              <IconText text="Saved" icon="floppy-disk" left />
             </NavLink>
           </Dropdown.Item>
           <Dropdown.Divider />
@@ -61,7 +61,7 @@ const NavBar = () => {
             <NavLink
               to="/contact-us"
               className={(navData) => setActive(navData)}>
-              <ButtonText text="Contact Us" icon="envelope-open" left />
+              <IconText text="Contact Us" icon="envelope-open" left />
             </NavLink>
           </Dropdown.Item>
         </Dropdown.Menu>
@@ -92,7 +92,7 @@ const NavBar = () => {
             <NavLink
               to={`/profile/${currentUser?.profile_id}`}
               className={(navData) => setActive(navData)}>
-              <ButtonText text="My Profile" icon="user" right />
+              <IconText text="My Profile" icon="user" right />
             </NavLink>
           </Dropdown.Item>
           <Dropdown.Divider />
@@ -101,7 +101,7 @@ const NavBar = () => {
               onClick={() =>
                 setAuthModal({ show: true, page: "passwordChange" })
               }>
-              <ButtonText text="Change Password" icon="key" right />
+              <IconText text="Change Password" icon="key" right />
             </Button>
           </Dropdown.Item>
           <Dropdown.Divider />
@@ -109,7 +109,7 @@ const NavBar = () => {
             <NavLink
               to="/contact-us"
               className={(navData) => setActive(navData)}>
-              <ButtonText text="Contact Us" icon="envelope-open" right />
+              <IconText text="Contact Us" icon="envelope-open" right />
             </NavLink>
           </Dropdown.Item>
           <Dropdown.Divider />
@@ -117,7 +117,7 @@ const NavBar = () => {
             <Button
               variant="danger"
               onClick={() => setAuthModal({ show: true, page: "signout" })}>
-              <ButtonText text="Sign Out" icon="right-from-bracket" right />
+              <IconText text="Sign Out" icon="right-from-bracket" right />
             </Button>
           </Dropdown.Item>
         </Dropdown.Menu>
@@ -128,17 +128,17 @@ const NavBar = () => {
   const loggedOutItems = (
     <>
       <Button onClick={() => setAuthModal({ show: true, page: "login" })}>
-        <ButtonText text="Login" icon="right-to-bracket" left />
+        <IconText text="Login" icon="right-to-bracket" left />
       </Button>
       <Button onClick={() => setAuthModal({ show: true, page: "signup" })}>
-        <ButtonText text="Sign Up" icon="user-plus" left />
+        <IconText text="Sign Up" icon="user-plus" left />
       </Button>
       <NavLink
         to="/contact-us"
         className={(navData) =>
           setActive(navData) + " d-none d-md-inline-block"
         }>
-        <ButtonText text="Contact Us" icon="envelope-open" left />
+        <IconText text="Contact Us" icon="envelope-open" left />
       </NavLink>
     </>
   );
@@ -170,7 +170,7 @@ const NavBar = () => {
               className={(navData) =>
                 setActive(navData) + " d-inline-block mx-4"
               }>
-              <ButtonText text="New Post" icon="square-plus" left />
+              <IconText text="New Post" icon="square-plus" left />
             </NavLink>
           </Col>
           <Col className="text-end"></Col>
