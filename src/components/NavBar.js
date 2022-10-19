@@ -7,7 +7,7 @@ import Avatar from "../components/Avatar";
 import logo from "../assets/logo.png";
 import styles from "../styles/NavBar.module.css";
 import appStyles from "../App.module.css";
-import { AdminButton } from "./Buttons";
+import { AdminButton, NavButton } from "./Buttons";
 import IconText from "./IconText";
 
 const NavBar = () => {
@@ -20,15 +20,9 @@ const NavBar = () => {
 
   const navLinks = (
     <>
-      <NavLink end to="/" className={(navData) => setActive(navData)}>
-        <IconText text="Home" icon="house" left />
-      </NavLink>
-      <NavLink to="/feed" className={(navData) => setActive(navData)}>
-        <IconText text="Feed" icon="square-rss" left />
-      </NavLink>
-      <NavLink to="/saved" className={(navData) => setActive(navData)}>
-        <IconText text="Saved" icon="floppy-disk" left />
-      </NavLink>
+      <NavButton to="home" left />
+      <NavButton to="feed" left />
+      <NavButton to="saved" left />
     </>
   );
 
@@ -39,31 +33,10 @@ const NavBar = () => {
           <i className="fa-solid fa-bars" />
         </Dropdown.Toggle>
         <Dropdown.Menu className={styles.NavMenu}>
-          <Dropdown.Item as="div">
-            <NavLink end to="/" className={(navData) => setActive(navData)}>
-              <IconText text="Home" icon="house" left />
-            </NavLink>
-          </Dropdown.Item>
-          <Dropdown.Divider />
-          <Dropdown.Item as="div">
-            <NavLink to="/feed" className={(navData) => setActive(navData)}>
-              <IconText text="Feed" icon="square-rss" left />
-            </NavLink>
-          </Dropdown.Item>
-          <Dropdown.Divider />
-          <Dropdown.Item as="div">
-            <NavLink to="/saved" className={(navData) => setActive(navData)}>
-              <IconText text="Saved" icon="floppy-disk" left />
-            </NavLink>
-          </Dropdown.Item>
-          <Dropdown.Divider />
-          <Dropdown.Item as="div">
-            <NavLink
-              to="/contact-us"
-              className={(navData) => setActive(navData)}>
-              <IconText text="Contact Us" icon="envelope-open" left />
-            </NavLink>
-          </Dropdown.Item>
+          <NavButton to="home" dropdown left hr />
+          <NavButton to="feed" dropdown left hr />
+          <NavButton to="saved" dropdown left hr />
+          <NavButton to="contactUs" dropdown left />
         </Dropdown.Menu>
       </Dropdown>
     </>
@@ -81,14 +54,7 @@ const NavBar = () => {
         </Dropdown.Toggle>
         <Dropdown.Menu className={styles.UserMenu}>
           <AdminButton dropdown right hr />
-          <Dropdown.Item as="div">
-            <NavLink
-              to={`/profile/${currentUser?.profile_id}`}
-              className={(navData) => setActive(navData)}>
-              <IconText text="My Profile" icon="user" right />
-            </NavLink>
-          </Dropdown.Item>
-          <Dropdown.Divider />
+          <NavButton to="myProfile" dropdown right hr />
           <Dropdown.Item as="div">
             <Button
               onClick={() =>
@@ -98,14 +64,7 @@ const NavBar = () => {
             </Button>
           </Dropdown.Item>
           <Dropdown.Divider />
-          <Dropdown.Item as="div">
-            <NavLink
-              to="/contact-us"
-              className={(navData) => setActive(navData)}>
-              <IconText text="Contact Us" icon="envelope-open" right />
-            </NavLink>
-          </Dropdown.Item>
-          <Dropdown.Divider />
+          <NavButton to="contactUs" dropdown right hr />
           <Dropdown.Item as="div">
             <Button
               variant="danger"
@@ -126,13 +85,7 @@ const NavBar = () => {
       <Button onClick={() => setAuthModal({ show: true, page: "signup" })}>
         <IconText text="Sign Up" icon="user-plus" left />
       </Button>
-      <NavLink
-        to="/contact-us"
-        className={(navData) =>
-          setActive(navData) + " d-none d-md-inline-block"
-        }>
-        <IconText text="Contact Us" icon="envelope-open" left />
-      </NavLink>
+      <NavButton to="contactUs" left />
     </>
   );
 
@@ -158,13 +111,16 @@ const NavBar = () => {
             <NavLink to="/">
               <Image src={logo} className={styles.Logo} />
             </NavLink>
-            <NavLink
-              to="/new-post"
-              className={(navData) =>
-                setActive(navData) + " d-inline-block mx-4"
-              }>
-              <IconText text="New Post" icon="square-plus" left />
-            </NavLink>
+            <NavButton
+              to="newPost"
+              left
+              className="mx-4 btn-lg d-lg-inline-block d-none"
+            />
+            <NavButton
+              to="newPost"
+              left
+              className="mx-4 d-lg-none d-inline-block"
+            />
           </Col>
           <Col className="text-end"></Col>
         </Row>

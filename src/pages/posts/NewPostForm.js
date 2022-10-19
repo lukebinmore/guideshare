@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Button, Card, Form } from "react-bootstrap";
 import { useNavigate } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
-import { useCurrentUser } from "../../contexts/currentUserContext";
 import IconText from "../../components/IconText";
 import FormError from "../../components/FormError";
 import { AdminButton } from "../../components/Buttons";

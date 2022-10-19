@@ -2,9 +2,8 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Button, Card, Col, Form, Row } from "react-bootstrap";
 import { useNavigate } from "react-router";
-import { NavLink } from "react-router-dom";
 import FormError from "../../components/FormError";
-import { AdminButton } from "../../components/Buttons";
+import { AdminButton, NavButton } from "../../components/Buttons";
 import { useCurrentUser } from "../../contexts/currentUserContext";
 import IconText from "../../components/IconText";
 import FormInput from "../../components/FormInput";
@@ -50,9 +49,7 @@ const ContactForm = () => {
               <Button variant="secondary" onClick={() => navigate(0)}>
                 <IconText text="Submit Another" icon="square-plus" left right />
               </Button>
-              <NavLink end to="/" className="btn btn-primary">
-                <IconText text="Home" icon="home" left right />
-              </NavLink>
+              <NavButton to="home" left right />
             </Card.Footer>
           </Card>
         </>
