@@ -15,7 +15,9 @@ const PostBlurb = (props) => {
   } = props;
 
   return (
-    <Link to={`/posts/${id}`} className={`card mb-3 ${styles.PostBlurb}`}>
+    <Link
+      to={`/posts/${id}`}
+      className={`card btn-primary mb-3 ${styles.PostBlurb}`}>
       <Card.Header className="p-2">
         <Card.Img src={cover_image} />
       </Card.Header>
