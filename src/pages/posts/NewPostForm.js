@@ -11,7 +11,6 @@ import { collectFormData } from "../../utils/utils";
 
 const NewPostForm = () => {
   const navigate = useNavigate();
-  const currentUser = useCurrentUser();
 
   const [categories, setCategories] = useState([]);
   const [errors, setErrors] = useState();
@@ -78,17 +77,13 @@ const NewPostForm = () => {
             hr
           />
 
-          {currentUser?.is_admin && (
-            <>
-              <AdminButton
-                leftIcon
-                rightIcon
-                href="admin/posts/category/"
-                text="Categories Admin Page"
-              />
-              <hr />
-            </>
-          )}
+          <AdminButton
+            left
+            right
+            href="admin/posts/category/"
+            text="Categories Admin Page"
+            hr
+          />
 
           <FormInput
             placeholder="Category"

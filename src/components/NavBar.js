@@ -80,14 +80,7 @@ const NavBar = () => {
           <Avatar src={currentUser?.profile_picture} />
         </Dropdown.Toggle>
         <Dropdown.Menu className={styles.UserMenu}>
-          {currentUser?.is_admin && (
-            <>
-              <Dropdown.Item as="div">
-                <AdminButton rightIcon />
-              </Dropdown.Item>
-              <Dropdown.Divider />
-            </>
-          )}
+          <AdminButton dropdown right hr />
           <Dropdown.Item as="div">
             <NavLink
               to={`/profile/${currentUser?.profile_id}`}

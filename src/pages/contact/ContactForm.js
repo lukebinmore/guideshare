@@ -61,14 +61,12 @@ const ContactForm = () => {
           <Form className="card" onSubmit={handleSubmit}>
             <Card.Header>
               <h1>Contact Us</h1>
-              {currentUser?.is_admin && (
-                <AdminButton
-                  leftIcon
-                  rightIcon
-                  href="admin/contactforms/contactform/"
-                  text="Submitted Contact Forms"
-                />
-              )}
+              <AdminButton
+                left
+                right
+                href="admin/contactforms/contactform/"
+                text="Submitted Contact Forms"
+              />
             </Card.Header>
 
             <Card.Body>
