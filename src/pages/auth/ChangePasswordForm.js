@@ -28,61 +28,59 @@ const ChangePasswordForm = () => {
   };
 
   return (
-    <>
-      <Modal show={authModal.show} onHide={() => setAuthModal({ show: false })}>
-        <Form onSubmit={handleSubmit}>
-          <Modal.Header closeButton>
-            <Modal.Title>Change Password</Modal.Title>
-          </Modal.Header>
+    <Modal show={authModal.show} onHide={() => setAuthModal({ show: false })}>
+      <Form onSubmit={handleSubmit}>
+        <Modal.Header closeButton>
+          <Modal.Title>Change Password</Modal.Title>
+        </Modal.Header>
 
-          <Modal.Body>
-            <FormInput
-              placeholder="Old Password"
-              type="password"
-              name="old_password"
-              errorData={errors?.old_password}
-              text="*Enter your current password."
-              hr
-            />
+        <Modal.Body>
+          <FormInput
+            placeholder="Old Password"
+            type="password"
+            name="old_password"
+            errorData={errors?.old_password}
+            text="*Enter your current password."
+            hr
+          />
 
-            <FormInput
-              placeholder="New Password"
-              type="password"
-              name="new_password1"
-              errorData={errors?.new_password1}
-              text="*Enter a new password ."
-              hr
-            />
+          <FormInput
+            placeholder="New Password"
+            type="password"
+            name="new_password1"
+            errorData={errors?.new_password1}
+            text="*Enter a new password ."
+            hr
+          />
 
-            <ul>
-              <li>Password must:</li>
-              <li className="text-muted">Contain at least 8 characters</li>
-              <li className="text-muted">Not be a common password</li>
-            </ul>
+          <ul>
+            <li>Password must:</li>
+            <li className="text-muted">Contain at least 8 characters</li>
+            <li className="text-muted">Not be a common password</li>
+          </ul>
 
-            <hr />
+          <hr />
 
-            <FormInput
-              placeholder="Confirm New Password"
-              type="password"
-              name="new_password2"
-              errorData={errors?.new_password2}
-              text="*Enter your new password again."
-            />
+          <FormInput
+            placeholder="Confirm New Password"
+            type="password"
+            name="new_password2"
+            errorData={errors?.new_password2}
+            text="*Enter your new password again."
+          />
 
-            <FormError data={errors?.non_field_errors} />
-          </Modal.Body>
+          <FormError data={errors?.non_field_errors} />
+        </Modal.Body>
 
-          <Modal.Footer>
-            <Button type="submit" className="w-75" size="lg">
-              <IconText text="Change Password" icon="check" left right />
-            </Button>
-            <p className="text-muted">Changed your mind?</p>
-            <AuthButton page="cancel" size="sm" left variant="secondary" />
-          </Modal.Footer>
-        </Form>
-      </Modal>
-    </>
+        <Modal.Footer>
+          <Button type="submit" className="w-75" size="lg">
+            <IconText text="Change Password" icon="check" left right />
+          </Button>
+          <p className="text-muted">Changed your mind?</p>
+          <AuthButton page="cancel" size="sm" left variant="secondary" />
+        </Modal.Footer>
+      </Form>
+    </Modal>
   );
 };
 

@@ -27,30 +27,28 @@ const SignoutForm = () => {
   };
 
   return (
-    <>
-      <Modal show={authModal.show} onHide={() => setAuthModal({ show: false })}>
-        <Modal.Header closeButton>
-          <Modal.Title>Sign Out</Modal.Title>
-        </Modal.Header>
+    <Modal show={authModal.show} onHide={() => setAuthModal({ show: false })}>
+      <Modal.Header closeButton>
+        <Modal.Title>Sign Out</Modal.Title>
+      </Modal.Header>
 
-        <Modal.Body>
-          <Form.Group>
-            <h3>Are you sure you wish to sign out?</h3>
-          </Form.Group>
-        </Modal.Body>
+      <Modal.Body>
+        <Form.Group>
+          <h3>Are you sure you wish to sign out?</h3>
+        </Form.Group>
+      </Modal.Body>
 
-        <Modal.Footer>
-          <AuthButton page="cancel" size="lg" left right className="w-75" />
-          <Button
-            variant="danger"
-            onClick={handleSignOut}
-            className="w-75"
-            size="lg">
-            <IconText text="Sign Out" icon="right-from-bracket" left right />
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    </>
+      <Modal.Footer>
+        <AuthButton page="cancel" size="lg" left right className="w-75" />
+        <Button
+          variant="danger"
+          onClick={handleSignOut}
+          className="w-75"
+          size="lg">
+          <IconText text="Sign Out" icon="right-from-bracket" left right />
+        </Button>
+      </Modal.Footer>
+    </Modal>
   );
 };
 
