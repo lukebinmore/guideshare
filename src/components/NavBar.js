@@ -7,6 +7,7 @@ import logo from "../assets/logo.png";
 import styles from "../styles/NavBar.module.css";
 import appStyles from "../App.module.css";
 import { AdminButton, AuthButton, NavButton } from "./Buttons";
+import SearchFilterOrder from "./SearchFilterOrder";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
@@ -97,7 +98,12 @@ const NavBar = () => {
               className="mx-4 d-lg-none d-inline-block"
             />
           </Col>
-          <Col className="text-end"></Col>
+          <Col className="d-md-inline-block d-none">
+            <SearchFilterOrder search />
+          </Col>
+        </Row>
+        <Row className={`d-md-none d-flex ${styles.NavBarRow}`}>
+          <SearchFilterOrder search />
         </Row>
       </Container>
     </>
