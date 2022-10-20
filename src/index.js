@@ -7,6 +7,7 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { CurrentUserProvider } from "./contexts/currentUserContext";
 import { AuthModalProvider } from "./contexts/authModalContext";
+import { SearchFilterSortProvider } from "./contexts/searchFilterSortContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -14,7 +15,9 @@ root.render(
     <BrowserRouter>
       <CurrentUserProvider>
         <AuthModalProvider>
-          <App />
+          <SearchFilterSortProvider>
+            <App />
+          </SearchFilterSortProvider>
         </AuthModalProvider>
       </CurrentUserProvider>
     </BrowserRouter>
