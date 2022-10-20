@@ -15,31 +15,33 @@ const PostBlurb = (props) => {
   } = props;
 
   return (
-    <Link
-      to={`/posts/${id}`}
-      className={`card btn-primary mb-3 ${styles.PostBlurb}`}>
-      <Card.Header className="p-2">
-        <Card.Img src={cover_image} />
-      </Card.Header>
+    <div className={`d-inline-block m-2 ${styles.PostBlurb}`}>
+      <Link to={`/posts/${id}`}>
+        <Card>
+          <Card.Header className={`p-2 ${styles.PostHeader}`}>
+            <Card.Img src={cover_image} />
+          </Card.Header>
 
-      <Card.Body className="p-2">
-        <h5>{title}</h5>
-      </Card.Body>
+          <Card.Body className="p-2">
+            <h5>{title}</h5>
+          </Card.Body>
 
-      <Card.Footer className="px-4 py-2">
-        <Row>
-          <Col xs="auto" className={`p-0 ${styles.PostLikes}`}>
-            <IconText text={likes_count} icon="thumbs-up" left />
-          </Col>
-          <Col className="text-center px-0 py-0">
-            <h5>{category_title}</h5>
-          </Col>
-          <Col xs="auto" className={`p-0 ${styles.PostDislikes}`}>
-            <IconText text={dislikes_count} icon="thumbs-down" right />
-          </Col>
-        </Row>
-      </Card.Footer>
-    </Link>
+          <Card.Footer className="px-4 py-2">
+            <Row>
+              <Col xs="auto" className={`p-0 ${styles.PostLikes}`}>
+                <IconText text={likes_count} icon="thumbs-up" left />
+              </Col>
+              <Col className="text-center px-1 py-0">
+                <h5>{category_title}</h5>
+              </Col>
+              <Col xs="auto" className={`p-0 ${styles.PostDislikes}`}>
+                <IconText text={dislikes_count} icon="thumbs-down" right />
+              </Col>
+            </Row>
+          </Card.Footer>
+        </Card>
+      </Link>
+    </div>
   );
 };
 

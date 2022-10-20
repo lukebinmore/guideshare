@@ -1,10 +1,24 @@
 .PostBlurb {
-  width: 318px;
+  transition: transform 0.2s;
+  position: relative;
 }
 
 .PostBlurb:hover {
+  border-radius: 0.375rem;
   z-index: 1;
   box-shadow: 0 0 0 0.15rem var(--primary);
+  transform: scale(1.2);
+}
+
+.PostHeader {
+  height: 225px;
+}
+
+.PostBlurb img {
+  height: auto;
+  width: auto;
+  max-height: 100%;
+  max-width: 100%;
 }
 
 .PostLikes i {

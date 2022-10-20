@@ -3,8 +3,8 @@ import { axiosReq } from "../../api/axiosDefaults";
 import PostBlurb from "./PostBlurb";
 import { useNavigate } from "react-router";
 import { fetchMoreData } from "../../utils/utils";
-import MasonryInfiniteScroller from "react-masonry-infinite";
 import { Spinner } from "react-bootstrap";
+import InfiniteScroller from "react-infinite-scroll-component";
 
 const PostsPage = (props) => {
   const { pageFilter = "" } = props;
@@ -22,28 +22,30 @@ const PostsPage = (props) => {
       }
     };
 
+    setPosts({ results: [] });
     fetchPosts();
   }, [navigate, pageFilter]);
 
-  const sizes = [
-    { columns: 1, gutter: 16 },
-    { mq: "768px", columns: 2, gutter: 16 },
-    { mq: "1200px", columns: 3, gutter: 16 },
-    { mq: "1400px", columns: 4, gutter: 16 },
-  ];
-
   return (
     <>
-      <MasonryInfiniteScroller
-        className="mx-auto"
-        sizes={sizes}
-        loader={<Spinner animation="grow" />}
-        hasMore={!!posts.next}
-        loadMore={() => fetchMoreData(posts, setPosts)}>
-        {posts.results.map((post) => (
-          <PostBlurb key={post.id} {...post} />
-        ))}
-      </MasonryInfiniteScroller>
+      {posts.results.length ? (
+        <InfiniteScroller
+          className="overflow-visible"
+          dataLength={posts.results.length}
+          loader={
+            <div className="w-100">
+              <Spinner animation="grow" />
+            </div>
+          }
+          hasMore={!!posts.next}
+          next={() => fetchMoreData(posts, setPosts)}>
+          {posts.results.map((post) => (
+            <PostBlurb key={post.id} {...post} />
+          ))}
+        </InfiniteScroller>
+      ) : (
+        <h1>No Results</h1>
+      )}
     </>
   );
 };
