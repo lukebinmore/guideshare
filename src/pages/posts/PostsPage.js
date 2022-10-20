@@ -6,7 +6,8 @@ import { fetchMoreData } from "../../utils/utils";
 import MasonryInfiniteScroller from "react-masonry-infinite";
 import { Spinner } from "react-bootstrap";
 
-const PostsPage = () => {
+const PostsPage = (props) => {
+  const { pageFilter = "" } = props;
   const navigate = useNavigate();
 
   const [posts, setPosts] = useState({ results: [] });
@@ -14,7 +15,7 @@ const PostsPage = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const { data } = await axiosReq.get("/posts/");
+        const { data } = await axiosReq.get(`/posts/?${pageFilter}`);
         setPosts(data);
       } catch (err) {
         console.log(err);
@@ -22,7 +23,7 @@ const PostsPage = () => {
     };
 
     fetchPosts();
-  }, [navigate]);
+  }, [navigate, pageFilter]);
 
   const sizes = [
     { columns: 1, gutter: 16 },
