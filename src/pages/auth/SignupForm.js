@@ -14,7 +14,7 @@ const SignupForm = () => {
   const authModal = useAuthModal();
   const setAuthModal = useSetAuthModal();
   const setCurrentUser = useSetCurrentUser();
-  const [sm] = useBreakpoints();
+  const { sm } = useBreakpoints();
 
   const [errors, setErrors] = useState({});
 
