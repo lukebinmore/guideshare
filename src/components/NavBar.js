@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  Button,
-  Col,
-  Container,
-  Dropdown,
-  Form,
-  Image,
-  Row,
-} from "react-bootstrap";
+import { Col, Container, Dropdown, Form, Image, Row } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { useCurrentUser } from "../contexts/currentUserContext";
 import Avatar from "../components/Avatar";
