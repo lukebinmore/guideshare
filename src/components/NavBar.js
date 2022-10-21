@@ -5,7 +5,6 @@ import { useCurrentUser } from "../contexts/currentUserContext";
 import Avatar from "../components/Avatar";
 import logo from "../assets/logo.png";
 import styles from "../styles/NavBar.module.css";
-import appStyles from "../App.module.css";
 import { AdminButton, AuthButton, NavButton } from "./Buttons";
 import SearchFilterOrder from "./SearchFilterOrder";
 
@@ -23,7 +22,7 @@ const NavBar = () => {
   const navLinksDropdown = (
     <>
       <Dropdown>
-        <Dropdown.Toggle className={appStyles.RemoveArrow}>
+        <Dropdown.Toggle>
           <i className="fa-solid fa-bars" />
         </Dropdown.Toggle>
         <Dropdown.Menu className={styles.NavMenu}>
@@ -42,8 +41,7 @@ const NavBar = () => {
         <dt className="d-inline-block px-1">{currentUser?.username}</dt>
       </div>
       <Dropdown className="d-inline-block border-0">
-        <Dropdown.Toggle
-          className={`rounded-circle p-0 ${styles.Profile} ${appStyles.RemoveArrow}`}>
+        <Dropdown.Toggle className={`rounded-circle p-0 ${styles.Profile}`}>
           <Avatar src={currentUser?.profile_picture} />
         </Dropdown.Toggle>
         <Dropdown.Menu className={styles.UserMenu}>
@@ -102,8 +100,8 @@ const NavBar = () => {
             <SearchFilterOrder search />
           </Col>
         </Row>
-        <Row className={`d-md-none d-flex ${styles.NavBarRow}`}>
-          <SearchFilterOrder search />
+        <Row className={`${styles.NavBarRow}`}>
+          <SearchFilterOrder search filter />
         </Row>
       </Container>
     </>

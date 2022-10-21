@@ -22,7 +22,7 @@ function App() {
           <Route
             path="/feed"
             element={
-              <PostsPage pageFilter={`owner__followers=${profile_id}&`} />
+              <PostsPage pageFilter={`owner__followers=${profile_id}`} />
             }
           />
           <Route

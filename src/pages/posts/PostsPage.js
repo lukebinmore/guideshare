@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { axiosReq } from "../../api/axiosDefaults";
 import PostBlurb from "./PostBlurb";
-import { useNavigate } from "react-router";
+import { useLocation } from "react-router";
 import { fetchMoreData } from "../../utils/utils";
 import { Spinner } from "react-bootstrap";
 import InfiniteScroller from "react-infinite-scroll-component";
@@ -9,17 +9,24 @@ import { useSearchFilterSort } from "../../contexts/searchFilterSortContext";
 
 const PostsPage = (props) => {
   const { pageFilter = "" } = props;
-  const navigate = useNavigate();
+  const { pathname } = useLocation();
   const { query, filters, sort } = useSearchFilterSort();
 
   const [posts, setPosts] = useState({ results: [] });
 
   useEffect(() => {
+    const buildUrl = () => {
+      return [
+        "/posts/",
+        "?" + pageFilter,
+        "&category=" + filters.category,
+        "&search=" + query,
+      ].join("");
+    };
+
     const fetchPosts = async () => {
       try {
-        const { data } = await axiosReq.get(
-          `/posts/?${pageFilter}&search=${query}`
-        );
+        const { data } = await axiosReq.get(buildUrl());
         setPosts(data);
       } catch (err) {
         console.log(err);
@@ -27,7 +34,7 @@ const PostsPage = (props) => {
     };
 
     fetchPosts();
-  }, [navigate, pageFilter, query]);
+  }, [pathname, pageFilter, filters, query]);
 
   return (
     <>
