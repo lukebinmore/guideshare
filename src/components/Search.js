@@ -73,7 +73,19 @@ const Search = () => {
 
           <Dropdown.Menu
             className={`pb-0 w-100 ${styles.QuickSearchMenu}`}
-            align="start">
+            align="start"
+            popperConfig={
+              !md && {
+                modifiers: [
+                  {
+                    name: "offset",
+                    options: {
+                      offset: [-39, 3],
+                    },
+                  },
+                ],
+              }
+            }>
             {hasLoaded ? (
               <>
                 {posts.results.length ? (
