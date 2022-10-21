@@ -100,7 +100,7 @@ const NavBar = () => {
             <SearchFilterOrder search />
           </Col>
         </Row>
-        <Row className={`${styles.NavBarRow}`}>
+        <Row className={`d-md-none d-flex ${styles.NavBarRow}`}>
           <SearchFilterOrder search filter />
         </Row>
       </Container>

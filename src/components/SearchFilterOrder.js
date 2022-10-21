@@ -7,16 +7,17 @@ import {
 import { fetchCategories } from "../utils/utils";
 import styles from "../styles/SearchFilterOrder.module.css";
 import { useLocation } from "react-router";
+import IconText from "./IconText";
 
 const SearchFilterOrder = (props) => {
-  const { search, filter } = props;
+  const { search, filter, sort, results } = props;
   const searchFilterSort = useSearchFilterSort();
   const setSearchFilterSort = useSetSearchFilterSort();
   const { pathname } = useLocation();
 
   const [categories, setCategories] = useState();
   const [filterData, setFilterData] = useState(searchFilterSort);
-  const { query, filters, sort } = filterData;
+  const { query, filters, order } = filterData;
 
   useEffect(() => {
     setFilterData(searchFilterSort);
@@ -73,6 +74,7 @@ const SearchFilterOrder = (props) => {
     <Dropdown>
       <Form.Label className="d-none">Filters</Form.Label>
       <Dropdown.Toggle className={styles.FilterButton}>
+        <p className="d-md-inline d-none">Filters </p>
         <i className="fa-solid fa-filter" />
       </Dropdown.Toggle>
       {filterMenu}
@@ -102,6 +104,13 @@ const SearchFilterOrder = (props) => {
     <Form className="d-flex h-100 align-items-center" onSubmit={handleSubmit}>
       <InputGroup>
         {filter && filterInput}
+        {results && (
+          <Form.Control
+            readOnly
+            defaultValue={`Results: ${results}`}
+            className="text-center"
+          />
+        )}
         {search && searchInput}
       </InputGroup>
     </Form>
