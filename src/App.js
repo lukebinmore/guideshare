@@ -7,6 +7,7 @@ import ContactForm from "./pages/contact/ContactForm";
 import NewPostForm from "./pages/posts/NewPostForm";
 import PostsPage from "./pages/posts/PostsPage";
 import { useCurrentUser } from "./contexts/currentUserContext";
+import PostPage from "./pages/posts/PostPage";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -22,15 +23,25 @@ function App() {
           <Route
             path="/feed"
             element={
-              <PostsPage pageFilter={`owner__followers=${profile_id}`} />
+              <PostsPage
+                pageFilter={`owner__followers=${profile_id}`}
+                message="No results, follow some people to see there guides!"
+              />
             }
           />
           <Route
             path="/saved"
-            element={<PostsPage pageFilter={`post_saves=${profile_id}`} />}
+            element={
+              <PostsPage
+                pageFilter={`post_saves=${profile_id}`}
+                message="No results, save your favourite guides to see them here!"
+              />
+            }
           />
-          <Route path="/profile/:id" element={<h1>Profile Page</h1>} />
           <Route path="/new-post" element={<NewPostForm />} />
+          <Route path="/posts/:id" element={<PostPage />} />
+          <Route path="/posts/edit/:id" element={<PostPage edit />} />
+          <Route path="/profile/:id" element={<h1>Profile Page</h1>} />
           <Route path="/contact-us" element={<ContactForm />} />
           <Route path="*" element={<h1>Page Not Found</h1>} />
         </Routes>
