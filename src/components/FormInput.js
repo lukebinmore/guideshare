@@ -42,7 +42,10 @@ const FormInput = (props) => {
             name={name}
             accept="image/*"
             onChange={(event) =>
-              setPreview(URL.createObjectURL(event.target.files[0]))
+              setPreview(
+                event.target.files[0] &&
+                  URL.createObjectURL(event.target.files[0])
+              )
             }
             className="d-none"
           />
