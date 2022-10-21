@@ -49,14 +49,14 @@ export const NavButton = (props) => {
 
   const locations = {
     home: { location: "/", text: "Home", icon: "house" },
-    feed: { location: "/feed", text: "Feed", icon: "square-rss" },
-    saved: { location: "/saved", text: "Saved", icon: "floppy-disk" },
+    feed: { location: "/feed", text: "Feed", icon: "rss" },
+    saved: { location: "/saved", text: "Saved", icon: "bookmark" },
     contactUs: {
       location: "/contact-us",
       text: "Contact Us",
       icon: "envelope-open",
     },
-    newPost: { location: "/new-post", text: "New Post", icon: "square-plus" },
+    newPost: { location: "/new-post", text: "New Post", icon: "plus" },
     myProfile: {
       location: "/profile/" + currentUser?.profile_id,
       text: "My Profile",
