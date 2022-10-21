@@ -67,7 +67,8 @@ a:hover {
   justify-content: center;
 }
 
-.btn-primary {
+.btn-primary,
+.btn-primary.show {
   background-color: var(--primary);
   color: var(--text);
   border-color: var(--primary);
@@ -134,4 +135,8 @@ a:hover {
 .card-body {
   border-color: var(--border);
   background-color: var(--background);
+}
+
+.dropdown-toggle::after {
+  content: none;
 }

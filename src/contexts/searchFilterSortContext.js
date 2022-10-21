@@ -10,7 +10,7 @@ export const useSetSearchFilterSort = () =>
 
 const initialState = {
   query: "",
-  filters: "",
+  filters: { category: "" },
   sort: "",
 };
 
