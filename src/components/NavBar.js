@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Container, Dropdown, Image, Row } from "react-bootstrap";
+import { Col, Container, Dropdown, Form, Image, Row } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { useCurrentUser } from "../contexts/currentUserContext";
 import Avatar from "../components/Avatar";
@@ -37,29 +37,19 @@ const NavBar = () => {
 
   const loggedInItems = (
     <>
-      <div className="d-md-inline-block d-none">
-        <dt className="d-inline-block px-1">{currentUser?.username}</dt>
-      </div>
-      <Dropdown className="d-inline-block border-0">
-        <Dropdown.Toggle className={`rounded-circle p-0 ${styles.Profile}`}>
-          <Avatar src={currentUser?.profile_picture} />
-        </Dropdown.Toggle>
-        <Dropdown.Menu className={styles.UserMenu}>
-          <AdminButton dropdown right hr />
-          <NavButton to="myProfile" dropdown right hr />
-          <AuthButton page="changePassword" dropdown right hr />
-          <NavButton to="contactUs" dropdown right hr />
-          <AuthButton page="signout" variant="danger" dropdown right />
-        </Dropdown.Menu>
-      </Dropdown>
+      <AdminButton dropdown right hr />
+      <NavButton to="myProfile" dropdown right hr />
+      <AuthButton page="changePassword" dropdown right hr />
+      <NavButton to="contactUs" dropdown right hr />
+      <AuthButton page="signout" variant="danger" dropdown right />
     </>
   );
 
   const loggedOutItems = (
     <>
-      <AuthButton page="login" right />
-      <AuthButton page="signup" right />
-      <NavButton to="contactUs" right />
+      <AuthButton page="login" dropdown right hr />
+      <AuthButton page="signup" dropdown right hr />
+      <NavButton to="contactUs" dropdown right />
     </>
   );
 
@@ -70,14 +60,28 @@ const NavBar = () => {
       </NavLink>
       <Container fluid className={styles.NavBar}>
         <Row className={styles.NavBarRow}>
-          <Col xs="1" sm="1" md="6">
+          <Col>
             <div className="d-md-block d-none">{navLinks}</div>
             <div className="d-md-none d-block">{navLinksDropdown}</div>
           </Col>
-          <Col xs="11" sm="11" md="6">
-            <div className="text-end">
-              {currentUser ? loggedInItems : loggedOutItems}
-            </div>
+          <Col xs="auto">
+            <Form.Label
+              className="d-inline-block px-1"
+              htmlFor="account-toggle">
+              <strong>
+                {currentUser ? currentUser.username : "Login / Sign Up"}
+              </strong>
+            </Form.Label>
+            <Dropdown className="d-inline-block border-0">
+              <Dropdown.Toggle
+                id="account-toggle"
+                className={`rounded-circle p-0 ${styles.Profile}`}>
+                <Avatar src={currentUser?.profile_picture} />
+              </Dropdown.Toggle>
+              <Dropdown.Menu className={styles.UserMenu}>
+                {currentUser ? loggedInItems : loggedOutItems}
+              </Dropdown.Menu>
+            </Dropdown>
           </Col>
         </Row>
         <Row className={` ${styles.NavBarRow}`}>
