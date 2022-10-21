@@ -9,6 +9,7 @@ import { useSearchFilterSort } from "../../contexts/searchFilterSortContext";
 import PostsSort from "../../components/PostsSort";
 import PostResultsCount from "../../components/PostResultsCount";
 import Filters from "../../components/Filters";
+import LoadingSpinner from "../../components/LoadingSpinner";
 
 const PostsPage = (props) => {
   const { pageFilter = "" } = props;
@@ -60,12 +61,7 @@ const PostsPage = (props) => {
               <InfiniteScroller
                 className="overflow-visible"
                 dataLength={posts.results.length}
-                loader={
-                  <div className="w-100">
-                    <h1>Loading</h1>
-                    <Spinner animation="border" />
-                  </div>
-                }
+                loader={<LoadingSpinner />}
                 hasMore={!!posts.next}
                 next={() => fetchMoreData(posts, setPosts)}>
                 {posts.results.map((post) => (
