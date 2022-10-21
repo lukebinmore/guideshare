@@ -29,7 +29,9 @@ const Search = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const { data } = await axiosReq.get(`/posts/?search=${searchQuery}`);
+        const { data } = await axiosReq.get(
+          `/posts/?ordering=-title_length&search=${searchQuery}`
+        );
         setPosts(data);
         setHasLoaded(true);
       } catch (err) {
