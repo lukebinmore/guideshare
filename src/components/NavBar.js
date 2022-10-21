@@ -1,5 +1,13 @@
 import React from "react";
-import { Col, Container, Dropdown, Form, Image, Row } from "react-bootstrap";
+import {
+  Button,
+  Col,
+  Container,
+  Dropdown,
+  Form,
+  Image,
+  Row,
+} from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { useCurrentUser } from "../contexts/currentUserContext";
 import Avatar from "../components/Avatar";
@@ -70,11 +78,9 @@ const NavBar = () => {
           </Col>
           <Col xs="auto">
             <Form.Label
-              className="d-md-inline-block d-none px-1"
+              className="d-md-inline-block d-none btn btn-outline-primary mb-0"
               htmlFor="account-toggle">
-              <strong>
-                {currentUser ? currentUser.username : "Login / Sign Up"}
-              </strong>
+              {currentUser ? currentUser.username : "Login / Sign Up"}
             </Form.Label>
 
             <Dropdown className="d-inline-block border-0">
