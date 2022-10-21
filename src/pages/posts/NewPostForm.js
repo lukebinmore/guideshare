@@ -6,7 +6,7 @@ import IconText from "../../components/IconText";
 import FormError from "../../components/FormError";
 import { AdminButton } from "../../components/Buttons";
 import FormInput from "../../components/FormInput";
-import { collectFormData } from "../../utils/utils";
+import { collectFormData, fetchCategories } from "../../utils/utils";
 
 const NewPostForm = () => {
   const navigate = useNavigate();
@@ -16,16 +16,7 @@ const NewPostForm = () => {
   const [cover_image, setCoverImage] = useState();
 
   useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-        const { data } = await axiosReq.get("posts/categories");
-        setCategories(data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-
-    fetchCategories();
+    fetchCategories(setCategories);
   }, [navigate]);
 
   const handleSubmit = async (event) => {
