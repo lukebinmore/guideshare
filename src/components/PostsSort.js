@@ -4,6 +4,8 @@ import {
   useSearchFilterSort,
   useSetSearchFilterSort,
 } from "../contexts/searchFilterSortContext";
+import IconText from "./IconText";
+import useBreakpoints from "../hooks/useBreakpoints";
 import styles from "../styles/PostsSort.module.css";
 
 const sortValues = [
@@ -16,6 +18,7 @@ const sortValues = [
 const PostsSort = () => {
   const { sort } = useSearchFilterSort();
   const setSearchFilterSort = useSetSearchFilterSort();
+  const { md } = useBreakpoints();
 
   const handleChange = (event) => {
     const newOrder = () => {
@@ -35,8 +38,7 @@ const PostsSort = () => {
     <Dropdown drop="down" align="end" onSelect={handleChange}>
       <Form.Label className="d-none">Post Sorting</Form.Label>
       <Dropdown.Toggle className="w-25">
-        <p className="d-md-inline d-none">Sort </p>
-        <i className="fa-solid fa-sort" />
+        <IconText text={md && "Sort"} icon="sort" right />
       </Dropdown.Toggle>
 
       <Dropdown.Menu align="end">

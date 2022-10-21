@@ -10,11 +10,13 @@ import { useAuthModal, useSetAuthModal } from "../../contexts/authModalContext";
 import { useCurrentUser } from "../../contexts/currentUserContext";
 import { collectFormData } from "../../utils/utils";
 import { AuthButton } from "../../components/Buttons";
+import useBreakpoints from "../../hooks/useBreakpoints";
 
 const SignupProfileForm = () => {
   const authModal = useAuthModal();
   const setAuthModal = useSetAuthModal();
   const currentUser = useCurrentUser();
+  const { sm } = useBreakpoints();
   const navigate = useNavigate();
 
   const [errors, setErrors] = useState({});
@@ -83,7 +85,7 @@ const SignupProfileForm = () => {
         </Modal.Body>
 
         <Modal.Footer>
-          <Button type="submit" className="w-75" size="lg">
+          <Button type="submit" className="w-75" size={sm && "lg"}>
             <IconText text="Save Profile" icon="floppy-disk" left right />
           </Button>
           <p>Don't feel like doing this yet?</p>

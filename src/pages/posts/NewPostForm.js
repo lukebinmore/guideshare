@@ -7,8 +7,10 @@ import FormError from "../../components/FormError";
 import { AdminButton } from "../../components/Buttons";
 import FormInput from "../../components/FormInput";
 import { collectFormData, fetchCategories } from "../../utils/utils";
+import useBreakpoints from "../../hooks/useBreakpoints";
 
 const NewPostForm = () => {
+  const { md } = useBreakpoints();
   const navigate = useNavigate();
 
   const [categories, setCategories] = useState([]);
@@ -107,17 +109,20 @@ const NewPostForm = () => {
             errrorData={errors?.wip}
             text="Is this still a work in progress?"
             variant="secondary"
-            size="lg"
+            size={md && "lg"}
           />
 
           <FormError data={errors?.non_field_errors} />
         </Card.Body>
 
         <Card.Footer className="btn-group p-0">
-          <Button variant="danger" onClick={() => navigate(0)}>
+          <Button
+            variant="danger"
+            onClick={() => navigate(0)}
+            size={md && "lg"}>
             <IconText text="Clear" icon="trash" left right />
           </Button>
-          <Button type="submit">
+          <Button type="submit" size={md && "lg"}>
             <IconText text="Create" icon="square-plus" left right />
           </Button>
         </Card.Footer>

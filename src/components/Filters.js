@@ -5,8 +5,9 @@ import {
   useSearchFilterSort,
   useSetSearchFilterSort,
 } from "../contexts/searchFilterSortContext";
-import styles from "../styles/Filters.module.css";
 import { fetchCategories } from "../utils/utils";
+import IconText from "./IconText";
+import useBreakpoints from "../hooks/useBreakpoints";
 
 const Filters = (props) => {
   const { category } = props;
@@ -14,6 +15,7 @@ const Filters = (props) => {
   const { filters } = useSearchFilterSort();
   const setSearchFilterSort = useSetSearchFilterSort();
   const { pathname } = useLocation();
+  const { md } = useBreakpoints();
 
   const [categories, setCategories] = useState();
 
@@ -43,11 +45,10 @@ const Filters = (props) => {
 
   return (
     <Dropdown drop="down">
-      <Form.Label className="d-none">Filters</Form.Label>
-      <Dropdown.Toggle className={`w-25 ${styles.FilterButton}`}>
-        <i className="fa-solid fa-filter" />
-        <p className="d-md-inline d-none"> Filters</p>
+      <Dropdown.Toggle className={`w-25`}>
+        <IconText text={md && "Filters"} icon="filter" left />
       </Dropdown.Toggle>
+      <Form.Label className="d-none">Filters</Form.Label>
 
       <Dropdown.Menu>
         <Dropdown.Item as="div" className="btn-group">

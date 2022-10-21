@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import { useNavigate } from "react-router";
+import useBreakpoints from "../../hooks/useBreakpoints";
 import IconText from "../../components/IconText";
 import FormError from "../../components/FormError";
 import FormInput from "../../components/FormInput";
@@ -14,6 +15,7 @@ const LoginForm = () => {
   const authModal = useAuthModal();
   const setAuthModal = useSetAuthModal();
   const setCurrentUser = useSetCurrentUser();
+  const { sm } = useBreakpoints();
   const navigate = useNavigate();
 
   const [errors, setErrors] = useState({});
@@ -62,7 +64,7 @@ const LoginForm = () => {
         </Modal.Body>
 
         <Modal.Footer>
-          <Button type="submit" className="w-75" size="lg">
+          <Button type="submit" className="w-75" size={sm && "lg"}>
             <IconText text="login" icon="right-to-bracket" left right />
           </Button>
           <p className="text-muted">Don't have an account?</p>

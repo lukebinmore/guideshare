@@ -5,10 +5,12 @@ import {
   useSetSearchFilterSort,
 } from "../contexts/searchFilterSortContext";
 import { NavButton } from "./Buttons";
+import useBreakpoints from "../hooks/useBreakpoints";
 
-const Search = (props) => {
+const Search = () => {
   const { query } = useSearchFilterSort();
   const setSearchFilterSort = useSetSearchFilterSort();
+  const { md, lg } = useBreakpoints();
 
   const [searchQuery, setSearchQuery] = useState(query);
 
@@ -28,22 +30,18 @@ const Search = (props) => {
   return (
     <Form className="d-flex h-100 align-items-center" onSubmit={handleSubmit}>
       <InputGroup>
-        <NavButton
-          to="newPost"
-          left
-          className="d-md-none d-inline-block"
-          noText
-        />
-        <Form.Label className="d-none">Search</Form.Label>
+        {!md && <NavButton to="newPost" left noText />}
         <Form.Control
           type="search"
           placeholder="Search"
           name="query"
+          size={lg && "lg"}
           value={searchQuery}
           onChange={(event) => setSearchQuery(event.target.value)}
           className="text-center form-control"
         />
-        <Button type="submit">
+        <Form.Label className="d-none">Search</Form.Label>
+        <Button type="submit" size={lg && "lg"}>
           <i className="fa-solid fa-search" />
         </Button>
       </InputGroup>

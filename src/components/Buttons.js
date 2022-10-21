@@ -43,7 +43,7 @@ export const AdminButton = (props) => {
 };
 
 export const NavButton = (props) => {
-  const { to, left, right, dropdown, hr, className, noText } = props;
+  const { to, left, right, dropdown, hr, className, noText, size } = props;
 
   const currentUser = useCurrentUser();
 
@@ -80,7 +80,9 @@ export const NavButton = (props) => {
         <NavLink
           end
           to={target.location}
-          className={(navData) => setActive(navData) + " " + className}>
+          className={(navData) =>
+            setActive(navData) + (size ? ` btn-${size} ` : " ") + className
+          }>
           <IconText
             text={!noText && target.text}
             icon={target.icon}

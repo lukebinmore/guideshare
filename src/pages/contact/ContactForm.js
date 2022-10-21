@@ -8,9 +8,11 @@ import { useCurrentUser } from "../../contexts/currentUserContext";
 import IconText from "../../components/IconText";
 import FormInput from "../../components/FormInput";
 import { collectFormData } from "../../utils/utils";
+import useBreakpoints from "../../hooks/useBreakpoints";
 
 const ContactForm = () => {
   const currentUser = useCurrentUser();
+  const { md } = useBreakpoints();
   const navigate = useNavigate();
 
   const [formSent, setFormSent] = useState(false);
@@ -148,10 +150,13 @@ const ContactForm = () => {
             </Card.Body>
 
             <Card.Footer className="btn-group p-0">
-              <Button onClick={() => navigate(0)} variant="danger">
+              <Button
+                onClick={() => navigate(0)}
+                variant="danger"
+                size={md && "lg"}>
                 <IconText text="Clear" icon="trash" left right />
               </Button>
-              <Button type="submit">
+              <Button type="submit" size={md && "lg"}>
                 <IconText text="Submit" icon="paper-plane" left right />
               </Button>
             </Card.Footer>

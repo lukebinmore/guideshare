@@ -11,7 +11,7 @@ export const useSetSearchFilterSort = () =>
 const initialState = {
   query: "",
   filters: { category: "" },
-  sort: "",
+  sort: "-created_at",
 };
 
 export const SearchFilterSortProvider = ({ children }) => {

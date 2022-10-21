@@ -7,9 +7,11 @@ import logo from "../assets/logo.png";
 import styles from "../styles/NavBar.module.css";
 import { AdminButton, AuthButton, NavButton } from "./Buttons";
 import Search from "./Search";
+import useBreakpoints from "../hooks/useBreakpoints";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
+  const { md, lg } = useBreakpoints();
 
   const navLinks = (
     <>
@@ -55,9 +57,11 @@ const NavBar = () => {
 
   return (
     <>
-      <NavLink to="/">
-        <Image src={logo} className="w-50 mx-auto d-block d-md-none p-1" />
-      </NavLink>
+      {!md && (
+        <NavLink to="/">
+          <Image src={logo} className="w-50 mx-auto d-block p-1" />
+        </NavLink>
+      )}
       <Container fluid className={styles.NavBar}>
         <Row className={styles.NavBarRow}>
           <Col>
@@ -66,12 +70,13 @@ const NavBar = () => {
           </Col>
           <Col xs="auto">
             <Form.Label
-              className="d-inline-block px-1"
+              className="d-md-inline-block d-none px-1"
               htmlFor="account-toggle">
               <strong>
                 {currentUser ? currentUser.username : "Login / Sign Up"}
               </strong>
             </Form.Label>
+
             <Dropdown className="d-inline-block border-0">
               <Dropdown.Toggle
                 id="account-toggle"
@@ -89,16 +94,7 @@ const NavBar = () => {
             <NavLink to="/">
               <Image src={logo} className={styles.Logo} />
             </NavLink>
-            <NavButton
-              to="newPost"
-              left
-              className="mx-4 btn-lg d-lg-inline-block d-none"
-            />
-            <NavButton
-              to="newPost"
-              left
-              className="mx-4 d-lg-none d-inline-block"
-            />
+            <NavButton to="newPost" left size={lg && "lg"} className="mx-4" />
           </Col>
           <Col>
             <Search />

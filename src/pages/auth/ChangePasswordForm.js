@@ -7,10 +7,12 @@ import FormInput from "../../components/FormInput";
 import { collectFormData } from "../../utils/utils";
 import { useAuthModal, useSetAuthModal } from "../../contexts/authModalContext";
 import { AuthButton } from "../../components/Buttons";
+import useBreakpoints from "../../hooks/useBreakpoints";
 
 const ChangePasswordForm = () => {
   const authModal = useAuthModal();
   const setAuthModal = useSetAuthModal();
+  const { sm } = useBreakpoints();
 
   const [errors, setErrors] = useState({});
 
@@ -73,7 +75,7 @@ const ChangePasswordForm = () => {
         </Modal.Body>
 
         <Modal.Footer>
-          <Button type="submit" className="w-75" size="lg">
+          <Button type="submit" className="w-75" size={sm && "lg"}>
             <IconText text="Change Password" icon="check" left right />
           </Button>
           <p className="text-muted">Changed your mind?</p>

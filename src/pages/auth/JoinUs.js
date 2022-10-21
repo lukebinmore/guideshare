@@ -3,10 +3,12 @@ import { Modal } from "react-bootstrap";
 import { useAuthModal, useSetAuthModal } from "../../contexts/authModalContext";
 import logoEmblem from "../../assets/logo-emblem.png";
 import { AuthButton } from "../../components/Buttons";
+import useBreakpoints from "../../hooks/useBreakpoints";
 
 const JoinUs = ({ expired }) => {
   const authModal = useAuthModal();
   const setAuthModal = useSetAuthModal();
+  const { sm } = useBreakpoints();
 
   return (
     <Modal show={authModal.show} onHide={() => setAuthModal({ show: false })}>
@@ -31,8 +33,20 @@ const JoinUs = ({ expired }) => {
       </Modal.Body>
 
       <Modal.Footer>
-        <AuthButton page="login" size="lg" left right className="w-75" />
-        <AuthButton page="signup" size="lg" left right className="w-75" />
+        <AuthButton
+          page="login"
+          size={sm && "lg"}
+          left
+          right
+          className="w-75"
+        />
+        <AuthButton
+          page="signup"
+          size={sm && "lg"}
+          left
+          right
+          className="w-75"
+        />
       </Modal.Footer>
     </Modal>
   );

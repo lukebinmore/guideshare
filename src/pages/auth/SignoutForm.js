@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import { useNavigate } from "react-router";
+import useBreakpoints from "../../hooks/useBreakpoints";
 import { AuthButton } from "../../components/Buttons";
 import IconText from "../../components/IconText";
 import { useAuthModal, useSetAuthModal } from "../../contexts/authModalContext";
@@ -12,6 +13,7 @@ const SignoutForm = () => {
   const authModal = useAuthModal();
   const setAuthModal = useSetAuthModal();
   const setCurrentUser = useSetCurrentUser();
+  const { sm } = useBreakpoints();
   const navigate = useNavigate();
 
   const handleSignOut = async () => {
@@ -39,12 +41,18 @@ const SignoutForm = () => {
       </Modal.Body>
 
       <Modal.Footer>
-        <AuthButton page="cancel" size="lg" left right className="w-75" />
+        <AuthButton
+          page="cancel"
+          size={sm && "lg"}
+          left
+          right
+          className="w-75"
+        />
         <Button
           variant="danger"
           onClick={handleSignOut}
           className="w-75"
-          size="lg">
+          size={sm && "lg"}>
           <IconText text="Sign Out" icon="right-from-bracket" left right />
         </Button>
       </Modal.Footer>

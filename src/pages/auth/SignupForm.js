@@ -8,11 +8,13 @@ import { useAuthModal, useSetAuthModal } from "../../contexts/authModalContext";
 import { useSetCurrentUser } from "../../contexts/currentUserContext";
 import { collectFormData } from "../../utils/utils";
 import { AuthButton } from "../../components/Buttons";
+import useBreakpoints from "../../hooks/useBreakpoints";
 
 const SignupForm = () => {
   const authModal = useAuthModal();
   const setAuthModal = useSetAuthModal();
   const setCurrentUser = useSetCurrentUser();
+  const [sm] = useBreakpoints();
 
   const [errors, setErrors] = useState({});
 
@@ -75,7 +77,7 @@ const SignupForm = () => {
         </Modal.Body>
 
         <Modal.Footer>
-          <Button type="submit" className="w-75" size="lg">
+          <Button type="submit" className="w-75" size={sm && "lg"}>
             <IconText text="Sign Up" icon="user-plus" left right />
           </Button>
           <p className="text-muted">Already have an account?</p>
