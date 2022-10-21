@@ -1,0 +1,19 @@
+.QuickSearchItem {
+  transition: transform 0.2s;
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+.QuickSearchMenu {
+  width: 100%;
+}
+
+.QuickSearchItem:hover {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 0.15rem var(--primary);
+  transform: scale(1.1);
+}
+
+.QuickSearchItem h4 {
+  line-height: 1.5rem;
+}
