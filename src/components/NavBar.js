@@ -13,8 +13,8 @@ const NavBar = () => {
 
   const navLinks = (
     <>
-      <NavButton to="home" left />
-      <NavButton to="feed" left />
+      <NavButton to="home" left className="me-2" />
+      <NavButton to="feed" left className="me-2" />
       <NavButton to="saved" left />
     </>
   );

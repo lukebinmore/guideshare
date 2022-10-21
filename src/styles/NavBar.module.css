@@ -6,11 +6,6 @@
   z-index: 5;
 }
 
-.NavBar a,
-.NavBar button {
-  margin: 0 5px;
-}
-
 .NavBarRow {
   padding: 0.5em 0;
   margin: 0;
