@@ -23,6 +23,7 @@ const PostsPage = (props) => {
         "?" + pageFilter,
         "&category=" + filters.category,
         "&search=" + query,
+        "&ordering=" + sort,
       ].join("");
     };
 
@@ -38,7 +39,7 @@ const PostsPage = (props) => {
 
     setHasLoaded(false);
     fetchPosts();
-  }, [pathname, pageFilter, filters, query]);
+  }, [pathname, pageFilter, filters, query, sort]);
 
   return (
     <>

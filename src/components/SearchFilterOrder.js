@@ -15,6 +15,7 @@ const SearchFilterOrder = (props) => {
   const setSearchFilterSort = useSetSearchFilterSort();
   const { pathname } = useLocation();
 
+  const [sortDecending, setSortDecending] = useState(false);
   const [categories, setCategories] = useState();
   const [filterData, setFilterData] = useState(searchFilterSort);
   const { query, filters, order } = filterData;
@@ -37,19 +38,33 @@ const SearchFilterOrder = (props) => {
     }));
   };
 
+  const handleSortChange = (event) => {
+    const newOrder = () => {
+      const oldOrder = searchFilterSort.sort;
+
+      if (oldOrder === event) {
+        setSortDecending(true);
+        return "-" + event;
+      } else if (oldOrder === "-" + event) {
+        setSortDecending(false);
+        return event;
+      } else {
+        setSortDecending(false);
+        return event;
+      }
+    };
+
+    setSearchFilterSort({ ...searchFilterSort, sort: newOrder() });
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    setFilterData({
-      ...filterData,
-      filters: { ...filterData.category, category: "test" },
-    });
 
     setSearchFilterSort((prevValues) => ({ ...prevValues, ...filterData }));
   };
 
   const filterMenu = (
-    <Dropdown.Menu className="w-100">
+    <Dropdown.Menu>
       <Dropdown.Item as="div" className="btn-group">
         <Button type="submit">Apply</Button>
       </Dropdown.Item>
@@ -71,11 +86,11 @@ const SearchFilterOrder = (props) => {
   );
 
   const filterInput = (
-    <Dropdown>
+    <Dropdown drop="down">
       <Form.Label className="d-none">Filters</Form.Label>
       <Dropdown.Toggle className={styles.FilterButton}>
-        <p className="d-md-inline d-none">Filters </p>
         <i className="fa-solid fa-filter" />
+        <p className="d-md-inline d-none"> Filters</p>
       </Dropdown.Toggle>
       {filterMenu}
     </Dropdown>
@@ -100,6 +115,54 @@ const SearchFilterOrder = (props) => {
     </>
   );
 
+  const getIcon = () => {
+    return sortDecending ? "angle-down" : "angle-up";
+  };
+
+  const sortMenu = (
+    <Dropdown.Menu className="text-end">
+      <Dropdown.Item eventKey="title" as="div">
+        <IconText
+          text="Title"
+          icon={getIcon()}
+          left={searchFilterSort.sort.includes("title")}
+        />
+      </Dropdown.Item>
+      <Dropdown.Item eventKey="created_at" as="div">
+        <IconText
+          text="Date Created"
+          icon={getIcon()}
+          left={searchFilterSort.sort.includes("created_at")}
+        />
+      </Dropdown.Item>
+      <Dropdown.Item eventKey="likes_count" as="div">
+        <IconText
+          text="Likes"
+          icon={getIcon()}
+          left={searchFilterSort.sort.includes("likes_count")}
+        />
+      </Dropdown.Item>
+      <Dropdown.Item eventKey="dislikes_count" as="div">
+        <IconText
+          text="Dislikes"
+          icon={getIcon()}
+          left={searchFilterSort.sort.includes("dislikes_count")}
+        />
+      </Dropdown.Item>
+    </Dropdown.Menu>
+  );
+
+  const sortInput = (
+    <Dropdown drop="down" onSelect={handleSortChange}>
+      <Form.Label className="d-none">Results Sorting</Form.Label>
+      <Dropdown.Toggle>
+        <p className="d-md-inline d-none">{order ? order : "Sort"} </p>
+        <i className="fa-solid fa-sort" />
+      </Dropdown.Toggle>
+      {sortMenu}
+    </Dropdown>
+  );
+
   return (
     <Form className="d-flex h-100 align-items-center" onSubmit={handleSubmit}>
       <InputGroup>
@@ -107,11 +170,12 @@ const SearchFilterOrder = (props) => {
         {results && (
           <Form.Control
             readOnly
-            defaultValue={`Results: ${results}`}
+            defaultValue={`Results: ${results < 1000 ? results : "999+"}`}
             className="text-center"
           />
         )}
         {search && searchInput}
+        {sort && sortInput}
       </InputGroup>
     </Form>
   );
