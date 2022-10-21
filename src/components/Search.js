@@ -4,6 +4,7 @@ import {
   useSearchFilterSort,
   useSetSearchFilterSort,
 } from "../contexts/searchFilterSortContext";
+import { NavButton } from "./Buttons";
 
 const Search = (props) => {
   const { query } = useSearchFilterSort();
@@ -27,6 +28,12 @@ const Search = (props) => {
   return (
     <Form className="d-flex h-100 align-items-center" onSubmit={handleSubmit}>
       <InputGroup>
+        <NavButton
+          to="newPost"
+          left
+          className="d-md-none d-inline-block"
+          noText
+        />
         <Form.Label className="d-none">Search</Form.Label>
         <Form.Control
           type="search"
