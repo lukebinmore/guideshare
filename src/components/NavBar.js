@@ -6,7 +6,7 @@ import Avatar from "../components/Avatar";
 import logo from "../assets/logo.png";
 import styles from "../styles/NavBar.module.css";
 import { AdminButton, AuthButton, NavButton } from "./Buttons";
-import SearchFilterOrder from "./SearchFilterOrder";
+import Search from "./Search";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
@@ -80,8 +80,8 @@ const NavBar = () => {
             </div>
           </Col>
         </Row>
-        <Row className={`d-md-flex d-none ${styles.NavBarRow}`}>
-          <Col>
+        <Row className={` ${styles.NavBarRow}`}>
+          <Col className="d-md-inline-block d-none">
             <NavLink to="/">
               <Image src={logo} className={styles.Logo} />
             </NavLink>
@@ -96,12 +96,9 @@ const NavBar = () => {
               className="mx-4 d-lg-none d-inline-block"
             />
           </Col>
-          <Col className="d-md-inline-block d-none">
-            <SearchFilterOrder search />
+          <Col>
+            <Search />
           </Col>
-        </Row>
-        <Row className={`d-md-none d-flex ${styles.NavBarRow}`}>
-          <SearchFilterOrder search filter />
         </Row>
       </Container>
     </>

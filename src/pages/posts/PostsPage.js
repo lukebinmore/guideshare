@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { axiosReq } from "../../api/axiosDefaults";
 import PostBlurb from "./PostBlurb";
-import SearchFilterOrder from "../../components/SearchFilterOrder";
 import { useLocation } from "react-router";
 import { fetchMoreData } from "../../utils/utils";
-import { Spinner } from "react-bootstrap";
+import { InputGroup, Spinner } from "react-bootstrap";
 import InfiniteScroller from "react-infinite-scroll-component";
 import { useSearchFilterSort } from "../../contexts/searchFilterSortContext";
+import PostsSort from "../../components/PostsSort";
+import PostResultsCount from "../../components/PostResultsCount";
+import Filters from "../../components/Filters";
 
 const PostsPage = (props) => {
   const { pageFilter = "" } = props;
@@ -48,7 +50,11 @@ const PostsPage = (props) => {
           {posts.results.length ? (
             <>
               <div className="mx-2 mb-2 px-1">
-                <SearchFilterOrder filter results={posts.count} sort />
+                <InputGroup>
+                  <Filters category />
+                  <PostResultsCount results={posts.count} />
+                  <PostsSort />
+                </InputGroup>
                 <hr />
               </div>
               <InfiniteScroller
