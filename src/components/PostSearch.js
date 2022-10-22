@@ -4,14 +4,14 @@ import {
   useSearchFilterSort,
   useSetSearchFilterSort,
 } from "../contexts/searchFilterSortContext";
-import { NavButton } from "./Buttons";
-import useBreakpoints from "../hooks/useBreakpoints";
-import LoadingSpinner from "../components/LoadingSpinner";
+import NavButton from "./NavButton";
+import { useBreakpoints } from "../hooks";
+import LoadingSpinner from "./LoadingSpinner";
 import { axiosReq } from "../api/axiosDefaults";
 import { NavLink } from "react-router-dom";
 import styles from "../styles/Search.module.css";
 
-const Search = () => {
+const PostSearch = () => {
   const { query } = useSearchFilterSort();
   const setSearchFilterSort = useSetSearchFilterSort();
   const { md } = useBreakpoints();
@@ -132,4 +132,4 @@ const Search = () => {
   );
 };
 
-export default Search;
+export default PostSearch;
