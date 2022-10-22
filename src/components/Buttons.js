@@ -25,7 +25,7 @@ export const AdminButton = (props) => {
               target="_blank"
               rel="noreferrer"
               className="btn btn-primary"
-              href={process.env.REACT_APP_API_URL + href}>
+              href={process.env.REACT_APP_API_URL + "admin/" + href}>
               <IconText
                 text={text}
                 icon="screwdriver-wrench"

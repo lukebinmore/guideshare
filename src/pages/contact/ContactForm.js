@@ -63,7 +63,7 @@ const ContactForm = () => {
               <AdminButton
                 left
                 right
-                href="admin/contactforms/contactform/"
+                href="contactforms/contactform/"
                 text="Submitted Contact Forms"
               />
             </Card.Header>

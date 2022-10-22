@@ -107,7 +107,7 @@ const PostCreateEditForm = ({ edit }) => {
                 <AdminButton
                   left
                   right
-                  href="admin/posts/category/"
+                  href="posts/category/"
                   text="Categories Admin Page"
                   hr
                 />
