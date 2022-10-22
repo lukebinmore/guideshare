@@ -105,8 +105,10 @@ export const AuthButton = (props) => {
   const navigate = useNavigate();
 
   const locations = {
+    joinUs: { page: "joinus", text: "Join Us", icon: "" },
     login: { page: "login", text: "Login", icon: "right-to-bracket" },
     signup: { page: "signup", text: "Sign Up", icon: "user-plus" },
+    profile: { page: "profile", text: "Setup Your Profile", icon: "" },
     signout: {
       page: "signout",
       text: "Sign Out",
