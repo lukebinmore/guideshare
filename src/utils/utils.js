@@ -35,7 +35,7 @@ export const collectFormData = (event) => {
   const allFormData = new FormData();
 
   for (var target of event.target) {
-    if (target.name) {
+    if (target.name && target.value !== null && target.value !== "") {
       allFormData.append(target.name, target.value);
     }
   }
