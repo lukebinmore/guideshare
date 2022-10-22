@@ -1,7 +1,9 @@
 import React from "react";
 import { Form } from "react-bootstrap";
 
-export default function FormError({ data, text }) {
+const FormError = (props) => {
+  const { data, text } = props;
+
   if (data) {
     return (
       <>
@@ -17,4 +19,6 @@ export default function FormError({ data, text }) {
   }
 
   return;
-}
+};
+
+export default FormError;
