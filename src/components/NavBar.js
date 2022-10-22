@@ -2,12 +2,14 @@ import React from "react";
 import { Col, Container, Dropdown, Form, Image, Row } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { useCurrentUser } from "../contexts/currentUserContext";
-import Avatar from "../components/Avatar";
+import Avatar from "./Avatar";
 import logo from "../assets/logo.png";
+import AdminButton from "./AdminButton";
+import AuthButton from "./AuthButton";
+import NavButton from "./NavButton";
+import PostSearch from "./PostSearch";
+import { useBreakpoints } from "../hooks";
 import styles from "../styles/NavBar.module.css";
-import { AdminButton, AuthButton, NavButton } from "./Buttons";
-import Search from "./Search";
-import useBreakpoints from "../hooks/useBreakpoints";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
@@ -95,7 +97,7 @@ const NavBar = () => {
             <NavButton to="newPost" left size={lg && "lg"} className="mx-4" />
           </Col>
           <Col>
-            <Search />
+            <PostSearch />
           </Col>
         </Row>
       </Container>
