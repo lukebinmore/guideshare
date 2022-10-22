@@ -8,6 +8,7 @@ import { AdminButton } from "../../components/Buttons";
 import FormInput from "../../components/FormInput";
 import { collectFormData, fetchCategories } from "../../utils/utils";
 import useBreakpoints from "../../hooks/useBreakpoints";
+import styles from "../../styles/NewPostForm.module.css";
 
 const NewPostForm = () => {
   const { md } = useBreakpoints();
@@ -48,7 +49,9 @@ const NewPostForm = () => {
             type="file"
             errorData={errors?.cover_image}
             setPreview={setCoverImage}>
-            {cover_image && <Card.Img src={cover_image} />}
+            {cover_image && (
+              <Card.Img src={cover_image} className={styles.CoverImage} />
+            )}
             <Form.Label className="btn btn-primary m-0 w-100">
               <IconText
                 text={cover_image ? "Change Image" : "Upload a Cover Image"}
