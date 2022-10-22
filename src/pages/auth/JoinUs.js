@@ -2,8 +2,8 @@ import React from "react";
 import { Modal } from "react-bootstrap";
 import { useAuthModal, useSetAuthModal } from "../../contexts/authModalContext";
 import logoEmblem from "../../assets/logo-emblem.png";
-import { AuthButton } from "../../components/Buttons";
-import useBreakpoints from "../../hooks/useBreakpoints";
+import { AuthButton } from "../../components";
+import { useBreakpoints } from "../../hooks";
 
 const JoinUs = ({ expired }) => {
   const authModal = useAuthModal();

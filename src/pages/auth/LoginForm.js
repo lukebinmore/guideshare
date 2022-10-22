@@ -2,14 +2,11 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import { useNavigate } from "react-router";
-import useBreakpoints from "../../hooks/useBreakpoints";
-import IconText from "../../components/IconText";
-import FormError from "../../components/FormError";
-import FormInput from "../../components/FormInput";
+import { useBreakpoints } from "../../hooks";
+import { IconText, FormInput, FormError, AuthButton } from "../../components/";
 import { useAuthModal, useSetAuthModal } from "../../contexts/authModalContext";
 import { useSetCurrentUser } from "../../contexts/currentUserContext";
 import { collectFormData, setTokenTimestamp } from "../../utils/utils";
-import { AuthButton } from "../../components/Buttons";
 
 const LoginForm = () => {
   const authModal = useAuthModal();

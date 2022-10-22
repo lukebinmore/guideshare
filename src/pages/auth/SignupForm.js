@@ -1,14 +1,11 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
-import IconText from "../../components/IconText";
-import FormError from "../../components/FormError";
-import FormInput from "../../components/FormInput";
+import { IconText, FormError, FormInput, AuthButton } from "../../components";
 import { useAuthModal, useSetAuthModal } from "../../contexts/authModalContext";
 import { useSetCurrentUser } from "../../contexts/currentUserContext";
 import { collectFormData } from "../../utils/utils";
-import { AuthButton } from "../../components/Buttons";
-import useBreakpoints from "../../hooks/useBreakpoints";
+import { useBreakpoints } from "../../hooks";
 
 const SignupForm = () => {
   const authModal = useAuthModal();
