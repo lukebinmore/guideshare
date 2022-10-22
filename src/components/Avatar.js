@@ -4,7 +4,7 @@ import profilePlaceholder from "../assets/profile-placeholder.png";
 import changePicture from "../assets/change-picture.png";
 import styles from "../styles/Avatar.module.css";
 
-const Avatar = ({ src = profilePlaceholder, change, forwardRef }) => {
+const Avatar = ({ src = profilePlaceholder, change }) => {
   const [showChange, setShowChange] = useState(false);
 
   return (
