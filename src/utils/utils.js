@@ -51,3 +51,6 @@ export const fetchCategories = async (setCategories) => {
     console.log(err);
   }
 };
+
+export const DropdownParent = ({ dropdown, wrapper, children }) =>
+  dropdown ? wrapper(children) : children;
