@@ -5,7 +5,7 @@ import {
   useSetSearchFilterSort,
 } from "../contexts/searchFilterSortContext";
 import IconText from "./IconText";
-import useBreakpoints from "../hooks/useBreakpoints";
+import { useBreakpoints } from "../hooks";
 import styles from "../styles/PostsSort.module.css";
 
 const sortValues = [
