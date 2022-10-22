@@ -5,13 +5,13 @@ import IconText from "./IconText";
 
 const FormInput = (props) => {
   const {
-    initialValue,
-    name,
-    placeholder,
     className,
     type,
-    children,
+    initialData,
     setPreview,
+    name,
+    label,
+    children,
     variant,
     size,
     as,
@@ -21,67 +21,86 @@ const FormInput = (props) => {
     hr,
   } = props;
 
-  const [value, setValue] = useState(initialValue);
-  const [check, setCheck] = useState(initialValue ? initialValue : false);
+  const [value, setValue] = useState(initialData);
+  const [check, setCheck] = useState(initialData ? initialData : false);
+
+  const handleFileChange = (event) => {
+    setPreview(
+      event.target.files[0]
+        ? URL.createObjectURL(event.target.files[0])
+        : initialData
+    );
+  };
+
+  const fileInput = (
+    <>
+      <Form.Control
+        type="file"
+        name={name}
+        accept="image/*"
+        defaultValue={initialData}
+        className="d-none"
+        onChange={handleFileChange}
+      />
+
+      {children}
+    </>
+  );
+
+  const selectInput = (
+    <Form.Select
+      className="text-center"
+      name={name}
+      value={value}
+      onChange={(event) => setValue(event.target.value)}>
+      {children}
+    </Form.Select>
+  );
+
+  const checkInput = (
+    <>
+      <Button
+        variant={variant}
+        size={size}
+        className="d-block mx-auto"
+        onClick={() => setCheck(!check)}>
+        <IconText
+          text={label}
+          icon={check ? "square-check" : "square"}
+          left
+          right
+        />
+      </Button>
+      <Form.Check name={name} value={check} className="d-none" />
+    </>
+  );
+
+  const textInput = (
+    <Form.Control
+      as={as}
+      rows={rows}
+      type={type}
+      placeholder={label}
+      name={name}
+      defaultValue={value}
+      onChange={(event) => setValue(event.target.value)}
+      className="text-center"
+    />
+  );
 
   return (
     <Form.Group className={className} controlId={name}>
-      <Form.Label className="d-none">{placeholder}</Form.Label>
-      {type === "select" ? (
-        <Form.Select
-          className="text-center"
-          name={name}
-          value={value}
-          onChange={() => setValue()}>
-          {children}
-        </Form.Select>
-      ) : type === "file" ? (
-        <>
-          <Form.Control
-            type="file"
-            name={name}
-            accept="image/*"
-            onChange={(event) =>
-              setPreview(
-                event.target.files[0] &&
-                  URL.createObjectURL(event.target.files[0])
-              )
-            }
-            className="d-none"
-          />
-          {children}
-        </>
-      ) : type === "check" ? (
-        <>
-          <Button
-            variant={variant}
-            size={size}
-            className="d-block mx-auto"
-            onClick={() => setCheck(!check)}>
-            <IconText
-              text={placeholder}
-              icon={check ? "square-check" : "square"}
-              left
-              right
-            />
-          </Button>
-          <Form.Check name={name} value={check} className="d-none" />
-        </>
-      ) : (
-        <Form.Control
-          as={as}
-          rows={rows}
-          type={type}
-          placeholder={placeholder}
-          name={name}
-          value={value}
-          onChange={() => setValue()}
-          className="text-center"
-        />
-      )}
+      <Form.Label className="d-none">{label}</Form.Label>
+
+      {type === "file"
+        ? fileInput
+        : type === "select"
+        ? selectInput
+        : type === "check"
+        ? checkInput
+        : textInput}
 
       <FormError data={errorData} text={text} />
-
       {hr && <hr />}
     </Form.Group>
   );
