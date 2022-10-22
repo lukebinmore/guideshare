@@ -1,9 +1,11 @@
 import React from "react";
-import { Button, Dropdown } from "react-bootstrap";
+import { Button, Dropdown, Form } from "react-bootstrap";
 import { useNavigate, NavLink } from "react-router-dom";
 import { useSetAuthModal } from "../contexts/authModalContext";
 import { useCurrentUser } from "../contexts/currentUserContext";
+import Avatar from "./Avatar";
 import IconText from "./IconText";
+import styles from "../styles/Buttons.module.css";
 
 const DropperParent = ({ dropdown, wrapper, children }) =>
   dropdown ? wrapper(children) : children;
@@ -94,6 +96,32 @@ export const NavButton = (props) => {
       {hr && !dropdown && <hr />}
       {hr && dropdown && <Dropdown.Divider />}
     </>
+  );
+};
+
+export const ProfileButton = (props) => {
+  const { profile_id, src, username, small } = props;
+
+  const navigate = useNavigate();
+
+  return (
+    <Form.Group>
+      <Button
+        id={`profile-${profile_id}`}
+        className={`rounded-circle p-0 border-0 ${
+          small ? styles.ProfileSmall : styles.Profile
+        }`}
+        onClick={() => navigate(`/profiles/${profile_id}`)}>
+        <Avatar src={src} />
+      </Button>
+      <Form.Label
+        htmlFor={`profile-${profile_id}`}
+        className={`btn btn-outline-primary mb-0 ${
+          small ? "ms-1" : "d-block my-1"
+        }`}>
+        {username}
+      </Form.Label>
+    </Form.Group>
   );
 };
 
