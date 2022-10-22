@@ -4,7 +4,7 @@ import { Container } from "react-bootstrap";
 import AuthModal from "./pages/auth/AuthModal";
 import NavBar from "./components/NavBar";
 import ContactForm from "./pages/contact/ContactForm";
-import NewPostForm from "./pages/posts/NewPostForm";
+import PostCreateEditForm from "./pages/posts/PostCreateEditForm";
 import PostsPage from "./pages/posts/PostsPage";
 import { useCurrentUser } from "./contexts/currentUserContext";
 import PostPage from "./pages/posts/PostPage";
@@ -38,9 +38,9 @@ function App() {
               />
             }
           />
-          <Route path="/new-post" element={<NewPostForm />} />
+          <Route path="/new-post" element={<PostCreateEditForm />} />
           <Route path="/posts/:id" element={<PostPage />} />
-          <Route path="/posts/edit/:id" element={<PostPage edit />} />
+          <Route path="/posts/edit/:id" element={<PostCreateEditForm edit />} />
           <Route path="/profile/:id" element={<h1>Profile Page</h1>} />
           <Route path="/contact-us" element={<ContactForm />} />
           <Route path="*" element={<h1>Page Not Found</h1>} />
