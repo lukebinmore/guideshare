@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Card, Col, Row } from "react-bootstrap";
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
-import { ProfileButton } from "../../components/Buttons";
+import { AdminButton, ProfileButton } from "../../components/Buttons";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import useBreakpoints from "../../hooks/useBreakpoints";
 import styles from "../../styles/PostPage.module.css";
@@ -58,6 +58,14 @@ const PostPage = () => {
           </Card.Header>
 
           <Card.Body className="p-2">
+            <AdminButton
+              href={`posts/post/${id}/change/`}
+              text="Open Post in Admin Panel"
+              left
+              right
+              hr
+            />
+
             <Row xs={1} sm={2} className="my-2">
               <Col className="d-flex align-items-center">
                 <ProfileButton
