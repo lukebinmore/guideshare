@@ -59,7 +59,7 @@ const PostsPage = (props) => {
                 <hr />
               </div>
               <InfiniteScroller
-                className="overflow-visible"
+                className="overflow-visible d-flex flex-wrap justify-content-center"
                 dataLength={posts.results.length}
                 loader={<LoadingSpinner />}
                 hasMore={!!posts.next}
