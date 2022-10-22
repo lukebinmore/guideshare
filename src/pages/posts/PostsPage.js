@@ -3,13 +3,15 @@ import { axiosReq } from "../../api/axiosDefaults";
 import PostBlurb from "./PostBlurb";
 import { useLocation } from "react-router";
 import { fetchMoreData } from "../../utils/utils";
-import { InputGroup, Spinner } from "react-bootstrap";
+import { InputGroup } from "react-bootstrap";
 import InfiniteScroller from "react-infinite-scroll-component";
 import { useSearchFilterSort } from "../../contexts/searchFilterSortContext";
-import PostsSort from "../../components/PostsSort";
-import PostResultsCount from "../../components/PostResultsCount";
-import Filters from "../../components/Filters";
-import LoadingSpinner from "../../components/LoadingSpinner";
+import {
+  LoadingSpinner,
+  PostFilters,
+  PostSort,
+  PostResultsCount,
+} from "../../components";
 
 const PostsPage = (props) => {
   const { pageFilter = "" } = props;
@@ -52,9 +54,9 @@ const PostsPage = (props) => {
             <>
               <div className="mx-2 mb-2 px-1">
                 <InputGroup>
-                  <Filters category />
+                  <PostFilters category />
                   <PostResultsCount results={posts.count} />
-                  <PostsSort />
+                  <PostSort />
                 </InputGroup>
                 <hr />
               </div>
@@ -74,10 +76,7 @@ const PostsPage = (props) => {
           )}
         </>
       ) : (
-        <>
-          <h1>Loading</h1>
-          <Spinner animation="border" />
-        </>
+        <LoadingSpinner />
       )}
     </>
   );

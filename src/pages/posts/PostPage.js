@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Card, Col, Row } from "react-bootstrap";
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
-import { AdminButton, ProfileButton } from "../../components/Buttons";
-import LoadingSpinner from "../../components/LoadingSpinner";
-import useBreakpoints from "../../hooks/useBreakpoints";
+import { LoadingSpinner, AdminButton, ProfileButton } from "../../components";
+import { useBreakpoints } from "../../hooks";
 import styles from "../../styles/PostPage.module.css";
 
 const PostPage = () => {

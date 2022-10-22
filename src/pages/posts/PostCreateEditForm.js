@@ -2,14 +2,16 @@ import React, { useEffect, useState } from "react";
 import { Button, Card, Form } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
-import IconText from "../../components/IconText";
-import FormError from "../../components/FormError";
-import { AdminButton } from "../../components/Buttons";
-import FormInput from "../../components/FormInput";
+import {
+  IconText,
+  LoadingSpinner,
+  FormError,
+  FormInput,
+  AdminButton,
+} from "../../components";
 import { collectFormData, fetchCategories } from "../../utils/utils";
-import useBreakpoints from "../../hooks/useBreakpoints";
+import { useBreakpoints } from "../../hooks";
 import styles from "../../styles/PostCreateEditForm.module.css";
-import LoadingSpinner from "../../components/LoadingSpinner";
 
 const PostCreateEditForm = ({ edit }) => {
   const { id } = useParams();
