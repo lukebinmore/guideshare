@@ -7,9 +7,9 @@ import {
 } from "../contexts/searchFilterSortContext";
 import { fetchCategories } from "../utils/utils";
 import IconText from "./IconText";
-import useBreakpoints from "../hooks/useBreakpoints";
+import { useBreakpoints } from "../hooks";
 
-const Filters = (props) => {
+const PostFilters = (props) => {
   const { category } = props;
 
   const { filters } = useSearchFilterSort();
@@ -80,4 +80,4 @@ const Filters = (props) => {
   );
 };
 
-export default Filters;
+export default PostFilters;
