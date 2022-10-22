@@ -9,6 +9,7 @@ const FormInput = (props) => {
     type,
     initialData,
     setPreview,
+    readOnly,
     name,
     label,
     children,
@@ -83,6 +84,8 @@ const FormInput = (props) => {
       placeholder={label}
       name={name}
       defaultValue={value}
+      plaintext={readOnly}
+      disabled={readOnly}
       onChange={(event) => setValue(event.target.value)}
       className="text-center"
     />
