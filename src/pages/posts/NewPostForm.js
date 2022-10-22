@@ -32,7 +32,7 @@ const NewPostForm = () => {
 
     try {
       const { data } = await axiosReq.post(`posts/create/`, formData);
-      navigate(`posts/${data.id}`);
+      navigate(`/posts/${data.id}`);
     } catch (err) {
       setErrors(err.response?.data);
     }
@@ -43,7 +43,7 @@ const NewPostForm = () => {
       <Form className="card" onSubmit={handleSubmit}>
         <Card.Header className="p-0">
           <FormInput
-            placeholder="Cover Image"
+            label="Cover Image"
             name="cover_image"
             type="file"
             errorData={errors?.cover_image}
@@ -62,7 +62,7 @@ const NewPostForm = () => {
 
         <Card.Body>
           <FormInput
-            placeholder="Title"
+            label="Title"
             name="title"
             errorData={errors?.title}
             text="*Please enter a title for your post."
@@ -78,7 +78,7 @@ const NewPostForm = () => {
           />
 
           <FormInput
-            placeholder="Category"
+            label="Category"
             name="category"
             type="select"
             errorData={errors?.category}
@@ -93,7 +93,7 @@ const NewPostForm = () => {
           </FormInput>
 
           <FormInput
-            placeholder="Your Guide"
+            label="Your Guide"
             name="content"
             as="textarea"
             rows={14}
@@ -103,7 +103,7 @@ const NewPostForm = () => {
           />
 
           <FormInput
-            placeholder="Work In Progress"
+            label="Work In Progress"
             name="wip"
             type="check"
             errrorData={errors?.wip}

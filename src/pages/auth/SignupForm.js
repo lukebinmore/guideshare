@@ -41,7 +41,7 @@ const SignupForm = () => {
 
         <Modal.Body>
           <FormInput
-            placeholder="Username"
+            label="Username"
             name="username"
             errorData={errors?.username}
             text="*Enter your desired username."
@@ -49,7 +49,7 @@ const SignupForm = () => {
           />
 
           <FormInput
-            placeholder="Password"
+            label="Password"
             type="password"
             name="password1"
             errorData={errors?.password1}
@@ -66,7 +66,7 @@ const SignupForm = () => {
           <hr />
 
           <FormInput
-            placeholder="Confirm Password"
+            label="Confirm Password"
             type="password"
             name="password2"
             errorData={errors?.password2}

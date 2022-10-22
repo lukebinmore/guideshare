@@ -45,7 +45,7 @@ const LoginForm = () => {
 
         <Modal.Body>
           <FormInput
-            placeholder="Username"
+            label="Username"
             name="username"
             errorData={errors?.username}
             text="*Enter your username."
@@ -53,7 +53,7 @@ const LoginForm = () => {
           />
 
           <FormInput
-            placeholder="Password"
+            label="Password"
             type="password"
             name="password"
             errorData={errors?.password}

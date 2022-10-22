@@ -70,7 +70,7 @@ const ContactForm = () => {
 
             <Card.Body>
               <FormInput
-                placeholder="Title"
+                label="Title"
                 name="title"
                 errorData={errors?.title}
                 text="*Please enter a title for your message"
@@ -80,7 +80,7 @@ const ContactForm = () => {
               <Row>
                 <Col md>
                   <FormInput
-                    placeholder="First Name"
+                    label="First Name"
                     name="first_name"
                     errorData={errors?.first_name}
                     text="(OPTIONAL) Please enter your first name."
@@ -90,7 +90,7 @@ const ContactForm = () => {
 
                 <Col md>
                   <FormInput
-                    placeholder="Last Name"
+                    label="Last Name"
                     name="last_name"
                     errorData={errors?.last_name}
                     text="(OPTIONAL) Please enter your last name."
@@ -102,18 +102,18 @@ const ContactForm = () => {
               <Row>
                 <Col md>
                   <FormInput
-                    placeholder="Username"
+                    label="Username"
                     name="username"
                     errorData={errors?.username}
                     text="(OPTIONAL) Please enter your username."
-                    initialValue={currentUser?.username}
+                    initialData={currentUser?.username}
                     hr
                   />
                 </Col>
 
                 <Col md>
                   <FormInput
-                    placeholder="Email"
+                    label="Email"
                     name="email"
                     type="email"
                     errorData={errors?.email}
@@ -124,7 +124,7 @@ const ContactForm = () => {
               </Row>
 
               <FormInput
-                placeholder="Reason For Contact"
+                label="Reason For Contact"
                 type="select"
                 name="reason"
                 errorData={errors?.reason}
@@ -138,7 +138,7 @@ const ContactForm = () => {
               </FormInput>
 
               <FormInput
-                placeholder="Your Message"
+                label="Your Message"
                 as="textarea"
                 rows={5}
                 name="content"

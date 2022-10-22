@@ -52,7 +52,7 @@ const SignupProfileForm = () => {
 
         <Modal.Body>
           <FormInput
-            placeholder="Profile Picture"
+            label="Profile Picture"
             type="file"
             name="picture"
             errorData={errors?.picture}
@@ -62,21 +62,21 @@ const SignupProfileForm = () => {
             <Avatar change src={picture} />
           </FormInput>
           <FormInput
-            placeholder="First Name"
+            label="First Name"
             name="first_name"
             errorData={errors?.first_name}
             text="(OPTIONAL) Enter your first name."
             hr
           />
           <FormInput
-            placeholder="Last Name"
+            label="Last Name"
             name="last_name"
             errorData={errors?.last_name}
             text="(OPTIONAL) Enter your last name."
             hr
           />
           <FormInput
-            placeholder="Date Of Birth"
+            label="Date Of Birth"
             name="dob"
             errorData={errors?.dob}
             text="(OPTIONAL) Enter your date of birth."

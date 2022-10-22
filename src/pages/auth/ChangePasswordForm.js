@@ -38,7 +38,7 @@ const ChangePasswordForm = () => {
 
         <Modal.Body>
           <FormInput
-            placeholder="Old Password"
+            label="Old Password"
             type="password"
             name="old_password"
             errorData={errors?.old_password}
@@ -47,7 +47,7 @@ const ChangePasswordForm = () => {
           />
 
           <FormInput
-            placeholder="New Password"
+            label="New Password"
             type="password"
             name="new_password1"
             errorData={errors?.new_password1}
@@ -64,7 +64,7 @@ const ChangePasswordForm = () => {
           <hr />
 
           <FormInput
-            placeholder="Confirm New Password"
+            label="Confirm New Password"
             type="password"
             name="new_password2"
             errorData={errors?.new_password2}
