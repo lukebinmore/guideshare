@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Dropdown } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { useSetAuthModal } from "../contexts/authModalContext";
+import { useSetAuthModal } from "../contexts/AuthModalContext";
 import IconText from "./IconText";
 import { DropdownParent } from "../utils/utils";
 

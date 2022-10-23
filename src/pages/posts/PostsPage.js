@@ -5,7 +5,7 @@ import { useLocation } from "react-router";
 import { fetchMoreData } from "../../utils/utils";
 import { InputGroup } from "react-bootstrap";
 import InfiniteScroller from "react-infinite-scroll-component";
-import { useSearchFilterSort } from "../../contexts/searchFilterSortContext";
+import { useSearchFilterSort } from "../../contexts/SearchFilterSortContext";
 import {
   LoadingSpinner,
   PostFilters,

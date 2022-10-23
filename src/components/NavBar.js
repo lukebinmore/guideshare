@@ -1,7 +1,7 @@
 import React from "react";
 import { Col, Container, Dropdown, Form, Image, Row } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-import { useCurrentUser } from "../contexts/currentUserContext";
+import { useCurrentUser } from "../contexts/CurrentUserContext";
 import Avatar from "./Avatar";
 import logo from "../assets/logo.png";
 import AdminButton from "./AdminButton";

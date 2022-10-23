@@ -4,8 +4,8 @@ import { Button, Form, Modal } from "react-bootstrap";
 import { useNavigate } from "react-router";
 import { useBreakpoints } from "../../hooks";
 import { IconText, FormInput, FormError, AuthButton } from "../../components/";
-import { useAuthModal, useSetAuthModal } from "../../contexts/authModalContext";
-import { useSetCurrentUser } from "../../contexts/currentUserContext";
+import { useAuthModal, useSetAuthModal } from "../../contexts/AuthModalContext";
+import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import { collectFormData, setTokenTimestamp } from "../../utils/utils";
 
 const LoginForm = () => {

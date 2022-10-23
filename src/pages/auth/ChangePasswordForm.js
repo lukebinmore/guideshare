@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import { IconText, FormError, FormInput, AuthButton } from "../../components";
 import { collectFormData } from "../../utils/utils";
-import { useAuthModal, useSetAuthModal } from "../../contexts/authModalContext";
+import { useAuthModal, useSetAuthModal } from "../../contexts/AuthModalContext";
 import { useBreakpoints } from "../../hooks";
 
 const ChangePasswordForm = () => {

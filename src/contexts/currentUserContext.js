@@ -3,7 +3,7 @@ import { axiosReq, axiosRes } from "../api/axiosDefaults";
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router";
 import { removeTokenTimestamp, shouldRefreshToken } from "../utils/utils";
-import { useSetAuthModal } from "./authModalContext";
+import { useSetAuthModal } from "./AuthModalContext";
 
 export const CurrentUserContext = createContext();
 export const SetCurrentUserContext = createContext();

@@ -3,7 +3,7 @@ import { Button, Card, Dropdown, Form, InputGroup } from "react-bootstrap";
 import {
   useSearchFilterSort,
   useSetSearchFilterSort,
-} from "../contexts/searchFilterSortContext";
+} from "../contexts/SearchFilterSortContext";
 import NavButton from "./NavButton";
 import { useBreakpoints } from "../hooks";
 import LoadingSpinner from "./LoadingSpinner";

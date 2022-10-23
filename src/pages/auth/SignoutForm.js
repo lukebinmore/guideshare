@@ -4,8 +4,8 @@ import { Button, Form, Modal } from "react-bootstrap";
 import { useNavigate } from "react-router";
 import { useBreakpoints } from "../../hooks";
 import { IconText, AuthButton } from "../../components";
-import { useAuthModal, useSetAuthModal } from "../../contexts/authModalContext";
-import { useSetCurrentUser } from "../../contexts/currentUserContext";
+import { useAuthModal, useSetAuthModal } from "../../contexts/AuthModalContext";
+import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import { removeTokenTimestamp } from "../../utils/utils";
 
 const SignoutForm = () => {

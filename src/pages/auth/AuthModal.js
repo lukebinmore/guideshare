@@ -1,5 +1,5 @@
 import React from "react";
-import { useAuthModal } from "../../contexts/authModalContext";
+import { useAuthModal } from "../../contexts/AuthModalContext";
 import ChangePasswordForm from "./ChangePasswordForm";
 import JoinUs from "./JoinUs";
 import LoginForm from "./LoginForm";

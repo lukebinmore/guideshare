@@ -9,7 +9,7 @@ import {
   AdminButton,
   NavButton,
 } from "../../components";
-import { useCurrentUser } from "../../contexts/currentUserContext";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { collectFormData } from "../../utils/utils";
 import { useBreakpoints } from "../../hooks";
 

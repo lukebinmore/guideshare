@@ -4,7 +4,7 @@ import { useLocation } from "react-router";
 import {
   useSearchFilterSort,
   useSetSearchFilterSort,
-} from "../contexts/searchFilterSortContext";
+} from "../contexts/SearchFilterSortContext";
 import { fetchCategories } from "../utils/utils";
 import IconText from "./IconText";
 import { useBreakpoints } from "../hooks";

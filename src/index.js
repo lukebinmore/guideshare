@@ -5,9 +5,9 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
-import { CurrentUserProvider } from "./contexts/currentUserContext";
-import { AuthModalProvider } from "./contexts/authModalContext";
-import { SearchFilterSortProvider } from "./contexts/searchFilterSortContext";
+import { CurrentUserProvider } from "./contexts/CurrentUserContext";
+import { AuthModalProvider } from "./contexts/AuthModalContext";
+import { SearchFilterSortProvider } from "./contexts/SearchFilterSortContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

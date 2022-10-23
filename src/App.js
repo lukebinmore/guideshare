@@ -6,7 +6,7 @@ import NavBar from "./components/NavBar";
 import ContactForm from "./pages/contact/ContactForm";
 import PostCreateEditForm from "./pages/posts/PostCreateEditForm";
 import PostsPage from "./pages/posts/PostsPage";
-import { useCurrentUser } from "./contexts/currentUserContext";
+import { useCurrentUser } from "./contexts/CurrentUserContext";
 import PostPage from "./pages/posts/PostPage";
 
 function App() {

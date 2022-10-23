@@ -3,7 +3,7 @@ import { Col, Dropdown, Form, Row } from "react-bootstrap";
 import {
   useSearchFilterSort,
   useSetSearchFilterSort,
-} from "../contexts/searchFilterSortContext";
+} from "../contexts/SearchFilterSortContext";
 import IconText from "./IconText";
 import { useBreakpoints } from "../hooks";
 import styles from "../styles/PostsSort.module.css";

@@ -1,6 +1,6 @@
 import React from "react";
 import { Modal } from "react-bootstrap";
-import { useAuthModal, useSetAuthModal } from "../../contexts/authModalContext";
+import { useAuthModal, useSetAuthModal } from "../../contexts/AuthModalContext";
 import logoEmblem from "../../assets/logo-emblem.png";
 import { AuthButton } from "../../components";
 import { useBreakpoints } from "../../hooks";

@@ -9,8 +9,8 @@ import {
   FormInput,
   AuthButton,
 } from "../../components";
-import { useAuthModal, useSetAuthModal } from "../../contexts/authModalContext";
-import { useCurrentUser } from "../../contexts/currentUserContext";
+import { useAuthModal, useSetAuthModal } from "../../contexts/AuthModalContext";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { collectFormData } from "../../utils/utils";
 import { useBreakpoints } from "../../hooks";
 

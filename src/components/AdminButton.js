@@ -1,6 +1,6 @@
 import React from "react";
 import { Dropdown } from "react-bootstrap";
-import { useCurrentUser } from "../contexts/currentUserContext";
+import { useCurrentUser } from "../contexts/CurrentUserContext";
 import IconText from "./IconText";
 import { DropdownParent } from "../utils/utils";
 
