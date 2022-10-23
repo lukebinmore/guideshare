@@ -2,7 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Card, Col, Row } from "react-bootstrap";
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
-import { LoadingSpinner, AdminButton, ProfileButton } from "../../components";
+import {
+  LoadingSpinner,
+  AdminButton,
+  ProfileButton,
+  VoteFooter,
+} from "../../components";
 import { useBreakpoints } from "../../hooks";
 import styles from "../../styles/PostPage.module.css";
 
@@ -88,7 +93,14 @@ const PostPage = () => {
             <p>{content}</p>
           </Card.Body>
 
-          <Card.Footer></Card.Footer>
+          <VoteFooter
+            post_id={id}
+            like_id={like_id}
+            likes_count={likes_count}
+            dislike_id={dislike_id}
+            dislikes_count={dislikes_count}
+            comments_count={comments_count}
+          />
         </Card>
       ) : (
         <LoadingSpinner />
