@@ -80,6 +80,7 @@ const NavBar = () => {
             <Dropdown className="d-inline-block border-0">
               <Dropdown.Toggle
                 id="account-toggle"
+                variant="outline-primary"
                 className={`rounded-circle p-0 ${styles.Profile}`}>
                 <Avatar src={currentUser?.profile_picture} />
               </Dropdown.Toggle>

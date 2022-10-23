@@ -13,6 +13,7 @@ const ProfileButton = (props) => {
     <Form.Group>
       <Button
         id={`profile-${profile_id}`}
+        variant="outline-primary"
         className={`rounded-circle p-0 border-0 ${
           small ? styles.ProfileSmall : styles.Profile
         }`}
