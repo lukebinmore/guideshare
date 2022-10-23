@@ -97,7 +97,7 @@ const PostSearch = () => {
                         as="div"
                         key={post.id}
                         className={`mb-2 text-center ${styles.QuickSearchItem}`}>
-                        <NavLink to={`/post/${post.id}`}>
+                        <NavLink to={`/posts/${post.id}`}>
                           <Card>
                             <Card.Header>
                               <h4>{post.title}</h4>
