@@ -157,3 +157,7 @@ a:hover {
 .dropdown-toggle::after {
   content: none;
 }
+
+.spinner-border {
+  color: var(--secondary);
+}

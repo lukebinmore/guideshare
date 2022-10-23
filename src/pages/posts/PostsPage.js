@@ -14,7 +14,7 @@ import {
 } from "../../components";
 
 const PostsPage = (props) => {
-  const { pageFilter = "" } = props;
+  const { pageFilter = "", message } = props;
   const { pathname } = useLocation();
   const { query, filters, sort } = useSearchFilterSort();
 
@@ -72,7 +72,10 @@ const PostsPage = (props) => {
               </InfiniteScroller>
             </>
           ) : (
-            <h1>No Results</h1>
+            <>
+              <h1>No Results</h1>
+              <p>{message}</p>
+            </>
           )}
         </>
       ) : (
