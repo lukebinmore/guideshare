@@ -12,3 +12,4 @@ export { default as PostResultsCount } from "./PostResultsCount";
 export { default as PostSearch } from "./PostSearch";
 export { default as PostSort } from "./PostSort";
 export { default as ProfileButton } from "./ProfileButton";
+export { default as VoteFooter } from "./VoteFooter";

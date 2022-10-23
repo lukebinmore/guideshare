@@ -37,7 +37,7 @@ const VoteFooter = (props) => {
 
     try {
       if (voteData[voteName]) {
-        await axiosReq.delete(`/vote/${voteData[voteName]}`);
+        await axiosReq.delete(`/votes/${voteData[voteName]}`);
         setVoteData((prevData) => ({
           ...prevData,
           [voteName]: null,
