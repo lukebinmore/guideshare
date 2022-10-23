@@ -8,13 +8,15 @@ import {
   ProfileButton,
   VoteFooter,
   EditDeleteDropdown,
+  SavePostButton,
+  FollowProfileButton,
 } from "../../components";
 import { useBreakpoints } from "../../hooks";
 import styles from "../../styles/PostPage.module.css";
 
 const PostPage = () => {
   const { id } = useParams();
-  const { sm } = useBreakpoints();
+  const { sm, md } = useBreakpoints();
 
   const [hasLoaded, setHasLoaded] = useState(false);
   const [post, setPost] = useState({});
@@ -60,11 +62,17 @@ const PostPage = () => {
             <Card.Img src={cover_image} className={styles.CoverImage} />
           </Card.Header>
 
-          <Card.Header className="d-flex justify-content-center align-items-center">
+          <Card.Header className="d-flex justify-content-between align-items-center p-2">
+            <div className={`text-end ${md && styles.HeaderButton}`}>
+              {!is_owner && <FollowProfileButton id={id} />}
+            </div>
             <h3 className="mx-2">
               {wip && "(WIP) "}
               {title}
             </h3>
+            <div className={`text-end ${md && styles.HeaderButton}`}>
+              <SavePostButton id={id} />
+            </div>
           </Card.Header>
 
           <Card.Body className="p-2">
