@@ -6,6 +6,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { CurrentUserProvider } from "./contexts/CurrentUserContext";
+import { SavedFollowedProvider } from "./contexts/SavedFollowedContext";
 import { AuthModalProvider } from "./contexts/AuthModalContext";
 import { SearchFilterSortProvider } from "./contexts/SearchFilterSortContext";
 
@@ -14,11 +15,13 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <CurrentUserProvider>
-        <AuthModalProvider>
-          <SearchFilterSortProvider>
-            <App />
-          </SearchFilterSortProvider>
-        </AuthModalProvider>
+        <SavedFollowedProvider>
+          <AuthModalProvider>
+            <SearchFilterSortProvider>
+              <App />
+            </SearchFilterSortProvider>
+          </AuthModalProvider>
+        </SavedFollowedProvider>
       </CurrentUserProvider>
     </BrowserRouter>
   </React.StrictMode>
