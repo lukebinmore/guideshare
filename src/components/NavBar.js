@@ -19,7 +19,8 @@ const NavBar = () => {
     <>
       <NavButton to="home" left className="me-2" />
       <NavButton to="feed" left className="me-2" />
-      <NavButton to="saved" left />
+      <NavButton to="saved" left className="me-2" />
+      {currentUser && <NavButton to="wip" left />}
     </>
   );
 
@@ -33,6 +34,7 @@ const NavBar = () => {
           <NavButton to="home" dropdown left hr />
           <NavButton to="feed" dropdown left hr />
           <NavButton to="saved" dropdown left hr />
+          {currentUser && <NavButton to="wip" left dropdown hr />}
           <NavButton to="contactUs" dropdown left />
         </Dropdown.Menu>
       </Dropdown>

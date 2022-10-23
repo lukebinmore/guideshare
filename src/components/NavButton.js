@@ -14,6 +14,7 @@ const NavButton = (props) => {
     home: { location: "/", text: "Home", icon: "house" },
     feed: { location: "/feed", text: "Feed", icon: "rss" },
     saved: { location: "/saved", text: "Saved", icon: "bookmark" },
+    wip: { location: "/wip", text: "WIP Posts", icon: "list-check" },
     contactUs: {
       location: "/contact-us",
       text: "Contact Us",
