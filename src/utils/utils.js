@@ -54,3 +54,11 @@ export const fetchCategories = async (setCategories) => {
 
 export const DropdownParent = ({ dropdown, wrapper, children }) =>
   dropdown ? wrapper(children) : children;
+
+export const AddRemoveArrayItem = (target, data) => {
+  return data.includes(target)
+    ? data.filter((vals) => {
+        return vals !== target;
+      })
+    : [...data, target];
+};
