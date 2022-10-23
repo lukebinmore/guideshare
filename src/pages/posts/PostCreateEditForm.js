@@ -22,7 +22,7 @@ const PostCreateEditForm = ({ edit }) => {
   const [categories, setCategories] = useState([]);
   const [errors, setErrors] = useState();
   const [post, setPost] = useState({});
-  const { title, category, content, wip, is_owner } = post;
+  const { title, category, content, wip } = post;
   const [coverImage, setCoverImage] = useState();
 
   useEffect(() => {
