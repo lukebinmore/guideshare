@@ -26,6 +26,7 @@ const PostPage = () => {
     category_title,
     content,
     cover_image,
+    wip,
     updated_at,
     is_owner,
     likes_count,
@@ -60,7 +61,10 @@ const PostPage = () => {
           </Card.Header>
 
           <Card.Header className="d-flex justify-content-center align-items-center">
-            <h3 className="mx-2">{title}</h3>
+            <h3 className="mx-2">
+              {wip && "(WIP) "}
+              {title}
+            </h3>
           </Card.Header>
 
           <Card.Body className="p-2">

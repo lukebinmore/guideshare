@@ -10,6 +10,7 @@ const PostBlurb = (props) => {
     title,
     category_title,
     cover_image,
+    wip,
     likes_count,
     dislikes_count,
   } = props;
@@ -23,7 +24,10 @@ const PostBlurb = (props) => {
           </Card.Header>
 
           <Card.Body className="p-2">
-            <h5>{title}</h5>
+            <h5>
+              {wip && "(WIP) "}
+              {title}
+            </h5>
           </Card.Body>
 
           <Card.Footer className="px-4 py-2">
