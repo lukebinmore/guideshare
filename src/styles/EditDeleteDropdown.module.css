@@ -1,0 +1,9 @@
+.MenuButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.MenuOpacity {
+  opacity: 0.65;
+}

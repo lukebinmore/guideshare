@@ -7,6 +7,7 @@ import {
   AdminButton,
   ProfileButton,
   VoteFooter,
+  EditDeleteDropdown,
 } from "../../components";
 import { useBreakpoints } from "../../hooks";
 import styles from "../../styles/PostPage.module.css";
@@ -54,6 +55,7 @@ const PostPage = () => {
       {hasLoaded ? (
         <Card>
           <Card.Header>
+            {is_owner && <EditDeleteDropdown target="post" id={id} />}
             <Card.Img src={cover_image} className={styles.CoverImage} />
           </Card.Header>
 

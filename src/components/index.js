@@ -1,6 +1,7 @@
 export { default as AdminButton } from "./AdminButton";
 export { default as AuthButton } from "./AuthButton";
 export { default as Avatar } from "./Avatar";
+export { default as EditDeleteDropdown } from "./EditDeleteDropdown";
 export { default as FormError } from "./FormError";
 export { default as FormInput } from "./FormInput";
 export { default as IconText } from "./IconText";
