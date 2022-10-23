@@ -28,14 +28,14 @@ const PostBlurb = (props) => {
 
           <Card.Footer className="px-4 py-2">
             <Row>
-              <Col xs="auto" className={`p-0 ${styles.PostLikes}`}>
-                <IconText text={likes_count} icon="thumbs-up" left />
+              <Col xs="auto" className={`p-0 ${styles.PostDislikes}`}>
+                <IconText text={dislikes_count} icon="thumbs-down" left />
               </Col>
               <Col className="text-center px-1 py-0">
                 <h5>{category_title}</h5>
               </Col>
-              <Col xs="auto" className={`p-0 ${styles.PostDislikes}`}>
-                <IconText text={dislikes_count} icon="thumbs-down" right />
+              <Col xs="auto" className={`p-0 ${styles.PostLikes}`}>
+                <IconText text={likes_count} icon="thumbs-up" right />
               </Col>
             </Row>
           </Card.Footer>
