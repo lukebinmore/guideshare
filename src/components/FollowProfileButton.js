@@ -19,7 +19,7 @@ const FollowProfileButton = ({ id }) => {
   const [profileFollowed, setProfileFollowed] = useState(false);
 
   useEffect(() => {
-    setProfileFollowed(following.includes(parseInt(id)));
+    following && setProfileFollowed(following.includes(parseInt(id)));
   }, [following, id]);
 
   const handleClick = async () => {

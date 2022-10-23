@@ -19,7 +19,7 @@ const SavePostButton = ({ id }) => {
   const [postSaved, setPostSaved] = useState(false);
 
   useEffect(() => {
-    setPostSaved(saved_posts.includes(parseInt(id)));
+    saved_posts && setPostSaved(saved_posts.includes(parseInt(id)));
   }, [saved_posts, id]);
 
   const handleClick = async () => {
