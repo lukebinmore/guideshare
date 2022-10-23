@@ -24,7 +24,7 @@ function App() {
             path="/feed"
             element={
               <PostsPage
-                pageFilter={`owner__followers=${profile_id}`}
+                pageFilter={`owner__profile__followers=${profile_id}`}
                 message="No results, follow some people to see there guides!"
               />
             }
