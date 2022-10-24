@@ -4,6 +4,7 @@ import { axiosReq } from "../api/axiosDefaults";
 import ProfileButton from "./ProfileButton";
 import LoadingSpinner from "./LoadingSpinner";
 import IconText from "./IconText";
+import AdminButton from "./AdminButton";
 import { fetchMoreData } from "../utils/utils";
 import { useBreakpoints } from "../hooks";
 import styles from "../styles/PopularProfiles.module.css";
@@ -35,6 +36,13 @@ const PopularProfiles = () => {
           <Card.Header>
             <h4>Recommended Profiles:</h4>
           </Card.Header>
+
+          <AdminButton
+            text="User Profiles"
+            href="profiles/profile/"
+            left
+            right
+          />
 
           <div className={styles.Container}>
             {profiles.results.map((profile) => (
