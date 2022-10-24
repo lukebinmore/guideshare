@@ -63,7 +63,7 @@ const VoteFooter = (props) => {
         variant="secondary"
         className={dislike_id && styles.Clicked}
         onClick={handleClick}
-        size={md && "lg"}>
+        size={post_id && md && "lg"}>
         <IconText
           text={dislikes_count < 1000 ? dislikes_count : "999+"}
           icon="thumbs-down"
@@ -85,7 +85,7 @@ const VoteFooter = (props) => {
         name="like"
         className={like_id && styles.Clicked}
         onClick={handleClick}
-        size={md && "lg"}>
+        size={post_id && md && "lg"}>
         <IconText
           text={likes_count < 1000 ? likes_count : "999+"}
           icon="thumbs-up"
