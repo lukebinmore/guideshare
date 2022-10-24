@@ -1,29 +1,9 @@
 import React from "react";
 import { Button, Dropdown } from "react-bootstrap";
-import { useNavigate } from "react-router";
-import { axiosRes } from "../api/axiosDefaults";
 import styles from "../styles/EditDeleteDropdown.module.css";
 
 const EditDeleteDropdown = (props) => {
-  const { solid, target, id } = props;
-  const navigate = useNavigate();
-
-  const handleEdit = () => {
-    if (target === "post") {
-      navigate(`/posts/edit/${id}`);
-    }
-  };
-
-  const handleDelete = async () => {
-    if (target === "post") {
-      try {
-        await axiosRes.delete(`/posts/${id}`);
-        navigate("/");
-      } catch (err) {
-        console.log(err);
-      }
-    }
-  };
+  const { solid, handleEdit, handleDelete } = props;
 
   return (
     <Dropdown drop="down">
