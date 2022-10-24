@@ -15,10 +15,10 @@ const ProfileButton = (props) => {
         id={`profile-${profile_id}`}
         variant="outline-primary"
         className={`rounded-circle p-0 border-0 ${
-          small ? styles.ProfileSmall : styles.Profile
+          !small ? styles.Profile : src && styles.ProfileSmall
         }`}
         onClick={() => navigate(`/profiles/${profile_id}`)}>
-        <Avatar src={src} />
+        {src && <Avatar src={src} />}
       </Button>
       <Form.Label
         htmlFor={`profile-${profile_id}`}
