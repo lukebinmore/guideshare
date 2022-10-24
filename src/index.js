@@ -14,15 +14,15 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <CurrentUserProvider>
-        <SavedFollowedProvider>
-          <AuthModalProvider>
+      <AuthModalProvider>
+        <CurrentUserProvider>
+          <SavedFollowedProvider>
             <SearchFilterSortProvider>
               <App />
             </SearchFilterSortProvider>
-          </AuthModalProvider>
-        </SavedFollowedProvider>
-      </CurrentUserProvider>
+          </SavedFollowedProvider>
+        </CurrentUserProvider>
+      </AuthModalProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
