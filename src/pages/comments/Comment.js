@@ -7,6 +7,7 @@ import {
   VoteFooter,
 } from "../../components";
 import { useBreakpoints } from "../../hooks";
+import CommentCreateEditForm from "./CommentCreateEditForm";
 
 const Comment = (props) => {
   const [commentData, setCommentData] = useState(props);
@@ -25,6 +26,8 @@ const Comment = (props) => {
   } = commentData;
   const { md } = useBreakpoints();
 
+  const [edit, setEdit] = useState(false);
+
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/comments/${id}/`);
@@ -37,32 +40,47 @@ const Comment = (props) => {
   return (
     <>
       {commentData?.id && (
-        <Card className="mb-2">
-          <Card.Header className="d-flex justify-content-between align-items-center p-2">
-            <ProfileButton
-              profile_id={profile_id}
-              src={md && profile_picture}
-              username={owner}
-              small
+        <>
+          {edit ? (
+            <CommentCreateEditForm
+              id={id}
+              setState={setCommentData}
+              setEdit={setEdit}
+              initialData={content}
             />
-            <p className="m-0 text-muted">{created_at}</p>
-          </Card.Header>
+          ) : (
+            <Card className="mb-2">
+              <Card.Header className="d-flex justify-content-between align-items-center p-2">
+                <ProfileButton
+                  profile_id={profile_id}
+                  src={md && profile_picture}
+                  username={owner}
+                  small
+                />
+                <p className="m-0 text-muted">{created_at}</p>
+              </Card.Header>
 
-          <Card.Body className="d-flex justify-content-between align-items-center p-2">
-            <div className="text-start">{content}</div>
-            {is_owner && (
-              <EditDeleteDropdown solid handleDelete={handleDelete} />
-            )}
-          </Card.Body>
+              <Card.Body className="d-flex justify-content-between align-items-center p-2">
+                <div className="text-start">{content}</div>
+                {is_owner && (
+                  <EditDeleteDropdown
+                    solid
+                    handleEdit={() => setEdit(true)}
+                    handleDelete={handleDelete}
+                  />
+                )}
+              </Card.Body>
 
-          <VoteFooter
-            comment_id={id}
-            like_id={like_id}
-            likes_count={likes_count}
-            dislike_id={dislike_id}
-            dislikes_count={dislikes_count}
-          />
-        </Card>
+              <VoteFooter
+                comment_id={id}
+                like_id={like_id}
+                likes_count={likes_count}
+                dislike_id={dislike_id}
+                dislikes_count={dislikes_count}
+              />
+            </Card>
+          )}
+        </>
       )}
     </>
   );

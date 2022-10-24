@@ -6,7 +6,8 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import styles from "../../styles/CommentCreateEditForm.module.css";
 import { collectFormData } from "../../utils/utils";
 
-const CommentCreateEditForm = ({ id, setComments }) => {
+const CommentCreateEditForm = (props) => {
+  const { id, setState, setEdit, initialData } = props;
   const currentUser = useCurrentUser();
 
   const [errors, setErrors] = useState();
@@ -15,17 +16,22 @@ const CommentCreateEditForm = ({ id, setComments }) => {
     event.preventDefault();
 
     const formData = collectFormData(event);
-    formData.append("post", id);
+    initialData ? formData.append("id", id) : formData.append("post", id);
 
     try {
-      const { data } = await axiosReq.post(`comments/`, formData);
-      setComments((prevData) => ({
-        ...prevData,
-        results: [data, ...prevData.results],
-      }));
-      event.target.reset();
+      if (!initialData) {
+        const { data } = await axiosReq.post(`comments/`, formData);
+        setState((prevData) => ({
+          ...prevData,
+          results: [data, ...prevData.results],
+        }));
+        event.target.reset();
+      } else {
+        const { data } = await axiosReq.put(`comments/${id}/`, formData);
+        setState(data);
+        setEdit(false);
+      }
     } catch (err) {
-      console.log(err);
       setErrors(err.response?.data);
     }
   };
@@ -47,6 +53,7 @@ const CommentCreateEditForm = ({ id, setComments }) => {
                 rows={5}
                 name="content"
                 label="New Comment"
+                initialData={initialData}
                 errorData={errors?.content}
               />
             </div>

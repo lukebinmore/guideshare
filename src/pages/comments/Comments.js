@@ -33,7 +33,7 @@ const Comments = ({ id }) => {
           loader={<LoadingSpinner />}
           hasMore={!!comments.next}
           next={() => fetchMoreData(comments, setComments)}>
-          <CommentCreateEditForm id={id} setComments={setComments} />
+          <CommentCreateEditForm id={id} setState={setComments} />
           {comments.results.map((comment) => (
             <Comment key={comment.id} {...comment} />
           ))}
