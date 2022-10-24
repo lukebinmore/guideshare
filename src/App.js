@@ -1,5 +1,5 @@
 import "./api/axiosDefaults";
-import { Route, Routes } from "react-router";
+import { Route, Routes, useLocation } from "react-router";
 import { Container } from "react-bootstrap";
 import AuthModal from "./pages/auth/AuthModal";
 import NavBar from "./components/NavBar";
@@ -9,6 +9,17 @@ import PostsPage from "./pages/posts/PostsPage";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
 import PostPage from "./pages/posts/PostPage";
 
+const pageTitles = {
+  "/": "Home",
+  "/feed": "Feed",
+  "/saved": "Saved",
+  "/wip": "WIP",
+  "/new-post": "New",
+  "/posts": "Guide",
+  "/profiles": "Profile",
+  "/contact-us": "Contact Us",
+};
+
 function App() {
   const currentUser = useCurrentUser();
   const profile_id = currentUser?.profile_id || "";
@@ -17,7 +28,7 @@ function App() {
   return (
     <>
       <AuthModal />
-      <NavBar />
+      <NavBar titles={pageTitles} />
       <Container className="my-3 text-center g-0">
         <Routes>
           <Route

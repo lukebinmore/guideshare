@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Col, Container, Dropdown, Form, Image, Row } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
 import Avatar from "./Avatar";
 import logo from "../assets/logo.png";
@@ -11,9 +11,18 @@ import PostSearch from "./PostSearch";
 import { useBreakpoints } from "../hooks";
 import styles from "../styles/NavBar.module.css";
 
-const NavBar = () => {
+const NavBar = ({ titles }) => {
   const currentUser = useCurrentUser();
+  const { pathname } = useLocation();
   const { md, lg } = useBreakpoints();
+  const [pageTitle, setPageTitle] = useState("");
+
+  useEffect(() => {
+    const title = titles[`/${pathname.split("/")[1]}`];
+
+    document.title = `GuideShare - ${title}`;
+    setPageTitle(title);
+  }, [pathname]);
 
   const navLinks = (
     <>
@@ -68,9 +77,12 @@ const NavBar = () => {
       )}
       <Container fluid className={styles.NavBar}>
         <Row className={styles.NavBarRow}>
-          <Col>
+          <Col xs="auto">
             <div className="d-md-block d-none">{navLinks}</div>
             <div className="d-md-none d-block">{navLinksDropdown}</div>
+          </Col>
+          <Col className="d-flex justify-content-center align-items-center">
+            <h1>{pageTitle}</h1>
           </Col>
           <Col xs="auto">
             <Form.Label

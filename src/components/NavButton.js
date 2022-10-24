@@ -22,7 +22,7 @@ const NavButton = (props) => {
     },
     newPost: { location: "/new-post", text: "New Post", icon: "plus" },
     myProfile: {
-      location: "/profile/" + currentUser?.profile_id,
+      location: "/profiles/" + currentUser?.profile_id,
       text: "My Profile",
       icon: "user",
     },
