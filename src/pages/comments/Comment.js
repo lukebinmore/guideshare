@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Card } from "react-bootstrap";
-import { axiosReq, axiosRes } from "../../api/axiosDefaults";
+import { axiosRes } from "../../api/axiosDefaults";
 import {
   EditDeleteDropdown,
   ProfileButton,
@@ -48,7 +48,7 @@ const Comment = (props) => {
             <p className="m-0 text-muted">{created_at}</p>
           </Card.Header>
 
-          <Card.Body className="d-flex justify-content-between align-items-center py-2 px-3">
+          <Card.Body className="d-flex justify-content-between align-items-center p-2">
             <div className="text-start">{content}</div>
             {is_owner && (
               <EditDeleteDropdown solid handleDelete={handleDelete} />

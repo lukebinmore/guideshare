@@ -4,6 +4,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import { LoadingSpinner } from "../../components";
 import { fetchMoreData } from "../../utils/utils";
 import Comment from "./Comment";
+import CommentCreateEditForm from "./CommentCreateEditForm";
 
 const Comments = ({ id }) => {
   const [comments, setComments] = useState({ results: [] });
@@ -32,6 +33,7 @@ const Comments = ({ id }) => {
           loader={<LoadingSpinner />}
           hasMore={!!comments.next}
           next={() => fetchMoreData(comments, setComments)}>
+          <CommentCreateEditForm id={id} setComments={setComments} />
           {comments.results.map((comment) => (
             <Comment key={comment.id} {...comment} />
           ))}

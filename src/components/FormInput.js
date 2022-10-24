@@ -86,7 +86,6 @@ const FormInput = (props) => {
       defaultValue={value}
       plaintext={readOnly}
       disabled={readOnly}
-      onChange={(event) => setValue(event.target.value)}
       className="text-center"
     />
   );
