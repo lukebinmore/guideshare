@@ -13,7 +13,7 @@ const AuthButton = (props) => {
   const navigate = useNavigate();
 
   const locations = {
-    joinUs: { page: "joinus", text: "Join Us", icon: "" },
+    joinUs: { page: "joinus", text: "Join Us", icon: "door-open" },
     login: { page: "login", text: "Login", icon: "right-to-bracket" },
     signup: { page: "signup", text: "Sign Up", icon: "user-plus" },
     profile: { page: "profile", text: "Setup Your Profile", icon: "" },
@@ -31,7 +31,7 @@ const AuthButton = (props) => {
     later: { text: "Do It Later", icon: "clock" },
   };
 
-  const target = locations[page];
+  const target = locations[page || "joinUs"];
 
   return (
     <>
