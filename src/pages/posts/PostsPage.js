@@ -11,6 +11,7 @@ import {
   PostFilters,
   PostSort,
   PostResultsCount,
+  PopularProfiles,
 } from "../../components";
 
 const PostsPage = (props) => {
@@ -48,6 +49,7 @@ const PostsPage = (props) => {
 
   return (
     <>
+      <PopularProfiles />
       {hasLoaded ? (
         <>
           {posts.results.length ? (
