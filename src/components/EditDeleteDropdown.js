@@ -28,7 +28,7 @@ const EditDeleteDropdown = (props) => {
   return (
     <Dropdown drop="down">
       <Dropdown.Toggle
-        className={`${styles.MenuButton} ${!solid && styles.MenuOpacity}`}>
+        className={!solid && `${styles.MenuOpacity} ${styles.MenuButton}`}>
         <i className="fa-solid fa-bars" />
       </Dropdown.Toggle>
 
