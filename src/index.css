@@ -119,6 +119,10 @@ a:hover {
   transform: scale(1.1);
 }
 
+.btn:disabled {
+  color: var(--text);
+}
+
 .btn-danger {
   background-color: var(--danger);
   border-color: var(--danger);

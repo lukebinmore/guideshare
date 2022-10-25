@@ -81,7 +81,7 @@ const PostPage = () => {
 
             <Card.Header className="d-flex justify-content-between align-items-center p-2">
               <div className={`text-end ${md && styles.HeaderButton}`}>
-                {!is_owner && <FollowProfileButton id={id} />}
+                {!is_owner && profile_id && <FollowProfileButton id={id} />}
               </div>
               <h3 className="mx-2">
                 {wip && "(WIP) "}
@@ -104,10 +104,11 @@ const PostPage = () => {
               <Row xs={1} sm={2} className="my-2">
                 <Col className="d-flex align-items-center">
                   <ProfileButton
-                    username={owner}
+                    username={profile_id ? owner : "Profile Deleted"}
                     profile_id={profile_id}
                     src={profile_picture}
                     horizontal
+                    disabled={!profile_id}
                   />
                 </Col>
                 {!sm && <hr className="mt-3" />}

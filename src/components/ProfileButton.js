@@ -7,7 +7,7 @@ import FollowProfileButton from "./FollowProfileButton";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
 
 const ProfileButton = (props) => {
-  const { profile_id, src, username, horizontal, follow } = props;
+  const { profile_id, src, username, horizontal, follow, disabled } = props;
   const navigate = useNavigate();
   const currentUser = useCurrentUser();
 
@@ -26,7 +26,8 @@ const ProfileButton = (props) => {
         <Button
           id={`profile-${profile_id}`}
           variant="outline-primary"
-          onClick={() => navigate(`/profiles/${profile_id}`)}>
+          onClick={() => navigate(`/profiles/${profile_id}`)}
+          disabled={disabled}>
           {username}
         </Button>
         {profile_id !== currentUser?.pk && follow && (
