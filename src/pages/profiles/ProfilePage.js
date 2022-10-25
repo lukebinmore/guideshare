@@ -1,16 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { Button, Card, Col, Row } from "react-bootstrap";
-import { useParams } from "react-router";
-import { AdminButton, Avatar, FormInput } from "../../components";
+import { useNavigate, useParams } from "react-router";
+import {
+  AdminButton,
+  Avatar,
+  EditDeleteDropdown,
+  FormInput,
+} from "../../components";
 import { useBreakpoints } from "../../hooks";
 import PostsPage from "../posts//PostsPage";
 import styles from "../../styles/ProfilePage.module.css";
 import { axiosReq } from "../../api/axiosDefaults";
 import Profiles from "./Profiles";
+import { removeTokenTimestamp } from "../../utils/utils";
+import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
+import axios from "axios";
 
 const ProfilePage = () => {
   const { id } = useParams();
   const { sm } = useBreakpoints();
+  const navigate = useNavigate();
+  const setCurrentUser = useSetCurrentUser();
 
   const [hasLoaded, setHasLoaded] = useState(false);
   const [subPage, setSubPage] = useState("posts");
@@ -44,12 +54,27 @@ const ProfilePage = () => {
     handleMount();
   }, [id]);
 
+  const handleDelete = async () => {
+    try {
+      await Promise.all([
+        axiosReq.delete(`/profiles/${id}/`),
+        axios.post("auth/logout/"),
+      ]);
+      setCurrentUser(null);
+      removeTokenTimestamp();
+      navigate("/");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <>
       {hasLoaded && (
         <>
           <Card className="mb-3">
             <Card.Header>
+              <EditDeleteDropdown opaque handleDelete={handleDelete} />
               <AdminButton
                 text="Open Profile Admin"
                 href={`profiles/profile/${id}/change/`}
