@@ -6,6 +6,7 @@ import { useBreakpoints } from "../../hooks";
 import PostsPage from "../posts//PostsPage";
 import styles from "../../styles/ProfilePage.module.css";
 import { axiosReq } from "../../api/axiosDefaults";
+import Profiles from "./Profiles";
 
 const ProfilePage = () => {
   const { id } = useParams();
@@ -20,6 +21,7 @@ const ProfilePage = () => {
     last_name,
     dob,
     email,
+    picture,
     post_count,
     following_count,
     followers_count,
@@ -33,6 +35,7 @@ const ProfilePage = () => {
         const { data } = await axiosReq.get(`/profiles/${id}/`);
         setProfile(data);
         setHasLoaded(true);
+        console.log(data);
       } catch (err) {
         console.log(err);
       }
@@ -48,13 +51,19 @@ const ProfilePage = () => {
         <>
           <Card className="mb-3">
             <Card.Header>
+              <AdminButton
+                text="Open Profile Admin"
+                href={`profiles/profile/${id}/change/`}
+                left
+                right
+              />
               <h1>{owner}'s Profile</h1>
             </Card.Header>
 
             <Card.Body>
               <Row>
                 <Col sm={4} className={!sm && `w-50 mx-auto`}>
-                  <Avatar />
+                  <Avatar src={picture} />
                 </Col>
                 <Col className="mt-2">
                   <div className={styles.ProfileStats}>
@@ -149,9 +158,9 @@ const ProfilePage = () => {
           {subPage === "posts" ? (
             <PostsPage pageFilter={`owner=${id}`} />
           ) : subPage === "followers" ? (
-            <></>
+            <Profiles filter={`owner__profile__followers=${id}`} />
           ) : (
-            subPage === "following" && <></>
+            subPage === "following" && <Profiles filter={`following=${id}`} />
           )}
         </>
       )}
