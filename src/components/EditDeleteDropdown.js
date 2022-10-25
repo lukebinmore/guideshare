@@ -3,12 +3,14 @@ import { Button, Dropdown } from "react-bootstrap";
 import styles from "../styles/EditDeleteDropdown.module.css";
 
 const EditDeleteDropdown = (props) => {
-  const { solid, handleEdit, handleDelete } = props;
+  const { solid, opaque, handleEdit, handleDelete } = props;
 
   return (
     <Dropdown drop="down">
       <Dropdown.Toggle
-        className={!solid && `${styles.MenuOpacity} ${styles.MenuButton}`}>
+        className={`${!opaque && styles.MenuOpacity} ${
+          !solid && styles.MenuButton
+        }`}>
         <i className="fa-solid fa-bars" />
       </Dropdown.Toggle>
 

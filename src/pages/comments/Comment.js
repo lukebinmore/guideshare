@@ -65,6 +65,7 @@ const Comment = (props) => {
                 {is_owner && (
                   <EditDeleteDropdown
                     solid
+                    opaque
                     handleEdit={() => setEdit(true)}
                     handleDelete={handleDelete}
                   />
