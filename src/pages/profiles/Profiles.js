@@ -51,10 +51,9 @@ const Profiles = (props) => {
             right
           />
 
-          <div className={styles.Container}>
-            {profiles.results
-              .filter((profile) => profile.id !== currentUser?.pk)
-              .map((profile) => (
+          {profiles.results.length ? (
+            <div className={styles.Container}>
+              {profiles.results.map((profile) => (
                 <div key={profile.id} className="mx-1">
                   <ProfileButton
                     profile_id={profile.id}
@@ -65,14 +64,21 @@ const Profiles = (props) => {
                 </div>
               ))}
 
-            {profiles.next && (
-              <Button
-                className="mx-1"
-                onClick={() => fetchMoreData(profiles, setProfiles)}>
-                <IconText text="More" icon="angles-right" left />
-              </Button>
-            )}
-          </div>
+              {profiles.next && (
+                <Button
+                  className="mx-1"
+                  onClick={() => fetchMoreData(profiles, setProfiles)}>
+                  <IconText text="More" icon="angles-right" left />
+                </Button>
+              )}
+            </div>
+          ) : (
+            <>
+              <h1>
+                No Profiles Found <i className="fa-solid fa-face-sad-tear" />
+              </h1>
+            </>
+          )}
         </Card>
       ) : (
         <LoadingSpinner />

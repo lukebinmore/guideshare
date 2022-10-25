@@ -155,12 +155,21 @@ const ProfilePage = () => {
           </Card>
 
           {subPage === "posts" ? (
-            <PostsPage pageFilter={`owner=${id}`} />
+            <Profiles title="Popular Profiles" />
           ) : subPage === "followers" ? (
-            <Profiles filter={`owner__profile__followers=${id}`} />
+            <Profiles
+              title={`${owner}'s Followers`}
+              filter={`following=${id}`}
+            />
           ) : (
-            subPage === "following" && <Profiles filter={`following=${id}`} />
+            subPage === "following" && (
+              <Profiles
+                title={`${owner} is Following`}
+                filter={`followers=${id}`}
+              />
+            )
           )}
+          <PostsPage pageFilter={`owner=${id}`} />
         </>
       )}
     </>

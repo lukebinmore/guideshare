@@ -34,7 +34,12 @@ function App() {
         <Routes>
           <Route
             index
-            element={<PostsPage message="Why not create a new guide?" />}
+            element={
+              <PostsPage
+                message="Why not create a new guide?"
+                popularProfiles
+              />
+            }
           />
           <Route
             path="/feed"
@@ -42,6 +47,7 @@ function App() {
               <PostsPage
                 pageFilter={`owner__profile__followers=${profile_id}`}
                 message="Follow some people to see there guides!"
+                popularProfiles
               />
             }
           />
@@ -51,6 +57,7 @@ function App() {
               <PostsPage
                 pageFilter={`post_saves=${profile_id}`}
                 message="Save your favourite guides to see them here!"
+                popularProfiles
               />
             }
           />
@@ -60,6 +67,7 @@ function App() {
               <PostsPage
                 pageFilter={`wip=true&owner=${user_id}`}
                 message="Only guides you create as WIP in will show here!"
+                popularProfiles
               />
             }
           />

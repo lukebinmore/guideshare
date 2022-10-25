@@ -15,7 +15,7 @@ import {
 import Profiles from "../profiles/Profiles";
 
 const PostsPage = (props) => {
-  const { pageFilter = "", message } = props;
+  const { pageFilter = "", message, popularProfiles } = props;
   const { pathname } = useLocation();
   const { query, filters, sort } = useSearchFilterSort();
 
@@ -49,7 +49,9 @@ const PostsPage = (props) => {
 
   return (
     <>
-      <Profiles />
+      {popularProfiles && (
+        <Profiles sort="-popularity" title="Recommended Profiles" />
+      )}
       {hasLoaded ? (
         <>
           {posts.results.length ? (
@@ -75,7 +77,9 @@ const PostsPage = (props) => {
             </>
           ) : (
             <>
-              <h1>No Results</h1>
+              <h1>
+                No Guides <i className="fa-solid fa-face-sad-tear" />
+              </h1>
               <p>{message}</p>
             </>
           )}
