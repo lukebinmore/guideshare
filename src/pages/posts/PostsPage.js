@@ -11,8 +11,8 @@ import {
   PostFilters,
   PostSort,
   PostResultsCount,
-  PopularProfiles,
 } from "../../components";
+import Profiles from "../profiles/Profiles";
 
 const PostsPage = (props) => {
   const { pageFilter = "", message } = props;
@@ -49,7 +49,7 @@ const PostsPage = (props) => {
 
   return (
     <>
-      <PopularProfiles />
+      <Profiles />
       {hasLoaded ? (
         <>
           {posts.results.length ? (

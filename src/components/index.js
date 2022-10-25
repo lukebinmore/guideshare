@@ -9,7 +9,6 @@ export { default as IconText } from "./IconText";
 export { default as LoadingSpinner } from "./LoadingSpinner";
 export { default as NavBar } from "./NavBar";
 export { default as NavButton } from "./NavButton";
-export { default as PopularProfiles } from "./PopularProfiles";
 export { default as PostFilters } from "./PostFilters";
 export { default as PostResultsCount } from "./PostResultsCount";
 export { default as PostSearch } from "./PostSearch";
