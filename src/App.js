@@ -1,5 +1,5 @@
 import "./api/axiosDefaults";
-import { Route, Routes, useLocation } from "react-router";
+import { Route, Routes } from "react-router";
 import { Container } from "react-bootstrap";
 import AuthModal from "./pages/auth/AuthModal";
 import NavBar from "./components/NavBar";
@@ -8,6 +8,7 @@ import PostCreateEditForm from "./pages/posts/PostCreateEditForm";
 import PostsPage from "./pages/posts/PostsPage";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
 import PostPage from "./pages/posts/PostPage";
+import ProfilePage from "./pages/profiles/ProfilePage";
 
 const pageTitles = {
   "/": "Home",
@@ -65,7 +66,7 @@ function App() {
           <Route path="/new-post" element={<PostCreateEditForm />} />
           <Route path="/posts/:id" element={<PostPage />} />
           <Route path="/posts/edit/:id" element={<PostCreateEditForm edit />} />
-          <Route path="/profiles/:id" element={<h1>Profile Page</h1>} />
+          <Route path="/profiles/:id" element={<ProfilePage />} />
           <Route path="/contact-us" element={<ContactForm />} />
           <Route path="*" element={<h1>Page Not Found</h1>} />
         </Routes>
