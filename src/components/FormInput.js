@@ -41,6 +41,7 @@ const FormInput = (props) => {
         accept="image/*"
         defaultValue={initialData}
         className="d-none"
+        readOnly={readOnly}
         onChange={handleFileChange}
       />
 
