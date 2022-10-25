@@ -12,20 +12,20 @@ export const SavedFollowedProvider = ({ children }) => {
   const currentUser = useCurrentUser();
   const [savedFollowed, setSavedFollowed] = useState({});
 
-  const handleMount = async () => {
-    if (currentUser) {
-      try {
-        const { data } = await axiosRes.get(
-          `saved-following/${currentUser?.pk}/`
-        );
-        setSavedFollowed(data);
-      } catch (err) {
-        console.log(err);
-      }
-    }
-  };
-
   useEffect(() => {
+    const handleMount = async () => {
+      if (currentUser) {
+        try {
+          const { data } = await axiosRes.get(
+            `saved-following/${currentUser?.pk}/`
+          );
+          setSavedFollowed(data);
+        } catch (err) {
+          console.log(err);
+        }
+      }
+    };
+
     handleMount();
   }, [currentUser]);
 
