@@ -10,10 +10,12 @@ import {
   LoadingSpinner,
   ProfileButton,
 } from "../../components";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 const Profiles = (props) => {
   const { sort = "owner", filter, title } = props;
   const { md } = useBreakpoints();
+  const currentUser = useCurrentUser();
   const [profiles, setProfiles] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
 
@@ -57,7 +59,7 @@ const Profiles = (props) => {
                     profile_id={profile.id}
                     src={profile.picture}
                     username={profile.owner}
-                    small={!md}
+                    follow={!!currentUser}
                   />
                 </div>
               ))}

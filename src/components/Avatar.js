@@ -4,13 +4,13 @@ import profilePlaceholder from "../assets/profile-placeholder.png";
 import changePicture from "../assets/change-picture.png";
 import styles from "../styles/Avatar.module.css";
 
-const Avatar = ({ src = profilePlaceholder, change }) => {
+const Avatar = ({ src, change }) => {
   const [showChange, setShowChange] = useState(false);
 
   return (
     <div className={styles.Container}>
       <Image
-        src={src}
+        src={src || profilePlaceholder}
         alt="Profile Picture"
         roundedCircle
         className={styles.AvatarImage}

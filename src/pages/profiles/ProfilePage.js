@@ -52,7 +52,6 @@ const ProfilePage = () => {
         const { data } = await axiosReq.get(`/profiles/${id}/`);
         setProfile(data);
         setHasLoaded(true);
-        console.log(data);
       } catch (err) {
         console.log(err);
       }
@@ -83,11 +82,6 @@ const ProfilePage = () => {
 
     if (event.target["picture"].files[0]) {
       formData.append("picture", event.target["picture"].files[0]);
-    }
-
-    console.log(...formData);
-    for (var pair of formData) {
-      console.log(pair[0] + ": " + pair[1]);
     }
 
     try {

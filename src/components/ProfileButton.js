@@ -7,7 +7,7 @@ import FollowProfileButton from "./FollowProfileButton";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
 
 const ProfileButton = (props) => {
-  const { profile_id, src, username, horizontal } = props;
+  const { profile_id, src, username, horizontal, follow } = props;
   const navigate = useNavigate();
   const currentUser = useCurrentUser();
 
@@ -16,7 +16,7 @@ const ProfileButton = (props) => {
       <Form.Label
         htmlFor={`profile-${profile_id}`}
         className={`rounded-circle ${styles.Profile}`}>
-        {src && <Avatar src={src} />}
+        <Avatar src={src} />
       </Form.Label>
 
       <div
@@ -29,7 +29,7 @@ const ProfileButton = (props) => {
           onClick={() => navigate(`/profiles/${profile_id}`)}>
           {username}
         </Button>
-        {profile_id !== currentUser?.pk && (
+        {profile_id !== currentUser?.pk && follow && (
           <FollowProfileButton id={profile_id} />
         )}
       </div>
