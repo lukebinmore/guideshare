@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Card, Spinner } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 import { axiosReq } from "../api/axiosDefaults";
 import ProfileButton from "./ProfileButton";
 import LoadingSpinner from "./LoadingSpinner";

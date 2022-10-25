@@ -22,7 +22,7 @@ const NavBar = ({ titles }) => {
 
     document.title = `GuideShare - ${title}`;
     setPageTitle(title);
-  }, [pathname]);
+  }, [pathname, titles]);
 
   const navLinks = (
     <>
