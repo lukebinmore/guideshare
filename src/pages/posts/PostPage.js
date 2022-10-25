@@ -107,7 +107,7 @@ const PostPage = () => {
                     username={owner}
                     profile_id={profile_id}
                     src={profile_picture}
-                    small
+                    horizontal
                   />
                 </Col>
                 {!sm && <hr className="mt-3" />}

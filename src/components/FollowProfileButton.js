@@ -41,7 +41,8 @@ const FollowProfileButton = ({ id }) => {
   return (
     <Button
       variant={profileFollowed ? "secondary" : "primary"}
-      onClick={handleClick}>
+      onClick={handleClick}
+      className="text-nowrap">
       <IconText
         text={md && (profileFollowed ? "Unfollow" : "Follow")}
         icon="rss"

@@ -3,30 +3,36 @@ import { Button, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import Avatar from "./Avatar";
 import styles from "../styles/Buttons.module.css";
+import FollowProfileButton from "./FollowProfileButton";
+import { useCurrentUser } from "../contexts/CurrentUserContext";
 
 const ProfileButton = (props) => {
-  const { profile_id, src, username, small } = props;
-
+  const { profile_id, src, username, horizontal } = props;
   const navigate = useNavigate();
+  const currentUser = useCurrentUser();
 
   return (
     <Form.Group>
-      <Button
-        id={`profile-${profile_id}`}
-        variant="outline-primary"
-        className={`rounded-circle p-0 border-0 ${
-          !small ? styles.Profile : src && styles.ProfileSmall
-        }`}
-        onClick={() => navigate(`/profiles/${profile_id}`)}>
-        {src && <Avatar src={src} />}
-      </Button>
       <Form.Label
         htmlFor={`profile-${profile_id}`}
-        className={`btn btn-outline-primary mb-0 ${
-          small ? "ms-1" : "d-block my-1"
-        }`}>
-        {username}
+        className={`rounded-circle ${styles.Profile}`}>
+        {src && <Avatar src={src} />}
       </Form.Label>
+
+      <div
+        className={`btn-group-vertical ${
+          horizontal ? "d-inline-block ms-2" : "d-block"
+        }`}>
+        <Button
+          id={`profile-${profile_id}`}
+          variant="outline-primary"
+          onClick={() => navigate(`/profiles/${profile_id}`)}>
+          {username}
+        </Button>
+        {profile_id !== currentUser?.pk && (
+          <FollowProfileButton id={profile_id} />
+        )}
+      </div>
     </Form.Group>
   );
 };
