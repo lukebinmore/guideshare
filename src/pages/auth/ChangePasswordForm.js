@@ -1,10 +1,10 @@
-import axios from "axios";
 import React, { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import { IconText, FormError, FormInput, AuthButton } from "../../components";
 import { collectFormData } from "../../utils/utils";
 import { useAuthModal, useSetAuthModal } from "../../contexts/AuthModalContext";
 import { useBreakpoints } from "../../hooks";
+import { axiosRes } from "../../api/axiosDefaults";
 
 const ChangePasswordForm = () => {
   const authModal = useAuthModal();
@@ -19,7 +19,7 @@ const ChangePasswordForm = () => {
     const formData = collectFormData(event);
 
     try {
-      await axios.post("auth/password/change/", formData);
+      await axiosRes.post("auth/password/change/", formData);
       setAuthModal({ show: false });
     } catch (err) {
       setErrors(err.response?.data);

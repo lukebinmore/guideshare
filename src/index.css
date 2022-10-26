@@ -60,6 +60,7 @@ a:hover {
 
 .modal-content {
   text-align: center;
+  background-color: var(--background-alt);
 }
 
 .modal-body {
@@ -172,10 +173,5 @@ a:hover {
 .card,
 .card-body {
   border-color: var(--border);
-  background-color: var(--background);
-}
-
-.form-control {
-  color: var(--text);
   background-color: var(--background);
 }
