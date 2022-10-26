@@ -33,7 +33,7 @@ export const CurrentUserProvider = ({ children }) => {
     axiosRes.interceptors.response.use(
       (response) => response,
       async (err) => {
-        if (err.response?.status === 401) {
+        if (err.response?.status === 401 && shouldRefreshToken()) {
           try {
             await axios.post("auth/token/refresh/");
           } catch (err) {
