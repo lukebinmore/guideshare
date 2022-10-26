@@ -14,10 +14,10 @@ export const SavedFollowedProvider = ({ children }) => {
 
   useEffect(() => {
     const handleMount = async () => {
-      if (currentUser) {
+      if (currentUser?.profile_id) {
         try {
           const { data } = await axiosRes.get(
-            `saved-following/${currentUser?.pk}/`
+            `saved-following/${currentUser?.profile_id}/`
           );
           setSavedFollowed(data);
         } catch (err) {
