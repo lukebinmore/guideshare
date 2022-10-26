@@ -15,4 +15,5 @@ export { default as PostSearch } from "./PostSearch";
 export { default as PostSort } from "./PostSort";
 export { default as ProfileButton } from "./ProfileButton";
 export { default as SavePostButton } from "./SavePostButton";
+export { default as ThemeButton } from "./ThemeButton";
 export { default as VoteFooter } from "./VoteFooter";

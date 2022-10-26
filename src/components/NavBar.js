@@ -10,6 +10,7 @@ import NavButton from "./NavButton";
 import PostSearch from "./PostSearch";
 import { useBreakpoints } from "../hooks";
 import styles from "../styles/NavBar.module.css";
+import { ThemeButton } from ".";
 
 const NavBar = ({ titles }) => {
   const currentUser = useCurrentUser();
@@ -54,6 +55,7 @@ const NavBar = ({ titles }) => {
     <>
       <AdminButton dropdown right hr />
       <NavButton to="myProfile" dropdown right hr />
+      <ThemeButton dropdown right hr />
       <AuthButton page="changePassword" dropdown right hr />
       <NavButton to="contactUs" dropdown right hr />
       <AuthButton page="signout" variant="danger" dropdown right />
@@ -64,6 +66,7 @@ const NavBar = ({ titles }) => {
     <>
       <AuthButton page="login" dropdown right hr />
       <AuthButton page="signup" dropdown right hr />
+      <ThemeButton dropdown right hr />
       <NavButton to="contactUs" dropdown right />
     </>
   );
