@@ -143,11 +143,24 @@ a:hover {
 
 .dropdown-menu {
   padding: 0.5em;
+  background-color: var(--background);
 }
 
 .dropdown-item {
   padding: 0;
   border-radius: 6px;
+}
+
+.dropdown-divider {
+  background-color: var(--text);
+}
+
+.dropdown-toggle::after {
+  content: none;
+}
+
+.spinner-border {
+  color: var(--secondary);
 }
 
 .card-header,
@@ -162,10 +175,7 @@ a:hover {
   background-color: var(--background);
 }
 
-.dropdown-toggle::after {
-  content: none;
-}
-
-.spinner-border {
-  color: var(--secondary);
+.form-control {
+  color: var(--text);
+  background-color: var(--background);
 }

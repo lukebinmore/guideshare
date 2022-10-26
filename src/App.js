@@ -1,4 +1,5 @@
 import "./api/axiosDefaults";
+import "./App.module.css";
 import { Route, Routes } from "react-router";
 import { Container } from "react-bootstrap";
 import AuthModal from "./pages/auth/AuthModal";
