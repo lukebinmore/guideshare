@@ -10,6 +10,7 @@ import PostsPage from "./pages/posts/PostsPage";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
 import PostPage from "./pages/posts/PostPage";
 import ProfilePage from "./pages/profiles/ProfilePage";
+import ErrorPage from "./pages/errors/ErrorPage";
 
 const pageTitles = {
   "/": "Home",
@@ -77,7 +78,7 @@ function App() {
           <Route path="/posts/edit/:id" element={<PostCreateEditForm edit />} />
           <Route path="/profiles/:id" element={<ProfilePage />} />
           <Route path="/contact-us" element={<ContactForm />} />
-          <Route path="*" element={<h1>Page Not Found</h1>} />
+          <Route path="*" element={<ErrorPage target="404" />} />
         </Routes>
       </Container>
     </>
