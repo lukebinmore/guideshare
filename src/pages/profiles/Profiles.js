@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Button, Card } from "react-bootstrap";
 import { axiosReq } from "../../api/axiosDefaults";
 import { fetchMoreData } from "../../utils/utils";
-import { useBreakpoints } from "../../hooks";
 import styles from "../../styles/Profiles.module.css";
 import {
   AdminButton,
@@ -14,7 +13,6 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 const Profiles = (props) => {
   const { sort = "owner", filter, title } = props;
-  const { md } = useBreakpoints();
   const currentUser = useCurrentUser();
   const [profiles, setProfiles] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
