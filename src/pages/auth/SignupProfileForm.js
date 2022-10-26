@@ -33,7 +33,7 @@ const SignupProfileForm = () => {
       formData.set("picture", event.target["picture"].files[0]);
 
     try {
-      await axiosReq.put(`profiles/${currentUser.profile_id}`, formData);
+      await axiosReq.put(`profiles/${currentUser.profile_id}/`, formData);
       setAuthModal({ show: false });
       navigate(0);
     } catch (err) {

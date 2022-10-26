@@ -4,7 +4,7 @@ import { Button, Form, Modal } from "react-bootstrap";
 import { IconText, FormError, FormInput, AuthButton } from "../../components";
 import { useAuthModal, useSetAuthModal } from "../../contexts/AuthModalContext";
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
-import { collectFormData } from "../../utils/utils";
+import { collectFormData, setTokenTimestamp } from "../../utils/utils";
 import { useBreakpoints } from "../../hooks";
 
 const SignupForm = () => {
@@ -22,7 +22,13 @@ const SignupForm = () => {
 
     try {
       const { data } = await axios.post("auth/registration/", formData);
+      await axios.post("auth/login/", {
+        username: formData.get("username"),
+        password: formData.get("password1"),
+      });
+      setTokenTimestamp(data);
       setCurrentUser(data.user);
+
       setAuthModal({ show: true, page: "profile" });
     } catch (err) {
       setErrors(err.response?.data);
