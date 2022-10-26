@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./styles/IndexColors.module.css";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
@@ -9,20 +8,23 @@ import { CurrentUserProvider } from "./contexts/CurrentUserContext";
 import { SavedFollowedProvider } from "./contexts/SavedFollowedContext";
 import { AuthModalProvider } from "./contexts/AuthModalContext";
 import { SearchFilterSortProvider } from "./contexts/SearchFilterSortContext";
+import { SiteThemeProvider } from "./contexts/ThemeContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <AuthModalProvider>
-        <CurrentUserProvider>
-          <SavedFollowedProvider>
-            <SearchFilterSortProvider>
-              <App />
-            </SearchFilterSortProvider>
-          </SavedFollowedProvider>
-        </CurrentUserProvider>
-      </AuthModalProvider>
+      <SiteThemeProvider>
+        <AuthModalProvider>
+          <CurrentUserProvider>
+            <SavedFollowedProvider>
+              <SearchFilterSortProvider>
+                <App />
+              </SearchFilterSortProvider>
+            </SavedFollowedProvider>
+          </CurrentUserProvider>
+        </AuthModalProvider>
+      </SiteThemeProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
