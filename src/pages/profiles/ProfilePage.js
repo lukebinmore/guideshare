@@ -41,6 +41,8 @@ const ProfilePage = () => {
     followers_count,
     created_at,
     updated_at,
+    following,
+    saved_posts,
   } = profile;
   const [profilePicture, setPicture] = useState(picture);
 
@@ -79,11 +81,15 @@ const ProfilePage = () => {
     let formData = collectFormData(event);
 
     if (event.target["picture"].files[0]) {
-      formData["picture"] = event.target["picture"].files[0];
+      formData.set("picture", event.target["picture"].files[0]);
     }
 
     try {
       const { data } = await axiosReq.put(`profiles/${id}/`, formData);
+      await axiosReq.put(`profiles/${id}/`, {
+        following: following,
+        saved_posts: saved_posts,
+      });
       setProfile(data);
       setEdit(false);
     } catch (err) {
