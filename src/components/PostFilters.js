@@ -10,8 +10,6 @@ import IconText from "./IconText";
 import { useBreakpoints } from "../hooks";
 
 const PostFilters = (props) => {
-  const { category } = props;
-
   const { filters } = useSearchFilterSort();
   const setSearchFilterSort = useSetSearchFilterSort();
   const { pathname } = useLocation();
@@ -26,21 +24,12 @@ const PostFilters = (props) => {
   const handleChange = (event) => {
     setSearchFilterSort((prevData) => ({
       ...prevData,
-      filters: {
-        ...prevData.filters,
-        [event.target.name]: event.target.value,
-      },
+      filters: event.target.value,
     }));
   };
 
   const handleClear = () => {
-    setSearchFilterSort((prevData) => ({
-      ...prevData,
-      filters: {
-        ...prevData.filters,
-        category: category ? "" : filters.category,
-      },
-    }));
+    setSearchFilterSort((prevData) => ({ ...prevData, filters: "" }));
   };
 
   return (
@@ -57,24 +46,20 @@ const PostFilters = (props) => {
           </Button>
         </Dropdown.Item>
 
-        {category && (
-          <>
-            <Dropdown.Divider />
-            <Form.Select
-              name="category"
-              value={filters?.category}
-              onChange={handleChange}>
-              <option value="" disabled>
-                Select A Category
-              </option>
-              {categories?.map((category) => (
-                <option key={category.id} value={category.id}>
-                  {category.title}
-                </option>
-              ))}
-            </Form.Select>
-          </>
-        )}
+        <Dropdown.Divider />
+        <Form.Select
+          name="category"
+          value={filters?.category}
+          onChange={handleChange}>
+          <option value="" disabled>
+            Select A Category
+          </option>
+          {categories?.map((category) => (
+            <option key={category.id} value={category.id}>
+              {category.title}
+            </option>
+          ))}
+        </Form.Select>
       </Dropdown.Menu>
     </Dropdown>
   );

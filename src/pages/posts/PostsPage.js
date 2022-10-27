@@ -27,7 +27,7 @@ const PostsPage = (props) => {
       return [
         "/posts/",
         "?" + pageFilter,
-        "&category=" + filters.category,
+        "&category=" + filters,
         "&search=" + query,
         "&ordering=" + sort,
       ].join("");
@@ -58,7 +58,7 @@ const PostsPage = (props) => {
             <>
               <div className="mx-2 mb-2 px-1">
                 <InputGroup>
-                  <PostFilters category />
+                  <PostFilters />
                   <PostResultsCount results={posts.count} />
                   <PostSort />
                 </InputGroup>
