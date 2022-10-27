@@ -28,7 +28,6 @@ const SignupForm = () => {
       });
       setTokenTimestamp(data);
       setCurrentUser(data.user);
-
       setAuthModal({ show: true, page: "profile" });
     } catch (err) {
       setErrors(err.response?.data);

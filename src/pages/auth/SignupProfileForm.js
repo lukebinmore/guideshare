@@ -42,11 +42,7 @@ const SignupProfileForm = () => {
   };
 
   return (
-    <Modal
-      show={authModal.show}
-      onHide={() => setAuthModal({ show: false })}
-      backdrop="static"
-      keyboard={false}>
+    <Modal show={authModal.show} onHide={() => setAuthModal({ show: false })}>
       <Form onSubmit={handleSubmit}>
         <Modal.Header>
           <Modal.Title>Create Your Profile</Modal.Title>
@@ -63,6 +59,7 @@ const SignupProfileForm = () => {
             hr>
             <Avatar change src={picture} />
           </FormInput>
+
           <FormInput
             label="First Name"
             name="first_name"
@@ -70,6 +67,7 @@ const SignupProfileForm = () => {
             text="(OPTIONAL) Enter your first name."
             hr
           />
+
           <FormInput
             label="Last Name"
             name="last_name"
@@ -77,12 +75,21 @@ const SignupProfileForm = () => {
             text="(OPTIONAL) Enter your last name."
             hr
           />
+
           <FormInput
             label="Date Of Birth"
             name="dob"
             errorData={errors?.dob}
             text="(OPTIONAL) Enter your date of birth."
           />
+
+          <FormInput
+            label="Email Address"
+            name="email"
+            errorData={errors?.email}
+            text="(OPTIONAL) Enter your email address."
+          />
+
           <FormError data={errors?.non_field_errors} />
         </Modal.Body>
 
