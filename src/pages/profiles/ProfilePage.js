@@ -49,7 +49,7 @@ const ProfilePage = () => {
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const { data } = await axiosReq.get(`/profiles/${id}/`);
+        const { data } = await axiosReq.get(`profiles/${id}/`);
         setProfile(data);
         setHasLoaded(true);
       } catch (err) {
@@ -64,7 +64,7 @@ const ProfilePage = () => {
   const handleDelete = async () => {
     try {
       await Promise.all([
-        axiosReq.delete(`/profiles/${id}/`),
+        axiosReq.delete(`profiles/${id}/`),
         axios.post("auth/logout/"),
       ]);
       setCurrentUser(null);

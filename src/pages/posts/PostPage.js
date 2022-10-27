@@ -43,7 +43,7 @@ const PostPage = () => {
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const { data } = await axiosReq.get(`/posts/${id}/`);
+        const { data } = await axiosReq.get(`posts/${id}/`);
         setPost(data);
         setHasLoaded(true);
       } catch (err) {
@@ -57,7 +57,7 @@ const PostPage = () => {
 
   const handleDelete = async () => {
     try {
-      await axiosRes.delete(`/posts/${id}`);
+      await axiosRes.delete(`posts/${id}/`);
       navigate("/");
     } catch (err) {
       console.log(err);
