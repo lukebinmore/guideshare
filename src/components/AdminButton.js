@@ -2,7 +2,7 @@ import React from "react";
 import { Dropdown } from "react-bootstrap";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
 import IconText from "./IconText";
-import { DropdownParent } from "../utils/utils";
+import { ComponentParent } from "../utils/utils";
 
 const AdminButton = (props) => {
   const { href = "", text = "Admin Panel", left, right, dropdown, hr } = props;
@@ -12,8 +12,8 @@ const AdminButton = (props) => {
     <>
       {currentUser?.is_admin && (
         <>
-          <DropdownParent
-            dropdown={dropdown}
+          <ComponentParent
+            condition={dropdown}
             wrapper={(children) => (
               <Dropdown.Item as="div">{children}</Dropdown.Item>
             )}>
@@ -29,7 +29,7 @@ const AdminButton = (props) => {
                 right={right}
               />
             </a>
-          </DropdownParent>
+          </ComponentParent>
           {hr && !dropdown && <hr />}
           {hr && dropdown && <Dropdown.Divider />}
         </>

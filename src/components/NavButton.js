@@ -3,7 +3,7 @@ import { Dropdown } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
 import IconText from "./IconText";
-import { DropdownParent } from "../utils/utils";
+import { ComponentParent } from "../utils/utils";
 
 const NavButton = (props) => {
   const { to, left, right, dropdown, hr, className, noText, size } = props;
@@ -36,8 +36,8 @@ const NavButton = (props) => {
 
   return (
     <>
-      <DropdownParent
-        dropdown={dropdown}
+      <ComponentParent
+        condition={dropdown}
         wrapper={(children) => (
           <Dropdown.Item as="div">{children}</Dropdown.Item>
         )}>
@@ -54,7 +54,7 @@ const NavButton = (props) => {
             right={right}
           />
         </NavLink>
-      </DropdownParent>
+      </ComponentParent>
       {hr && !dropdown && <hr />}
       {hr && dropdown && <Dropdown.Divider />}
     </>

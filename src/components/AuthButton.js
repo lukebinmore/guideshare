@@ -3,7 +3,7 @@ import { Button, Dropdown } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useSetAuthModal } from "../contexts/AuthModalContext";
 import IconText from "./IconText";
-import { DropdownParent } from "../utils/utils";
+import { ComponentParent } from "../utils/utils";
 
 const AuthButton = (props) => {
   const { page, size, variant, left, right, dropdown, hr, className, refresh } =
@@ -35,8 +35,8 @@ const AuthButton = (props) => {
 
   return (
     <>
-      <DropdownParent
-        dropdown={dropdown}
+      <ComponentParent
+        condition={dropdown}
         wrapper={(children) => (
           <Dropdown.Item as="div">{children}</Dropdown.Item>
         )}>
@@ -55,7 +55,7 @@ const AuthButton = (props) => {
             right={right}
           />
         </Button>
-      </DropdownParent>
+      </ComponentParent>
       {hr && !dropdown && <hr />}
       {hr && dropdown && <Dropdown.Divider />}
     </>

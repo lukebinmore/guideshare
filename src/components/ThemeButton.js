@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Dropdown } from "react-bootstrap";
 import IconText from "./IconText";
-import { DropdownParent } from "../utils/utils";
+import { ComponentParent } from "../utils/utils";
 import { useSetSiteTheme } from "../contexts/ThemeContext";
 import { useNavigate } from "react-router";
 
@@ -19,8 +19,8 @@ const AdminButton = (props) => {
 
   return (
     <>
-      <DropdownParent
-        dropdown={dropdown}
+      <ComponentParent
+        condition={dropdown}
         wrapper={(children) => (
           <Dropdown.Item as="div">{children}</Dropdown.Item>
         )}>
@@ -32,7 +32,7 @@ const AdminButton = (props) => {
             right={right}
           />
         </Button>
-      </DropdownParent>
+      </ComponentParent>
       {hr && !dropdown && <hr />}
       {hr && dropdown && <Dropdown.Divider />}
     </>
