@@ -41,8 +41,6 @@ const ProfilePage = () => {
     followers_count,
     created_at,
     updated_at,
-    following,
-    saved_posts,
   } = profile;
   const [profilePicture, setPicture] = useState(picture);
 
@@ -78,18 +76,14 @@ const ProfilePage = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const formData = collectFormData(event);
+    let formData = collectFormData(event);
 
     if (event.target["picture"].files[0]) {
-      formData.append("picture", event.target["picture"].files[0]);
+      formData["picture"] = event.target["picture"].files[0];
     }
 
     try {
-      const { data } = await axiosReq.put(`/profiles/${id}/`, {
-        ...formData,
-        following: following,
-        saved_posts: saved_posts,
-      });
+      const { data } = await axiosReq.put(`profiles/${id}/`, formData);
       setProfile(data);
       setEdit(false);
     } catch (err) {
@@ -172,6 +166,7 @@ const ProfilePage = () => {
                         <FormInput
                           name="first_name"
                           label="First Name"
+                          errorData={errors?.first_name}
                           readOnly={!edit}
                           initialData={first_name}
                         />
@@ -184,6 +179,7 @@ const ProfilePage = () => {
                         <FormInput
                           name="last_name"
                           label="Last Name"
+                          errorData={errors?.last_name}
                           readOnly={!edit}
                           initialData={last_name}
                         />
@@ -196,6 +192,7 @@ const ProfilePage = () => {
                         <FormInput
                           name="dob"
                           label="Date of Birth"
+                          errorData={errors?.dob}
                           readOnly={!edit}
                           initialData={dob}
                         />
@@ -208,6 +205,7 @@ const ProfilePage = () => {
                         <FormInput
                           name="email"
                           label="Email Address"
+                          errorData={errors?.email}
                           readOnly={!edit}
                           initialData={email}
                         />
