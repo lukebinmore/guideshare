@@ -72,7 +72,7 @@ const VoteFooter = (props) => {
       </Button>
 
       {post_id && (
-        <div className={`btn ${md && "btn-lg"}`}>
+        <div className={`btn ${md && "btn-lg"} ${styles.CommentsCount}`}>
           <IconText
             text={comments_count < 1000 ? comments_count : "999+"}
             icon="comments"

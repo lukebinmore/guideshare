@@ -55,7 +55,7 @@ const Comment = (props) => {
                   profile_id={profile_id}
                   src={md && profile_picture}
                   username={owner}
-                  small
+                  horizontal
                 />
                 <p className="m-0 text-muted">{created_at}</p>
               </Card.Header>

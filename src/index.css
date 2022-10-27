@@ -34,6 +34,7 @@ h5,
 h6 {
   font-family: "Koulen", sans-serif;
   margin: 0;
+  color: var(--text);
 }
 
 p {
@@ -174,4 +175,17 @@ a:hover {
 .card-body {
   border-color: var(--border);
   background-color: var(--background);
+}
+
+.form-text,
+.text-muted {
+  color: var(--text-tint) !important;
+}
+
+.form-control-plaintext {
+  color: var(--text);
+}
+
+option {
+  color: #000;
 }

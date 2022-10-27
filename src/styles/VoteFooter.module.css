@@ -1,3 +1,7 @@
 .Clicked i {
   color: var(--danger);
 }
+
+.CommentsCount {
+  color: var(--text);
+}
