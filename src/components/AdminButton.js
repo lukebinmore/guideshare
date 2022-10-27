@@ -19,6 +19,7 @@ const AdminButton = (props) => {
               <Dropdown.Item as="div">{children}</Dropdown.Item>
             )}>
             <Button
+              aria-label={text}
               target="_blank"
               rel="noreferrer"
               href={process.env.REACT_APP_API_URL + "admin/" + href}>

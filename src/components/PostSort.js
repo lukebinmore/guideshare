@@ -40,7 +40,7 @@ const PostsSort = () => {
   return (
     <Dropdown drop="down" align="end" onSelect={handleChange}>
       <Form.Label className="d-none">Post Sorting</Form.Label>
-      <Dropdown.Toggle className="w-25">
+      <Dropdown.Toggle className="w-25" aria-label="Sort Menu">
         <IconText text={md && "Sort"} icon="sort" right />
       </Dropdown.Toggle>
 

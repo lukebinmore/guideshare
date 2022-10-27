@@ -60,6 +60,7 @@ const VoteFooter = (props) => {
   return (
     <Card.Footer className="p-0 text-end">
       <Button
+        aria-label="Dislike"
         name="dislike"
         variant="secondary"
         className={dislike_id && styles.Clicked}
@@ -83,6 +84,7 @@ const VoteFooter = (props) => {
       )}
 
       <Button
+        aria-label="Like"
         name="like"
         className={like_id && styles.Clicked}
         onClick={handleClick}

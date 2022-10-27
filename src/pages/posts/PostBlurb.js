@@ -19,10 +19,10 @@ const PostBlurb = (props) => {
 
   return (
     <div className={`d-inline-block m-2 ${styles.PostBlurb}`}>
-      <Link to={`/posts/${id}`}>
+      <Link to={`/posts/${id}`} aria-label={`Open Post ${title}`}>
         <Card>
           <Card.Header className={`p-2 ${styles.PostHeader}`}>
-            <Card.Img src={cover_image} />
+            <Card.Img alt="Cover Image" src={cover_image} />
           </Card.Header>
 
           <Card.Body className="p-2">

@@ -84,7 +84,11 @@ const SignupForm = () => {
         </Modal.Body>
 
         <Modal.Footer>
-          <Button type="submit" className="w-75" size={sm && "lg"}>
+          <Button
+            aria-label="Sign Up"
+            type="submit"
+            className="w-75"
+            size={sm && "lg"}>
             <IconText text="Sign Up" icon="user-plus" left right />
           </Button>
           <p className="text-muted">Already have an account?</p>

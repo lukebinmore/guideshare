@@ -82,7 +82,11 @@ const PostCreateEditForm = ({ edit }) => {
                 errorData={errors?.cover_image}
                 setPreview={setCoverImage}>
                 {coverImage && (
-                  <Card.Img src={coverImage} className={styles.CoverImage} />
+                  <Card.Img
+                    alt="Cover Image"
+                    src={coverImage}
+                    className={styles.CoverImage}
+                  />
                 )}
                 <Form.Label className="btn btn-primary m-0 w-100">
                   <IconText
@@ -158,12 +162,16 @@ const PostCreateEditForm = ({ edit }) => {
 
             <Card.Footer className="btn-group p-0">
               <Button
+                aria-label="Cancel"
                 variant="danger"
                 size={md && "lg"}
                 onClick={() => navigate(-1)}>
                 <IconText text={"Cancel"} icon="ban" left right />
               </Button>
-              <Button type="submit" size={md && "lg"}>
+              <Button
+                aria-label={edit ? "Update" : "Create"}
+                type="submit"
+                size={md && "lg"}>
                 <IconText
                   text={edit ? "Update" : "Create"}
                   icon={edit ? "floppy-disk" : "square-plus"}

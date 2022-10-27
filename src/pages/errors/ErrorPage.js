@@ -44,7 +44,7 @@ const ErrorPage = ({ target }) => {
       </Card.Body>
 
       <Card.Footer className="btn-group w-100">
-        <Button onClick={() => navigate(-1)}>
+        <Button aria-label="Go Back" onClick={() => navigate(-1)}>
           <IconText text="Back" icon="backward" left right />
         </Button>
         <NavButton to="home" left right />

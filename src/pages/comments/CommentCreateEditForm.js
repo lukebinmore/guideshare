@@ -64,7 +64,9 @@ const CommentCreateEditForm = (props) => {
           </Card.Body>
 
           <Card.Footer className="text-end p-0">
-            <Button type="submit">Comment</Button>
+            <Button aria-label="Comment" type="submit">
+              Comment
+            </Button>
           </Card.Footer>
         </Form>
       ) : (

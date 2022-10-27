@@ -63,6 +63,7 @@ const Profiles = (props) => {
 
               {profiles.next && (
                 <Button
+                  aria-label="More Profiles"
                   className="mx-1"
                   onClick={() => fetchMoreData(profiles, setProfiles)}>
                   <IconText text="More" icon="angles-right" left />

@@ -39,7 +39,10 @@ const SavePostButton = ({ id }) => {
   };
 
   return (
-    <Button variant={postSaved ? "secondary" : "primary"} onClick={handleClick}>
+    <Button
+      aria-label={postSaved ? "Unsave Post" : "Save Post"}
+      variant={postSaved ? "secondary" : "primary"}
+      onClick={handleClick}>
       <IconText
         text={md && (postSaved ? "Unsave" : "Save")}
         icon="save"

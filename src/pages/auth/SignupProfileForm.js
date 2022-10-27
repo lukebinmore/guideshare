@@ -96,7 +96,11 @@ const SignupProfileForm = () => {
         </Modal.Body>
 
         <Modal.Footer>
-          <Button type="submit" className="w-75" size={sm && "lg"}>
+          <Button
+            aria-label="Save Profile"
+            type="submit"
+            className="w-75"
+            size={sm && "lg"}>
             <IconText text="Save Profile" icon="floppy-disk" left right />
           </Button>
           <p>Don't feel like doing this yet?</p>

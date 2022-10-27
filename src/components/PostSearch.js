@@ -66,6 +66,7 @@ const PostSearch = () => {
 
         <Dropdown drop="down">
           <Dropdown.Toggle
+            role="searchbox"
             as="input"
             type="search"
             placeholder="Search"
@@ -74,6 +75,7 @@ const PostSearch = () => {
             onChange={(event) => setSearchQuery(event.target.value)}
             className="text-center form-control"
           />
+          <Form.Label className="d-none">Search</Form.Label>
 
           <Dropdown.Menu
             className={`pb-0 w-100 ${styles.QuickSearchMenu}`}
@@ -126,7 +128,7 @@ const PostSearch = () => {
         </Dropdown>
 
         <Form.Label className="d-none">Search</Form.Label>
-        <Button type="submit">
+        <Button type="submit" aria-label="Search">
           <i className="fa-solid fa-search" />
         </Button>
       </InputGroup>

@@ -77,7 +77,11 @@ const ChangePasswordForm = () => {
         </Modal.Body>
 
         <Modal.Footer>
-          <Button type="submit" className="w-75" size={sm && "lg"}>
+          <Button
+            aria-label="Change Password"
+            type="submit"
+            className="w-75"
+            size={sm && "lg"}>
             <IconText text="Change Password" icon="check" left right />
           </Button>
           <p className="text-muted">Changed your mind?</p>

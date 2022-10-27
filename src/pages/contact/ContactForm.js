@@ -53,7 +53,10 @@ const ContactForm = () => {
             </Card.Body>
 
             <Card.Footer className="btn-group p-0">
-              <Button variant="secondary" onClick={() => navigate(0)}>
+              <Button
+                aria-label="Submit Another"
+                variant="secondary"
+                onClick={() => navigate(0)}>
                 <IconText text="Submit Another" icon="square-plus" left right />
               </Button>
               <NavButton to="home" left right />
@@ -156,12 +159,13 @@ const ContactForm = () => {
 
             <Card.Footer className="btn-group p-0">
               <Button
+                aria-label="Clear Form"
                 onClick={() => navigate(0)}
                 variant="danger"
                 size={md && "lg"}>
                 <IconText text="Clear" icon="trash" left right />
               </Button>
-              <Button type="submit" size={md && "lg"}>
+              <Button aria-label="Submit" type="submit" size={md && "lg"}>
                 <IconText text="Submit" icon="paper-plane" left right />
               </Button>
             </Card.Footer>

@@ -25,7 +25,7 @@ const AdminButton = (props) => {
         wrapper={(children) => (
           <Dropdown.Item as="div">{children}</Dropdown.Item>
         )}>
-        <Button onClick={handleClick}>
+        <Button onClick={handleClick} aria-label="Change Theme">
           <IconText
             text={"Change Theme"}
             icon="paint-roller"

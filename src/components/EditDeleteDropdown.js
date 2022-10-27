@@ -9,6 +9,7 @@ const EditDeleteDropdown = (props) => {
   return (
     <Dropdown drop="down">
       <Dropdown.Toggle
+        aria-label="Edit & Delete Dropdown"
         className={`${!opaque && styles.MenuOpacity} ${
           !solid && styles.MenuButton
         }`}>
@@ -17,10 +18,18 @@ const EditDeleteDropdown = (props) => {
 
       <Dropdown.Menu>
         <div className="w-100 btn-group">
-          <Button variant="secondary" className="w-50" onClick={handleEdit}>
+          <Button
+            aria-label="Edit"
+            variant="secondary"
+            className="w-50"
+            onClick={handleEdit}>
             <i className="fa-solid fa-save" />
           </Button>
-          <Button variant="danger" className="w-50" onClick={handleDelete}>
+          <Button
+            aria-label="Delete"
+            variant="danger"
+            className="w-50"
+            onClick={handleDelete}>
             <i className="fa-solid fa-trash" />
           </Button>
         </div>

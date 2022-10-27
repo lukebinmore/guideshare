@@ -25,6 +25,7 @@ const ProfileButton = (props) => {
           horizontal ? "d-inline-block ms-2" : "d-block"
         }`}>
         <Button
+          aria-label={`${username}'s Profile`}
           id={`profile-${profile_id}`}
           variant="outline-primary"
           onClick={() => navigate(`/profiles/${profile_id}`)}

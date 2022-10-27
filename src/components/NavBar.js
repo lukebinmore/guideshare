@@ -36,7 +36,7 @@ const NavBar = ({ titles }) => {
         condition={!md}
         wrapper={(children) => (
           <Dropdown>
-            <Dropdown.Toggle>
+            <Dropdown.Toggle aria-label="Navigation Menu">
               <i className="fa-solid fa-bars" />
             </Dropdown.Toggle>
             <Dropdown.Menu className={styles.NavMenu}>{children}</Dropdown.Menu>
@@ -79,8 +79,8 @@ const NavBar = ({ titles }) => {
   return (
     <>
       {!md && (
-        <NavLink to="/">
-          <Image src={logo} className="w-50 mx-auto d-block p-1" />
+        <NavLink to="/" aria-label="Home">
+          <Image alt="Home" src={logo} className="w-50 mx-auto d-block p-1" />
         </NavLink>
       )}
       <Container fluid className={styles.NavBar}>
@@ -98,6 +98,7 @@ const NavBar = ({ titles }) => {
 
             <Dropdown className="d-inline-block border-0">
               <Dropdown.Toggle
+                aria-label="Login / Sign Up"
                 id="account-toggle"
                 variant="outline-primary"
                 className={`rounded-circle p-0 ${styles.Profile}`}>
@@ -112,7 +113,7 @@ const NavBar = ({ titles }) => {
         <Row className={` ${styles.NavBarRow}`}>
           <Col className="d-md-inline-block d-none">
             <NavLink to="/">
-              <Image src={logo} className={styles.Logo} />
+              <Image alt="Home" src={logo} className={styles.Logo} />
             </NavLink>
             <NavButton to="newPost" left size={lg && "lg"} className="mx-4" />
           </Col>

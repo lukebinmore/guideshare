@@ -145,6 +145,7 @@ const ProfilePage = () => {
                   {!edit && (
                     <div className={styles.ProfileStats}>
                       <Button
+                        aria-label="Posts"
                         variant="outline-primary"
                         onClick={() => setSubPage("posts")}>
                         <h2>{post_count}</h2>
@@ -152,6 +153,7 @@ const ProfilePage = () => {
                       </Button>
 
                       <Button
+                        aria-label="Followers"
                         variant="outline-primary"
                         onClick={() => setSubPage("followers")}>
                         <h2>{followers_count}</h2>
@@ -159,6 +161,7 @@ const ProfilePage = () => {
                       </Button>
 
                       <Button
+                        aria-label="Following"
                         variant="outline-primary"
                         onClick={() => setSubPage("following")}>
                         <h2>{following_count}</h2>
@@ -239,10 +242,13 @@ const ProfilePage = () => {
               </Card.Footer>
             ) : (
               <Card.Footer className="btn-group p-0">
-                <Button variant="danger" onClick={() => setEdit(false)}>
+                <Button
+                  aria-label="Cancel"
+                  variant="danger"
+                  onClick={() => setEdit(false)}>
                   <IconText text="Cancel" icon="ban" left right />
                 </Button>
-                <Button type="submit">
+                <Button aria-label="Save" type="submit">
                   <IconText text="Save" icon="save" left right />
                 </Button>
               </Card.Footer>

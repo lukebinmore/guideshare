@@ -51,6 +51,7 @@ const SignoutForm = () => {
           className="w-75"
         />
         <Button
+          aria-label="Sign Out"
           variant="danger"
           onClick={handleSignOut}
           className="w-75"

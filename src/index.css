@@ -76,7 +76,7 @@ a:hover {
 .btn-primary,
 .btn-primary.show {
   background-color: var(--primary);
-  color: var(--text);
+  color: #000;
   border-color: var(--primary);
   transition: transform 0.2s;
 }

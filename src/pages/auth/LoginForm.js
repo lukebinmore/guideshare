@@ -66,7 +66,7 @@ const LoginForm = () => {
         </Modal.Body>
 
         <Modal.Footer>
-          <Button type="submit" className="w-75" size={sm && "lg"}>
+          <Button aria-label="Login" type="submit" className="w-75" size={sm && "lg"}>
             <IconText text="login" icon="right-to-bracket" left right />
           </Button>
           <p className="text-muted">Don't have an account?</p>

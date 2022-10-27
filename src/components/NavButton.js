@@ -43,6 +43,7 @@ const NavButton = (props) => {
         )}>
         <NavLink
           end
+          aria-label={target.text}
           to={target.location}
           className={(navData) =>
             setActive(navData) + (size ? ` btn-${size} ` : " ") + className

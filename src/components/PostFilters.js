@@ -36,14 +36,17 @@ const PostFilters = (props) => {
 
   return (
     <Dropdown drop="down">
-      <Dropdown.Toggle className={`w-25`}>
+      <Dropdown.Toggle aria-label="Filters" className={`w-25`}>
         <IconText text={md && "Filters"} icon="filter" left />
       </Dropdown.Toggle>
-      <Form.Label className="d-none">Filters</Form.Label>
+      {/* <Form.Label className="d-none">Filters</Form.Label> */}
 
       <Dropdown.Menu>
         <Dropdown.Item as="div" className="btn-group">
-          <Button onClick={handleClear} variant="danger">
+          <Button
+            onClick={handleClear}
+            variant="danger"
+            aria-label="Clear Filters">
             Clear
           </Button>
         </Dropdown.Item>

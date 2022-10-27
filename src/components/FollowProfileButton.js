@@ -40,6 +40,7 @@ const FollowProfileButton = ({ id }) => {
 
   return (
     <Button
+      aria-label={profileFollowed ? "Unfollow" : "Follow"}
       variant={profileFollowed ? "secondary" : "primary"}
       onClick={handleClick}
       className="text-nowrap">

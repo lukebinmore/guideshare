@@ -42,6 +42,7 @@ const AuthButton = (props) => {
           <Dropdown.Item as="div">{children}</Dropdown.Item>
         )}>
         <Button
+          aria-label={target.text}
           variant={variant}
           size={size}
           className={className}
