@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { axiosReq } from "../api/axiosDefaults";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import {
   useSearchFilterSort,
   useSetSearchFilterSort,
@@ -19,6 +19,8 @@ const PostSearch = () => {
   const { query } = useSearchFilterSort();
   const setSearchFilterSort = useSetSearchFilterSort();
   const { md } = useBreakpoints();
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
 
   const [searchQuery, setSearchQuery] = useState(query);
   const [posts, setPosts] = useState({ results: [] });
@@ -52,6 +54,8 @@ const PostSearch = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    pathname !== "/" && navigate("/");
 
     setSearchFilterSort((prevValues) => ({
       ...prevValues,
