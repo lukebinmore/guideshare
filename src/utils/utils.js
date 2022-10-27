@@ -32,15 +32,15 @@ export const fetchMoreData = async (resource, setResource) => {
 };
 
 export const collectFormData = (event) => {
-  const allFormData = new FormData();
+  let formData = {};
 
   for (var target of event.target) {
     if (target.name && target.value !== null && target.value !== "") {
-      allFormData.append(target.name, target.value);
+      formData[target.name] = target.value;
     }
   }
 
-  return allFormData;
+  return formData;
 };
 
 export const fetchCategories = async (setCategories) => {
