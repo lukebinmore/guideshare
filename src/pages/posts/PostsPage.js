@@ -54,16 +54,16 @@ const PostsPage = (props) => {
       )}
       {hasLoaded ? (
         <>
+          <div className="mx-2 mb-2 px-1">
+            <InputGroup>
+              <PostFilters />
+              <PostResultsCount results={posts.count} />
+              <PostSort />
+            </InputGroup>
+            <hr />
+          </div>
           {posts.results.length ? (
             <>
-              <div className="mx-2 mb-2 px-1">
-                <InputGroup>
-                  <PostFilters />
-                  <PostResultsCount results={posts.count} />
-                  <PostSort />
-                </InputGroup>
-                <hr />
-              </div>
               <InfiniteScroller
                 className="overflow-visible d-flex flex-wrap justify-content-center"
                 dataLength={posts.results.length}
