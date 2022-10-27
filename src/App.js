@@ -1,6 +1,6 @@
 import "./api/axiosDefaults";
 import "./App.module.css";
-import { Route, Routes } from "react-router";
+import { Route, Routes, useLocation } from "react-router";
 import { Container } from "react-bootstrap";
 import AuthModal from "./pages/auth/AuthModal";
 import NavBar from "./components/NavBar";
@@ -11,6 +11,7 @@ import { useCurrentUser } from "./contexts/CurrentUserContext";
 import PostPage from "./pages/posts/PostPage";
 import ProfilePage from "./pages/profiles/ProfilePage";
 import ErrorPage from "./pages/errors/ErrorPage";
+import useRedirect from "./hooks/useRedirect";
 
 const pageTitles = {
   "/": "Home",
@@ -24,10 +25,17 @@ const pageTitles = {
   "/restricted": "Restricted",
 };
 
+const nonUserPages = ["feed", "saved", "wip", "new-post"];
+
 function App() {
   const currentUser = useCurrentUser();
+  const { pathname } = useLocation();
   const profile_id = currentUser?.profile_id || "";
   const user_id = currentUser?.pk || "";
+
+  useRedirect(
+    nonUserPages.some((page) => pathname.includes(page)) ? "members" : "pass"
+  );
 
   return (
     <>

@@ -26,7 +26,7 @@ const useRedirect = (target) => {
       }
     };
 
-    handleMount();
+    target !== "pass" && handleMount();
   }, [navigate, target, setAuthModal]);
 };
 
