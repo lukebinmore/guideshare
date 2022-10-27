@@ -1,11 +1,11 @@
 import React from "react";
 import { Image, Modal } from "react-bootstrap";
 import { useAuthModal, useSetAuthModal } from "../../contexts/AuthModalContext";
-import logoEmblem from "../../assets/logo-emblem.png";
+import expired from "../../assets/expired.png";
 import { AuthButton } from "../../components";
 import { useBreakpoints } from "../../hooks";
 
-const JoinUs = () => {
+const UserExpired = () => {
   const authModal = useAuthModal();
   const setAuthModal = useSetAuthModal();
   const { sm } = useBreakpoints();
@@ -13,15 +13,16 @@ const JoinUs = () => {
   return (
     <Modal show={authModal.show} onHide={() => setAuthModal({ show: false })}>
       <Modal.Header closeButton>
-        <Modal.Title>Join Us</Modal.Title>
+        <Modal.Title>Session Expired</Modal.Title>
       </Modal.Header>
 
       <Modal.Body>
-        <Image src={logoEmblem} alt="Logo Emblem" className="w-100" />
+        <Image src={expired} alt="Logo Emblem" className="w-100" />
       </Modal.Body>
       <Modal.Body>
         <p>
-          A wonderful world of creativity and community is within your reach!
+          It looks like your session has expired, please login again or create a
+          new account.
         </p>
       </Modal.Body>
 
@@ -45,4 +46,4 @@ const JoinUs = () => {
   );
 };
 
-export default JoinUs;
+export default UserExpired;

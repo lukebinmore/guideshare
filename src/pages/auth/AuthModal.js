@@ -6,6 +6,7 @@ import LoginForm from "./LoginForm";
 import SignoutForm from "./SignoutForm";
 import SignupForm from "./SignupForm";
 import SignupProfileForm from "./SignupProfileForm";
+import UserExpired from "./UserExpired";
 
 const AuthModal = () => {
   const authModal = useAuthModal();
@@ -22,7 +23,7 @@ const AuthModal = () => {
     case "changePassword":
       return <ChangePasswordForm />;
     case "expired":
-      return <JoinUs expired />;
+      return <UserExpired />;
     default:
       return <JoinUs />;
   }
