@@ -21,6 +21,7 @@ const pageTitles = {
   "/posts": "Guide",
   "/profiles": "Profile",
   "/contact-us": "Contact Us",
+  "/restricted": "Restricted",
 };
 
 function App() {
@@ -78,6 +79,7 @@ function App() {
           <Route path="/posts/edit/:id" element={<PostCreateEditForm edit />} />
           <Route path="/profiles/:id" element={<ProfilePage />} />
           <Route path="/contact-us" element={<ContactForm />} />
+          <Route path="/restricted" element={<ErrorPage target="401" />} />
           <Route path="*" element={<ErrorPage target="404" />} />
         </Routes>
       </Container>

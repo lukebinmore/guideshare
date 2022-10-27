@@ -6,12 +6,18 @@ import Image from "react-bootstrap/Image";
 import IconText from "../../components/IconText";
 import NavButton from "../../components/NavButton";
 import oops from "../../assets/oops.png";
+import restricted from "../../assets/restricted.png";
 
 const errors = {
   404: {
     title: "Page Not Found",
     text: "This page doesn't seem to exist...",
     image: oops,
+  },
+  401: {
+    title: "Restricted",
+    text: "You are not authorized to view this page!",
+    image: restricted,
   },
 };
 
@@ -34,7 +40,7 @@ const ErrorPage = ({ target }) => {
       </Card.Body>
 
       <Card.Body>
-        <Image src={image} className="w-75" />
+        <Image src={image} className="w-50" />
       </Card.Body>
 
       <Card.Footer className="btn-group w-100">

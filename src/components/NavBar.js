@@ -26,7 +26,7 @@ const NavBar = ({ titles }) => {
 
   useEffect(() => {
     const title = titles[`/${pathname.split("/")[1]}`];
-    document.title = `GuideShare - ${title}`;
+    document.title = `GuideShare - ${title || "Not Found"}`;
     setPageTitle(title);
   }, [pathname, titles]);
 
