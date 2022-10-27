@@ -11,6 +11,7 @@ import PostSearch from "./PostSearch";
 import { useBreakpoints } from "../hooks";
 import styles from "../styles/NavBar.module.css";
 import { ThemeButton } from ".";
+import { ComponentParent } from "../utils/utils";
 
 const NavBar = ({ titles }) => {
   const currentUser = useCurrentUser();
@@ -20,34 +21,33 @@ const NavBar = ({ titles }) => {
 
   useEffect(() => {
     const title = titles[`/${pathname.split("/")[1]}`];
-
     document.title = `GuideShare - ${title}`;
     setPageTitle(title);
   }, [pathname, titles]);
 
   const navLinks = (
     <>
-      <NavButton to="home" left className="me-2" />
-      <NavButton to="feed" left className="me-2" />
-      <NavButton to="saved" left className="me-2" />
-      {currentUser && <NavButton to="wip" left />}
-    </>
-  );
-
-  const navLinksDropdown = (
-    <>
-      <Dropdown>
-        <Dropdown.Toggle>
-          <i className="fa-solid fa-bars" />
-        </Dropdown.Toggle>
-        <Dropdown.Menu className={styles.NavMenu}>
-          <NavButton to="home" dropdown left hr />
-          <NavButton to="feed" dropdown left hr />
-          <NavButton to="saved" dropdown left hr />
-          {currentUser && <NavButton to="wip" left dropdown hr />}
-          <NavButton to="contactUs" dropdown left />
-        </Dropdown.Menu>
-      </Dropdown>
+      <ComponentParent
+        condition={!md}
+        wrapper={(children) => (
+          <Dropdown>
+            <Dropdown.Toggle>
+              <i className="fa-solid fa-bars" />
+            </Dropdown.Toggle>
+            <Dropdown.Menu className={styles.NavMenu}>{children}</Dropdown.Menu>
+          </Dropdown>
+        )}>
+        <NavButton to="home" dropdown={!md} left hr={!md} className="me-2" />
+        <NavButton to="feed" dropdown={!md} left hr={!md} className="me-2" />
+        <NavButton
+          to="saved"
+          dropdown={!md}
+          left
+          hr={!md && currentUser}
+          className="me-2"
+        />
+        {currentUser && <NavButton to="wip" dropdown={!md} left />}
+      </ComponentParent>
     </>
   );
 
@@ -80,10 +80,7 @@ const NavBar = ({ titles }) => {
       )}
       <Container fluid className={styles.NavBar}>
         <Row className={styles.NavBarRow}>
-          <Col xs="auto">
-            <div className="d-md-block d-none">{navLinks}</div>
-            <div className="d-md-none d-block">{navLinksDropdown}</div>
-          </Col>
+          <Col xs="auto">{navLinks}</Col>
           <Col className="d-flex justify-content-center align-items-center">
             <h1>{pageTitle}</h1>
           </Col>
