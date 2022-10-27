@@ -13,7 +13,7 @@ const Comments = ({ id }) => {
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const { data } = await axiosReq.get(`/comments/?post=${id}`);
+        const { data } = await axiosReq.get(`comments/?post=${id}`);
         setComments(data);
         setHasLoaded(true);
       } catch (err) {

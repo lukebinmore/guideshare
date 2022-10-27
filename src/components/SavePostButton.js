@@ -26,7 +26,7 @@ const SavePostButton = ({ id }) => {
     const saveData = AddRemoveArrayItem(parseInt(id), saved_posts);
 
     try {
-      await axiosReq.put(`/saved-following/${currentUser?.profile_id}`, {
+      await axiosReq.put(`saved-following/${currentUser?.profile_id}/`, {
         saved_posts: saveData,
       });
       setSavedFollowed((prevData) => ({

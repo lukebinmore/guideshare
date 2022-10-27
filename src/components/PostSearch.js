@@ -20,8 +20,6 @@ const PostSearch = () => {
   const [posts, setPosts] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
 
-  useLayoutEffect(() => {}, []);
-
   useEffect(() => {
     setSearchQuery(query);
   }, [query]);

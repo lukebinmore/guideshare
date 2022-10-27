@@ -57,7 +57,7 @@ const VoteFooter = (props) => {
   };
 
   return (
-    <Card.Footer className="p-0 btn-group">
+    <Card.Footer className="p-0 text-end">
       <Button
         name="dislike"
         variant="secondary"
