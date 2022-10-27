@@ -40,7 +40,7 @@ const ErrorPage = ({ target }) => {
       </Card.Body>
 
       <Card.Body>
-        <Image src={image} className="w-50" />
+        <Image alt="Error Image" src={image} className="w-50" />
       </Card.Body>
 
       <Card.Footer className="btn-group w-100">

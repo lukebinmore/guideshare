@@ -8,14 +8,15 @@ import FollowProfileButton from "./FollowProfileButton";
 import styles from "../styles/Buttons.module.css";
 
 const ProfileButton = (props) => {
-  const { profile_id, src, username, horizontal, follow, disabled } = props;
+  const { profile_id, src, username, horizontal, follow, disabled, unique } =
+    props;
   const navigate = useNavigate();
   const currentUser = useCurrentUser();
 
   return (
     <Form.Group>
       <Form.Label
-        htmlFor={`profile-${profile_id}`}
+        htmlFor={`${unique && "u-"}profile-${profile_id}`}
         className={`rounded-circle ${styles.Profile}`}>
         <Avatar src={src} />
       </Form.Label>
@@ -26,7 +27,7 @@ const ProfileButton = (props) => {
         }`}>
         <Button
           aria-label={`${username}'s Profile`}
-          id={`profile-${profile_id}`}
+          id={`${unique && "u-"}profile-${profile_id}`}
           variant="outline-primary"
           onClick={() => navigate(`/profiles/${profile_id}`)}
           disabled={disabled}>

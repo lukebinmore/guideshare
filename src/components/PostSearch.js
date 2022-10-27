@@ -13,7 +13,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 import LoadingSpinner from "./LoadingSpinner";
 import NavButton from "./NavButton";
 import useBreakpoints from "../hooks/useBreakpoints";
-import styles from "../styles/Search.module.css";
+import styles from "../styles/PostSearch.module.css";
 
 const PostSearch = () => {
   const { query } = useSearchFilterSort();
@@ -70,16 +70,18 @@ const PostSearch = () => {
 
         <Dropdown drop="down">
           <Dropdown.Toggle
-            role="searchbox"
-            as="input"
-            type="search"
-            placeholder="Search"
-            name="query"
-            value={searchQuery}
-            onChange={(event) => setSearchQuery(event.target.value)}
-            className="text-center form-control"
-          />
-          <Form.Label className="d-none">Search</Form.Label>
+            className={`form-control p-0 ${styles.RemoveTransform}`}>
+            <Form.Control
+              role="searchbox"
+              type="search"
+              placeholder="Search"
+              name="query"
+              value={searchQuery}
+              onChange={(event) => setSearchQuery(event.target.value)}
+              className="text-center form-control"
+            />
+            <Form.Label className="d-none">Search</Form.Label>
+          </Dropdown.Toggle>
 
           <Dropdown.Menu
             className={`pb-0 w-100 ${styles.QuickSearchMenu}`}

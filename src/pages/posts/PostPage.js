@@ -13,6 +13,7 @@ import SavePostButton from "../../components/SavePostButton";
 import VoteFooter from "../../components/VoteFooter";
 import useBreakpoints from "../../hooks/useBreakpoints";
 import styles from "../../styles/PostPage.module.css";
+import appStyles from "../../App.module.css";
 import Comments from "../comments/Comments";
 
 const PostPage = () => {
@@ -76,17 +77,21 @@ const PostPage = () => {
                   handleDelete={handleDelete}
                 />
               )}
-              <Card.Img src={cover_image} className={styles.CoverImage} />
+              <Card.Img
+                alt="Cover Image"
+                src={cover_image}
+                className={styles.CoverImage}
+              />
             </Card.Header>
 
             <Card.Header className="d-flex justify-content-between align-items-center p-2">
               <div className={`text-end ${md && styles.HeaderButton}`}>
                 {!is_owner && profile_id && <FollowProfileButton id={id} />}
               </div>
-              <h3 className="mx-2">
+              <p className={`mx-2 ${appStyles.Title}`}>
                 {wip && "(WIP) "}
                 {title}
-              </h3>
+              </p>
               <div className={`text-end ${md && styles.HeaderButton}`}>
                 <SavePostButton id={id} />
               </div>
@@ -109,6 +114,7 @@ const PostPage = () => {
                     src={profile_picture}
                     horizontal
                     disabled={!profile_id}
+                    unique
                   />
                 </Col>
                 {!sm && <hr className="mt-3" />}

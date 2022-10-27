@@ -17,3 +17,7 @@
 .QuickSearchItem h4 {
   line-height: 1.5rem;
 }
+
+.RemoveTransform {
+  transform: none !important;
+}

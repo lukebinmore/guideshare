@@ -9,6 +9,7 @@ import IconText from "../../components/IconText";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import ProfileButton from "../../components/ProfileButton";
 import styles from "../../styles/Profiles.module.css";
+import appStyles from "../../App.module.css";
 
 const Profiles = (props) => {
   const { sort = "owner", filter, title } = props;
@@ -38,7 +39,7 @@ const Profiles = (props) => {
       {hasLoaded ? (
         <Card className="mb-3">
           <Card.Header>
-            <h4>{title}</h4>
+            <p className={appStyles.Title}>{title}</p>
           </Card.Header>
 
           <AdminButton

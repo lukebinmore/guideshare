@@ -5,6 +5,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import IconText from "../../components/IconText";
 import styles from "../../styles/PostBlurb.module.css";
+import appStyles from "../../App.module.css";
 
 const PostBlurb = (props) => {
   const {
@@ -26,10 +27,10 @@ const PostBlurb = (props) => {
           </Card.Header>
 
           <Card.Body className="p-2">
-            <h5>
+            <p className={appStyles.Title}>
               {wip && "(WIP) "}
               {title}
-            </h5>
+            </p>
           </Card.Body>
 
           <Card.Footer className="px-4 py-2">
@@ -38,7 +39,7 @@ const PostBlurb = (props) => {
                 <IconText text={dislikes_count} icon="thumbs-down" left />
               </Col>
               <Col className="text-center px-1 py-0">
-                <h5>{category_title}</h5>
+                <p>{category_title}</p>
               </Col>
               <Col xs="auto" className={`p-0 ${styles.PostLikes}`}>
                 <IconText text={likes_count} icon="thumbs-up" right />

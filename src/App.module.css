@@ -2,3 +2,7 @@ body {
   background-color: var(--background);
   overflow-x: hidden;
 }
+
+.Title {
+  font-size: 1.3rem;
+}
