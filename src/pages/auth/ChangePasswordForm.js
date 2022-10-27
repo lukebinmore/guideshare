@@ -1,10 +1,15 @@
 import React, { useState } from "react";
-import { Button, Form, Modal } from "react-bootstrap";
-import { IconText, FormError, FormInput, AuthButton } from "../../components";
-import { collectFormData } from "../../utils/utils";
-import { useAuthModal, useSetAuthModal } from "../../contexts/AuthModalContext";
-import { useBreakpoints } from "../../hooks";
 import { axiosRes } from "../../api/axiosDefaults";
+import { useAuthModal, useSetAuthModal } from "../../contexts/AuthModalContext";
+import { collectFormData } from "../../utils/utils";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import Modal from "react-bootstrap/Modal";
+import AuthButton from "../../components/AuthButton";
+import FormError from "../../components/FormError";
+import FormInput from "../../components/FormInput";
+import IconText from "../../components/IconText";
+import useBreakpoints from "../../hooks/useBreakpoints";
 
 const ChangePasswordForm = () => {
   const authModal = useAuthModal();

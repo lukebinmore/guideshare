@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import { Card } from "react-bootstrap";
 import { axiosRes } from "../../api/axiosDefaults";
-import {
-  EditDeleteDropdown,
-  ProfileButton,
-  VoteFooter,
-} from "../../components";
-import { useBreakpoints } from "../../hooks";
+import Card from "react-bootstrap/Card";
+import EditDeleteDropdown from "../../components/EditDeleteDropdown";
+import ProfileButton from "../../components/ProfileButton";
+import VoteFooter from "../../components/VoteFooter";
+import useBreakpoints from "../../hooks/useBreakpoints";
 import CommentCreateEditForm from "./CommentCreateEditForm";
 
 const Comment = (props) => {

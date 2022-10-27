@@ -1,18 +1,18 @@
 import React, { useState } from "react";
-import { Button, Form, Modal } from "react-bootstrap";
-import { useNavigate } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
-import {
-  Avatar,
-  IconText,
-  FormError,
-  FormInput,
-  AuthButton,
-} from "../../components";
+import { useNavigate } from "react-router";
 import { useAuthModal, useSetAuthModal } from "../../contexts/AuthModalContext";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { collectFormData } from "../../utils/utils";
-import { useBreakpoints } from "../../hooks";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import Modal from "react-bootstrap/Modal";
+import AuthButton from "../../components/AuthButton";
+import Avatar from "../../components/Avatar";
+import FormError from "../../components/FormError";
+import FormInput from "../../components/FormInput";
+import IconText from "../../components/IconText";
+import useBreakpoints from "../../hooks/useBreakpoints";
 
 const SignupProfileForm = () => {
   const authModal = useAuthModal();

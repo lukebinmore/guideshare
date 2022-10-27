@@ -1,7 +1,10 @@
 import React from "react";
-import { Button, Card, Image } from "react-bootstrap";
 import { useNavigate } from "react-router";
-import { IconText, NavButton } from "../../components";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import Image from "react-bootstrap/Image";
+import IconText from "../../components/IconText";
+import NavButton from "../../components/NavButton";
 import oops from "../../assets/oops.png";
 
 const errors = {

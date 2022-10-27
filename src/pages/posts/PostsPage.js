@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { axiosReq } from "../../api/axiosDefaults";
-import PostBlurb from "./PostBlurb";
 import { useLocation } from "react-router";
-import { fetchMoreData } from "../../utils/utils";
-import { InputGroup } from "react-bootstrap";
 import InfiniteScroller from "react-infinite-scroll-component";
 import { useSearchFilterSort } from "../../contexts/SearchFilterSortContext";
-import {
-  LoadingSpinner,
-  PostFilters,
-  PostSort,
-  PostResultsCount,
-} from "../../components";
+import { fetchMoreData } from "../../utils/utils";
+import InputGroup from "react-bootstrap/InputGroup";
+import LoadingSpinner from "../../components/LoadingSpinner";
+import PostFilters from "../../components/PostFilters";
+import PostResultsCount from "../../components/PostResultsCount";
+import PostSort from "../../components/PostSort";
+import PostBlurb from "./PostBlurb";
 import Profiles from "../profiles/Profiles";
 
 const PostsPage = (props) => {

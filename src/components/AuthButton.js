@@ -1,9 +1,10 @@
 import React from "react";
-import { Button, Dropdown } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useSetAuthModal } from "../contexts/AuthModalContext";
-import IconText from "./IconText";
 import { ComponentParent } from "../utils/utils";
+import Button from "react-bootstrap/Button";
+import Dropdown from "react-bootstrap/Dropdown";
+import IconText from "./IconText";
 
 const AuthButton = (props) => {
   const { page, size, variant, left, right, dropdown, hr, className, refresh } =

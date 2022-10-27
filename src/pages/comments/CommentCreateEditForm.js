@@ -1,10 +1,14 @@
 import React, { useState } from "react";
-import { Button, Card, Form } from "react-bootstrap";
 import { axiosReq } from "../../api/axiosDefaults";
-import { AuthButton, Avatar, FormInput } from "../../components";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import styles from "../../styles/CommentCreateEditForm.module.css";
 import { collectFormData } from "../../utils/utils";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import Form from "react-bootstrap/Form";
+import AuthButton from "../../components/AuthButton";
+import Avatar from "../../components/Avatar";
+import FormInput from "../../components/FormInput";
+import styles from "../../styles/CommentCreateEditForm.module.css";
 
 const CommentCreateEditForm = (props) => {
   const { id, setState, setEdit, initialData } = props;

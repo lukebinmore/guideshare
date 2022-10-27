@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { Card, Col, Row } from "react-bootstrap";
-import { useNavigate, useParams } from "react-router";
 import { axiosReq, axiosRes } from "../../api/axiosDefaults";
-import {
-  LoadingSpinner,
-  AdminButton,
-  ProfileButton,
-  VoteFooter,
-  EditDeleteDropdown,
-  SavePostButton,
-  FollowProfileButton,
-} from "../../components";
-import { useBreakpoints } from "../../hooks";
+import { useNavigate, useParams } from "react-router";
+import Card from "react-bootstrap/Card";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import AdminButton from "../../components/AdminButton";
+import EditDeleteDropdown from "../../components/EditDeleteDropdown";
+import FollowProfileButton from "../../components/FollowProfileButton";
+import LoadingSpinner from "../../components/LoadingSpinner";
+import ProfileButton from "../../components/ProfileButton";
+import SavePostButton from "../../components/SavePostButton";
+import VoteFooter from "../../components/VoteFooter";
+import useBreakpoints from "../../hooks/useBreakpoints";
 import styles from "../../styles/PostPage.module.css";
 import Comments from "../comments/Comments";
 

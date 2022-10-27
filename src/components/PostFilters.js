@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Button, Dropdown, Form } from "react-bootstrap";
 import { useLocation } from "react-router";
 import {
   useSearchFilterSort,
   useSetSearchFilterSort,
 } from "../contexts/SearchFilterSortContext";
 import { fetchCategories } from "../utils/utils";
+import Button from "react-bootstrap/Button";
+import Dropdown from "react-bootstrap/Dropdown";
+import Form from "react-bootstrap/Form";
 import IconText from "./IconText";
-import { useBreakpoints } from "../hooks";
+import useBreakpoints from "../hooks/useBreakpoints";
 
 const PostFilters = (props) => {
   const { filters } = useSearchFilterSort();

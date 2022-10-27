@@ -1,17 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { Col, Container, Dropdown, Form, Image, Row } from "react-bootstrap";
 import { NavLink, useLocation } from "react-router-dom";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
-import Avatar from "./Avatar";
+import { ComponentParent } from "../utils/utils";
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
+import Dropdown from "react-bootstrap/Dropdown";
+import Form from "react-bootstrap/Form";
+import Image from "react-bootstrap/Image";
+import Row from "react-bootstrap/Row";
 import logo from "../assets/logo.png";
 import AdminButton from "./AdminButton";
 import AuthButton from "./AuthButton";
+import Avatar from "./Avatar";
 import NavButton from "./NavButton";
 import PostSearch from "./PostSearch";
-import { useBreakpoints } from "../hooks";
+import ThemeButton from "./ThemeButton";
+import useBreakpoints from "../hooks/useBreakpoints";
 import styles from "../styles/NavBar.module.css";
-import { ThemeButton } from ".";
-import { ComponentParent } from "../utils/utils";
 
 const NavBar = ({ titles }) => {
   const currentUser = useCurrentUser();

@@ -1,9 +1,10 @@
 import React from "react";
-import { Image, Modal } from "react-bootstrap";
 import { useAuthModal, useSetAuthModal } from "../../contexts/AuthModalContext";
+import Image from "react-bootstrap/Image";
+import Modal from "react-bootstrap/Modal";
 import logoEmblem from "../../assets/logo-emblem.png";
-import { AuthButton } from "../../components";
-import { useBreakpoints } from "../../hooks";
+import AuthButton from "../../components/AuthButton";
+import useBreakpoints from "../../hooks/useBreakpoints";
 
 const JoinUs = () => {
   const authModal = useAuthModal();

@@ -1,5 +1,6 @@
 import React from "react";
-import { Button, Dropdown } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
+import Dropdown from "react-bootstrap/Dropdown";
 import styles from "../styles/EditDeleteDropdown.module.css";
 
 const EditDeleteDropdown = (props) => {

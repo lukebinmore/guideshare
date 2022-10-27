@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { Button } from "react-bootstrap";
+import { axiosReq } from "../api/axiosDefaults";
+import { useCurrentUser } from "../contexts/CurrentUserContext";
 import {
   useSavedFollowed,
   useSetSavedFollowed,
 } from "../contexts/SavedFollowedContext";
-import { axiosReq } from "../api/axiosDefaults";
 import { AddRemoveArrayItem } from "../utils/utils";
-import { useCurrentUser } from "../contexts/CurrentUserContext";
+import Button from "react-bootstrap/Button";
 import IconText from "./IconText";
-import { useBreakpoints } from "../hooks";
+import useBreakpoints from "../hooks/useBreakpoints";
 
 const FollowProfileButton = ({ id }) => {
   const { following } = useSavedFollowed();

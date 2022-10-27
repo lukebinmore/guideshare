@@ -1,9 +1,9 @@
 import React from "react";
-import { Dropdown } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
-import IconText from "./IconText";
 import { ComponentParent } from "../utils/utils";
+import Dropdown from "react-bootstrap/Dropdown";
+import IconText from "./IconText";
 
 const NavButton = (props) => {
   const { to, left, right, dropdown, hr, className, noText, size } = props;

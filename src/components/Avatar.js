@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { Fade, Form, Image } from "react-bootstrap";
+import Fade from "react-bootstrap/Fade";
+import Form from "react-bootstrap/Form";
+import Image from "react-bootstrap/Image";
 import profilePlaceholder from "../assets/profile-placeholder.png";
 import changePicture from "../assets/change-picture.png";
 import styles from "../styles/Avatar.module.css";

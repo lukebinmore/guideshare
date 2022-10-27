@@ -1,11 +1,14 @@
 import React from "react";
-import { Col, Dropdown, Form, Row } from "react-bootstrap";
 import {
   useSearchFilterSort,
   useSetSearchFilterSort,
 } from "../contexts/SearchFilterSortContext";
+import Col from "react-bootstrap/Col";
+import Dropdown from "react-bootstrap/Dropdown";
+import Form from "react-bootstrap/Form";
+import Row from "react-bootstrap/Row";
 import IconText from "./IconText";
-import { useBreakpoints } from "../hooks";
+import useBreakpoints from "../hooks/useBreakpoints";
 import styles from "../styles/PostsSort.module.css";
 
 const sortValues = [

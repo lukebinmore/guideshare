@@ -1,21 +1,23 @@
 import React, { useEffect, useState } from "react";
-import { Button, Card, Col, Form, Row } from "react-bootstrap";
-import { useNavigate, useParams } from "react-router";
-import {
-  AdminButton,
-  Avatar,
-  EditDeleteDropdown,
-  FormInput,
-  IconText,
-} from "../../components";
-import { useBreakpoints } from "../../hooks";
-import PostsPage from "../posts//PostsPage";
-import styles from "../../styles/ProfilePage.module.css";
-import { axiosReq } from "../../api/axiosDefaults";
-import Profiles from "./Profiles";
-import { collectFormData, removeTokenTimestamp } from "../../utils/utils";
-import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import axios from "axios";
+import { axiosReq } from "../../api/axiosDefaults";
+import { useNavigate, useParams } from "react-router";
+import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
+import { collectFormData, removeTokenTimestamp } from "../../utils/utils";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import Col from "react-bootstrap/Col";
+import Form from "react-bootstrap/Form";
+import Row from "react-bootstrap/Row";
+import AdminButton from "../../components/AdminButton";
+import Avatar from "../../components/Avatar";
+import EditDeleteDropdown from "../../components/EditDeleteDropdown";
+import FormInput from "../../components/FormInput";
+import IconText from "../../components/IconText";
+import PostsPage from "../posts//PostsPage";
+import Profiles from "./Profiles";
+import useBreakpoints from "../../hooks/useBreakpoints";
+import styles from "../../styles/ProfilePage.module.css";
 
 const ProfilePage = () => {
   const { id } = useParams();

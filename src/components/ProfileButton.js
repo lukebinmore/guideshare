@@ -1,10 +1,11 @@
 import React from "react";
-import { Button, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import Avatar from "./Avatar";
-import styles from "../styles/Buttons.module.css";
-import FollowProfileButton from "./FollowProfileButton";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import Avatar from "./Avatar";
+import FollowProfileButton from "./FollowProfileButton";
+import styles from "../styles/Buttons.module.css";
 
 const ProfileButton = (props) => {
   const { profile_id, src, username, horizontal, follow, disabled } = props;

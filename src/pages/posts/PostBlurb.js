@@ -1,7 +1,9 @@
 import React from "react";
-import { Card, Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { IconText } from "../../components";
+import Card from "react-bootstrap/Card";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import IconText from "../../components/IconText";
 import styles from "../../styles/PostBlurb.module.css";
 
 const PostBlurb = (props) => {

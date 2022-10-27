@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { Button, Card } from "react-bootstrap";
 import { axiosReq } from "../../api/axiosDefaults";
-import { fetchMoreData } from "../../utils/utils";
-import styles from "../../styles/Profiles.module.css";
-import {
-  AdminButton,
-  IconText,
-  LoadingSpinner,
-  ProfileButton,
-} from "../../components";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import { fetchMoreData } from "../../utils/utils";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import AdminButton from "../../components/AdminButton";
+import IconText from "../../components/IconText";
+import LoadingSpinner from "../../components/LoadingSpinner";
+import ProfileButton from "../../components/ProfileButton";
+import styles from "../../styles/Profiles.module.css";
 
 const Profiles = (props) => {
   const { sort = "owner", filter, title } = props;

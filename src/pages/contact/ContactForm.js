@@ -1,17 +1,19 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Button, Card, Col, Form, Row } from "react-bootstrap";
 import { useNavigate } from "react-router";
-import {
-  IconText,
-  FormError,
-  FormInput,
-  AdminButton,
-  NavButton,
-} from "../../components";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { collectFormData } from "../../utils/utils";
-import { useBreakpoints } from "../../hooks";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import Col from "react-bootstrap/Col";
+import Form from "react-bootstrap/Form";
+import Row from "react-bootstrap/Row";
+import AdminButton from "../../components/AdminButton";
+import FormError from "../../components/FormError";
+import FormInput from "../../components/FormInput";
+import IconText from "../../components/IconText";
+import NavButton from "../../components/NavButton";
+import useBreakpoints from "../../hooks/useBreakpoints";
 
 const ContactForm = () => {
   const currentUser = useCurrentUser();

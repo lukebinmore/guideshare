@@ -1,14 +1,18 @@
-import React, { useEffect, useLayoutEffect, useState } from "react";
-import { Button, Card, Dropdown, Form, InputGroup } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { axiosReq } from "../api/axiosDefaults";
+import { NavLink } from "react-router-dom";
 import {
   useSearchFilterSort,
   useSetSearchFilterSort,
 } from "../contexts/SearchFilterSortContext";
-import NavButton from "./NavButton";
-import { useBreakpoints } from "../hooks";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import Dropdown from "react-bootstrap/Dropdown";
+import Form from "react-bootstrap/Form";
+import InputGroup from "react-bootstrap/InputGroup";
 import LoadingSpinner from "./LoadingSpinner";
-import { axiosReq } from "../api/axiosDefaults";
-import { NavLink } from "react-router-dom";
+import NavButton from "./NavButton";
+import useBreakpoints from "../hooks/useBreakpoints";
 import styles from "../styles/Search.module.css";
 
 const PostSearch = () => {

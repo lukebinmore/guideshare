@@ -1,9 +1,10 @@
 import React from "react";
-import { Image, Modal } from "react-bootstrap";
 import { useAuthModal, useSetAuthModal } from "../../contexts/AuthModalContext";
 import expired from "../../assets/expired.png";
-import { AuthButton } from "../../components";
-import { useBreakpoints } from "../../hooks";
+import Image from "react-bootstrap/Image";
+import Modal from "react-bootstrap/Modal";
+import AuthButton from "../../components/AuthButton";
+import useBreakpoints from "../../hooks/useBreakpoints";
 
 const UserExpired = () => {
   const authModal = useAuthModal();

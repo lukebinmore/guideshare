@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { Button, Card } from "react-bootstrap";
-import IconText from "./IconText";
-import styles from "../styles/VoteFooter.module.css";
 import { axiosReq, axiosRes } from "../api/axiosDefaults";
-import { useBreakpoints } from "../hooks";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import IconText from "./IconText";
+import useBreakpoints from "../hooks/useBreakpoints";
+import styles from "../styles/VoteFooter.module.css";
 
 const voteValues = {
   like: 0,

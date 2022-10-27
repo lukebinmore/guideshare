@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import InfiniteScroll from "react-infinite-scroll-component";
 import { axiosReq } from "../../api/axiosDefaults";
-import { LoadingSpinner } from "../../components";
+import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
+import LoadingSpinner from "../../components/LoadingSpinner";
 import Comment from "./Comment";
 import CommentCreateEditForm from "./CommentCreateEditForm";
 
