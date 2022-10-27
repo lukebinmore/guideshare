@@ -77,6 +77,7 @@ const SignupProfileForm = () => {
           />
 
           <FormInput
+            type="date"
             label="Date Of Birth"
             name="dob"
             errorData={errors?.dob}

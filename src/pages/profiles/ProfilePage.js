@@ -197,6 +197,7 @@ const ProfilePage = () => {
                         <p className="text-muted">Date of Birth</p>
                         <FormInput
                           name="dob"
+                          type="date"
                           label="Date of Birth"
                           errorData={errors?.dob}
                           readOnly={!edit}
