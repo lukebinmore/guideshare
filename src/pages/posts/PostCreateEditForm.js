@@ -11,9 +11,11 @@ import FormInput from "../../components/FormInput";
 import IconText from "../../components/IconText";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import useBreakpoints from "../../hooks/useBreakpoints";
+import useRedirect from "../../hooks/useRedirect";
 import styles from "../../styles/PostCreateEditForm.module.css";
 
 const PostCreateEditForm = ({ edit }) => {
+  useRedirect("members");
   const { id } = useParams();
   const { md } = useBreakpoints();
   const navigate = useNavigate();
@@ -33,7 +35,7 @@ const PostCreateEditForm = ({ edit }) => {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(`/posts/${id}/`);
-        data.is_owner ? setPost(data) : navigate(-1);
+        data.is_owner ? setPost(data) : navigate("/restricted");
         setCoverImage(data.cover_image);
         setHasLoaded(true);
       } catch (err) {

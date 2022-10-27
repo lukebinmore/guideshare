@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Hind:wght@500&family=Koulen&display=swap");
 
 :root {
-  --primary: #21BC3C;
+  --primary: #21bc3c;
   --primary-tint: #219c36;
   --secondary: #ff8200;
   --secondary-tint: #b25a00;
@@ -123,6 +123,10 @@ a:hover {
 
 .btn:disabled {
   color: var(--text);
+}
+
+.btn-close {
+  background-color: #fff;
 }
 
 .btn-danger {
