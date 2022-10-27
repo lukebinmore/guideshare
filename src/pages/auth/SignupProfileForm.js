@@ -81,6 +81,7 @@ const SignupProfileForm = () => {
             name="dob"
             errorData={errors?.dob}
             text="(OPTIONAL) Enter your date of birth."
+            hr
           />
 
           <FormInput

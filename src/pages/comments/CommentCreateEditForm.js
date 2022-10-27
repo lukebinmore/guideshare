@@ -44,7 +44,7 @@ const CommentCreateEditForm = (props) => {
             <p>Comment as: {currentUser?.username}</p>
           </Card.Header>
           <Card.Body className="p-2 w-100 d-flex align-items-center">
-            <div className={styles.NewCommentBody}>
+            <div className={styles.NewCommentImage}>
               <Avatar src={currentUser?.profile_picture} />
             </div>
             <div className="w-100 ms-2">
