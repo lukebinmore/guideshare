@@ -17,10 +17,12 @@ import appStyles from "../../App.module.css";
 import Comments from "../comments/Comments";
 
 const PostPage = () => {
+  /* Destructuring the useParams, useBreakpoints, and useNavigate hooks. */
   const { id } = useParams();
   const { sm, md } = useBreakpoints();
   const navigate = useNavigate();
 
+  /* Destructuring the useState hook. */
   const [hasLoaded, setHasLoaded] = useState(false);
   const [post, setPost] = useState({});
   const {
@@ -41,6 +43,7 @@ const PostPage = () => {
     comments_count,
   } = post;
 
+  /* Function to get post data using id prop. */
   useEffect(() => {
     const handleMount = async () => {
       try {
@@ -56,6 +59,7 @@ const PostPage = () => {
     handleMount();
   }, [id]);
 
+  /* Function to handle deletion of post. */
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`posts/${id}/`);
@@ -67,16 +71,19 @@ const PostPage = () => {
 
   return (
     <>
+      {/* Conditionally render content if API has response. */}
       {hasLoaded ? (
         <>
           <Card className="mb-3">
             <Card.Header>
+              {/* Conditionally render EditDeleteDropdown if post owner. */}
               {is_owner && (
                 <EditDeleteDropdown
                   handleEdit={() => navigate(`/posts/edit/${id}`)}
                   handleDelete={handleDelete}
                 />
               )}
+              {/* Post cover image. */}
               <Card.Img
                 alt="Cover Image"
                 src={cover_image}
@@ -86,9 +93,12 @@ const PostPage = () => {
 
             <Card.Header className="d-flex justify-content-between align-items-center p-2">
               <div className={`text-end ${md && styles.HeaderButton}`}>
+                {/* Conditionally render Follow button if not post owner and
+                profile still exists. */}
                 {!is_owner && profile_id && <FollowProfileButton id={id} />}
               </div>
               <p className={`mx-2 ${appStyles.Title}`}>
+                {/* Conditionally add WIP status to header. */}
                 {wip && "(WIP) "}
                 {title}
               </p>
@@ -98,6 +108,8 @@ const PostPage = () => {
             </Card.Header>
 
             <Card.Body className="p-2">
+              {/* Conditionally rendered admin button rendered only for
+              admin users. */}
               <AdminButton
                 href={`posts/post/${id}/change/`}
                 text="Open Post in Admin Panel"
@@ -131,6 +143,8 @@ const PostPage = () => {
               <p>{content}</p>
             </Card.Body>
 
+            {/* Vote footer provided with relevent props to allow liking and
+            disliking post. */}
             <VoteFooter
               post_id={id}
               like_id={like_id}
@@ -143,7 +157,10 @@ const PostPage = () => {
           <Comments id={id} />
         </>
       ) : (
-        <LoadingSpinner />
+        <>
+          {/* Conditionally rendered loading header if no API response yet. */}
+          <LoadingSpinner />
+        </>
       )}
     </>
   );
