@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react";
 
+/* Creating a context and a hook to use the context. */
 export const AuthModalContext = createContext();
 export const SetAuthModalContext = createContext();
 
@@ -12,6 +13,7 @@ export const AuthModalProvider = ({ children }) => {
     page: "",
   });
 
+  /* Return context providers. */
   return (
     <AuthModalContext.Provider value={authModal}>
       <SetAuthModalContext.Provider value={setAuthModal}>

@@ -5,6 +5,7 @@ import { useNavigate } from "react-router";
 import { removeTokenTimestamp, shouldRefreshToken } from "../utils/utils";
 import { useSetAuthModal } from "./AuthModalContext";
 
+/* Creating a context and a hook to use the context. */
 export const CurrentUserContext = createContext();
 export const SetCurrentUserContext = createContext();
 
@@ -16,6 +17,8 @@ export const CurrentUserProvider = ({ children }) => {
   const setAuthModal = useSetAuthModal();
   const navigate = useNavigate();
 
+  /* Function that gets the currently logged in user on mount, and saves the
+  data to the context state. */
   const handleMount = async () => {
     try {
       const { data } = await axiosRes.get("auth/user/");
@@ -29,6 +32,9 @@ export const CurrentUserProvider = ({ children }) => {
     handleMount();
   }, []);
 
+  /* React memo that creates and sets the interceptors for responses 
+  and requests. Redirects the user to the home page, and opens the auth
+  modal on token expiry. */
   useMemo(() => {
     axiosRes.interceptors.response.use(
       (response) => response,
@@ -77,6 +83,7 @@ export const CurrentUserProvider = ({ children }) => {
     );
   }, [navigate, setAuthModal]);
 
+  /* Returns the context providers. */
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <SetCurrentUserContext.Provider value={setCurrentUser}>
