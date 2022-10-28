@@ -8,6 +8,7 @@ import NavButton from "../../components/NavButton";
 import oops from "../../assets/oops.png";
 import restricted from "../../assets/restricted.png";
 
+/* Creating an object of errors. */
 const errors = {
   404: {
     title: "Page Not Found",
@@ -24,11 +25,13 @@ const errors = {
 const ErrorPage = ({ target }) => {
   const navigate = useNavigate();
 
+  /* Destructuring the object. */
   const page = errors[target];
   const { title, text, image } = page;
 
   return (
     <Card>
+      {/* Card content filled from object of pages based on props. */}
       <Card.Header>
         <h1>
           <IconText text={title} icon="face-sad-tear" left right />

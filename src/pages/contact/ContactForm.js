@@ -23,12 +23,15 @@ const ContactForm = () => {
   const [formSent, setFormSent] = useState(false);
   const [errors, setErrors] = useState({});
 
+  /* Function to handle submitting contact form. */
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    /* Collecting the data from the form and putting it into a dictionary. */
     const formData = collectFormData(event);
 
     try {
+      /* Attempt to submit form data. */
       await axios.post("contact-form/", formData);
       setFormSent(true);
     } catch (err) {
@@ -38,6 +41,7 @@ const ContactForm = () => {
 
   return (
     <>
+      {/* If form has been sent, load thanks message, if not load form. */}
       {formSent ? (
         <>
           <Card>
@@ -53,12 +57,14 @@ const ContactForm = () => {
             </Card.Body>
 
             <Card.Footer className="btn-group p-0">
+              {/* Submit Another button, reloads page. */}
               <Button
                 aria-label="Submit Another"
                 variant="secondary"
                 onClick={() => navigate(0)}>
                 <IconText text="Submit Another" icon="square-plus" left right />
               </Button>
+              {/* Home button. */}
               <NavButton to="home" left right />
             </Card.Footer>
           </Card>
@@ -154,10 +160,12 @@ const ContactForm = () => {
                 text="*Please enter your message for our team."
                 hr
               />
+              {/* Non-Field errors. */}
               <FormError data={errors?.non_field_errors} />
             </Card.Body>
 
             <Card.Footer className="btn-group p-0">
+              {/* Clear form button, reloads page. */}
               <Button
                 aria-label="Clear Form"
                 onClick={() => navigate(0)}
@@ -165,6 +173,7 @@ const ContactForm = () => {
                 size={md && "lg"}>
                 <IconText text="Clear" icon="trash" left right />
               </Button>
+              {/* Submit button, submits form. */}
               <Button aria-label="Submit" type="submit" size={md && "lg"}>
                 <IconText text="Submit" icon="paper-plane" left right />
               </Button>
