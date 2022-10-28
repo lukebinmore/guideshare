@@ -1,5 +1,7 @@
+/* Google fonts import */
 @import url("https://fonts.googleapis.com/css2?family=Hind:wght@500&family=Koulen&display=swap");
 
+/* Root variables */
 :root {
   --primary: #21bc3c;
   --primary-tint: #219c36;
@@ -9,6 +11,7 @@
   --danger-tint: #a21c29;
 }
 
+/* Base element overrides */
 * {
   box-sizing: border-box;
   font-family: "Hind", sans-serif;
@@ -59,6 +62,8 @@ a:hover {
   color: var(--text);
 }
 
+/* Bootstrap overrides */
+/* Modal overrides */
 .modal-content {
   text-align: center;
   background-color: var(--background-alt);
@@ -73,6 +78,7 @@ a:hover {
   justify-content: center;
 }
 
+/* Button overrides */
 .btn-primary,
 .btn-primary.show {
   background-color: var(--primary);
@@ -147,6 +153,7 @@ a:hover {
   width: 25%;
 }
 
+/* Dropdown overrides */
 .dropdown-menu {
   padding: 0.5em;
   background-color: var(--background);
@@ -165,10 +172,12 @@ a:hover {
   content: none;
 }
 
+/* Spinnger overrides */
 .spinner-border {
   color: var(--secondary);
 }
 
+/* Card overrides */
 .card-header,
 .card-footer {
   background-color: var(--background-alt);
@@ -181,11 +190,13 @@ a:hover {
   background-color: var(--background);
 }
 
+/* Text overrides */
 .form-text,
 .text-muted {
   color: var(--text-tint) !important;
 }
 
+/* Form overrides */
 .form-control-plaintext {
   color: var(--text);
 }

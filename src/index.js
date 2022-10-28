@@ -12,19 +12,24 @@ import { SiteThemeProvider } from "./contexts/ThemeContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter>
-    <SiteThemeProvider>
-      <AuthModalProvider>
-        <CurrentUserProvider>
-          <SavedFollowedProvider>
-            <SearchFilterSortProvider>
-              <App />
-            </SearchFilterSortProvider>
-          </SavedFollowedProvider>
-        </CurrentUserProvider>
-      </AuthModalProvider>
-    </SiteThemeProvider>
-  </BrowserRouter>
+  <>
+    {/* React-Router Router provider. */}
+    <BrowserRouter>
+      {/* Context Providers. */}
+      <SiteThemeProvider>
+        <AuthModalProvider>
+          <CurrentUserProvider>
+            <SavedFollowedProvider>
+              <SearchFilterSortProvider>
+                {/* Main App */}
+                <App />
+              </SearchFilterSortProvider>
+            </SavedFollowedProvider>
+          </CurrentUserProvider>
+        </AuthModalProvider>
+      </SiteThemeProvider>
+    </BrowserRouter>
+  </>
 );
 
 // If you want to start measuring performance in your app, pass a function

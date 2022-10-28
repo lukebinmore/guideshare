@@ -2,7 +2,9 @@ import { rest } from "msw";
 
 const baseURL = process.env.REACT_APP_API_URL;
 
+/* A mock server. */
 export const handlers = [
+  /* Login endpoint */
   rest.get(`${baseURL}auth/user/`, (req, res, ctx) => {
     return res(
       ctx.json({
@@ -18,9 +20,11 @@ export const handlers = [
       })
     );
   }),
+  /* Logout endpoint */
   rest.post(`${baseURL}auth/logout/`, (req, res, ctx) => {
     return res(ctx.status(200));
   }),
+  /* Saved-Following get endpoint */
   rest.get(`${baseURL}saved-following/*`, (req, res, ctx) => {
     return res(
       ctx.json({
@@ -29,9 +33,11 @@ export const handlers = [
       })
     );
   }),
+  /* Saved-Following put endpoint */
   rest.put(`${baseURL}saved-following/*`, (req, res, ctx) => {
     return res(ctx.status(200));
   }),
+  /* Categories endpoint */
   rest.get(`${baseURL}posts/categories/`, (req, res, ctx) => {
     return res(
       ctx.json([
