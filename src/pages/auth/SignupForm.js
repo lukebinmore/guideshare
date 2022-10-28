@@ -13,6 +13,8 @@ import IconText from "../../components/IconText";
 import useBreakpoints from "../../hooks/useBreakpoints";
 
 const SignupForm = () => {
+  /* Importing the useAuthModal, useSetAuthModal, useSetCurrentUser, and
+  useBreakpoints hooks. */
   const authModal = useAuthModal();
   const setAuthModal = useSetAuthModal();
   const setCurrentUser = useSetCurrentUser();
@@ -20,12 +22,16 @@ const SignupForm = () => {
 
   const [errors, setErrors] = useState({});
 
+  /* Function that handles submission of form data to API. */
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    /* Collecting the form data from the form. */
     const formData = collectFormData(event);
 
     try {
+      /* Attempts to submit form data to API, then if successful, submits
+      login API call. */
       const { data } = await axios.post("auth/registration/", formData);
       await axios.post("auth/login/", {
         username: formData.get("username"),

@@ -15,6 +15,8 @@ import IconText from "../../components/IconText";
 import useBreakpoints from "../../hooks/useBreakpoints";
 
 const SignupProfileForm = () => {
+  /* Importing the useAuthModal, useSetAuthModal, useCurrentUser, useBreakpoints,
+  and useNavigate hooks. */
   const authModal = useAuthModal();
   const setAuthModal = useSetAuthModal();
   const currentUser = useCurrentUser();
@@ -24,15 +26,20 @@ const SignupProfileForm = () => {
   const [errors, setErrors] = useState({});
   const [picture, setPicture] = useState();
 
+  /* Function that handles submission of form data to API. */
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    /* Collecting the form data from the event. */
     const formData = collectFormData(event);
 
+    /* Checking if the user has uploaded a picture. If they have, it will
+    add the picture to the form data. */
     if (event.target["picture"].files[0])
       formData.set("picture", event.target["picture"].files[0]);
 
     try {
+      // Attempts to submmit form data to API.
       await axiosReq.put(`profiles/${currentUser.profile_id}/`, formData);
       setAuthModal({ show: false });
       navigate(0);

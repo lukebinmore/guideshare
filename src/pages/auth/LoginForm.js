@@ -14,6 +14,8 @@ import IconText from "../../components/IconText";
 import useBreakpoints from "../../hooks/useBreakpoints";
 
 const LoginForm = () => {
+  /* Importing the useAuthModal, useSetAuthModal, useSetCurrentUser,
+  useBreakpoints, and useNavigate hooks. */
   const authModal = useAuthModal();
   const setAuthModal = useSetAuthModal();
   const setCurrentUser = useSetCurrentUser();
@@ -22,12 +24,15 @@ const LoginForm = () => {
 
   const [errors, setErrors] = useState({});
 
+  /* Function to handle submission of form data to API. */
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    /* Collecting the form data from the form. */
     const formData = collectFormData(event);
 
     try {
+      /* Attempts to submit form data to API. */
       const { data } = await axios.post("auth/login/", formData);
       setCurrentUser(data.user);
       setTokenTimestamp(data);
@@ -66,7 +71,11 @@ const LoginForm = () => {
         </Modal.Body>
 
         <Modal.Footer>
-          <Button aria-label="Login" type="submit" className="w-75" size={sm && "lg"}>
+          <Button
+            aria-label="Login"
+            type="submit"
+            className="w-75"
+            size={sm && "lg"}>
             <IconText text="login" icon="right-to-bracket" left right />
           </Button>
           <p className="text-muted">Don't have an account?</p>

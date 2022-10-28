@@ -12,14 +12,18 @@ import IconText from "../../components/IconText";
 import useBreakpoints from "../../hooks/useBreakpoints";
 
 const SignoutForm = () => {
+  /* Importing the useAuthModal, useSetAuthModal, useSetCurrentUser,
+  useBreakpoints, and useNavigate hooks. */
   const authModal = useAuthModal();
   const setAuthModal = useSetAuthModal();
   const setCurrentUser = useSetCurrentUser();
   const { sm } = useBreakpoints();
   const navigate = useNavigate();
 
+  /* Function that handles submission of form data to API. */
   const handleSignOut = async () => {
     try {
+      /* Attempts to submit form data to API. */
       await axios.post("auth/logout/");
       setCurrentUser(null);
       removeTokenTimestamp();

@@ -11,6 +11,8 @@ import UserExpired from "./UserExpired";
 const AuthModal = () => {
   const authModal = useAuthModal();
 
+  /* Checks the value of authModal.page and returns the appropriate 
+  component. */
   switch (authModal.page) {
     case "login":
       return <LoginForm />;

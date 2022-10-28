@@ -12,18 +12,23 @@ import IconText from "../../components/IconText";
 import useBreakpoints from "../../hooks/useBreakpoints";
 
 const ChangePasswordForm = () => {
+  /* Using the useAuthModal and useSetAuthModal hooks to get the authModal state
+  and setAuthModal function. */
   const authModal = useAuthModal();
   const setAuthModal = useSetAuthModal();
   const { sm } = useBreakpoints();
 
   const [errors, setErrors] = useState({});
 
+  /* Function that submits form data to API on form submit. */
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    /* Collecting the form data from the form and putting it into an object. */
     const formData = collectFormData(event);
 
     try {
+      /* Attempts to submit form data to APi. */
       await axiosRes.post("auth/password/change/", formData);
       setAuthModal({ show: false });
     } catch (err) {

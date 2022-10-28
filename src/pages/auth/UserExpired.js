@@ -7,6 +7,9 @@ import AuthButton from "../../components/AuthButton";
 import useBreakpoints from "../../hooks/useBreakpoints";
 
 const UserExpired = () => {
+  /* Using the useAuthModal and useSetAuthModal hooks to get the authModal state
+  and setAuthModal function. The useBreakpoints hook is used to get the sm
+  breakpoint. */
   const authModal = useAuthModal();
   const setAuthModal = useSetAuthModal();
   const { sm } = useBreakpoints();

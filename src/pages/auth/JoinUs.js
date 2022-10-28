@@ -7,6 +7,9 @@ import AuthButton from "../../components/AuthButton";
 import useBreakpoints from "../../hooks/useBreakpoints";
 
 const JoinUs = () => {
+  /* Using the useAuthModal and useSetAuthModal hooks to get the authModal state
+  and setAuthModal function from the AuthModalContext. It is also using the
+  useBreakpoints hook to get the sm breakpoint from the BreakpointsContext. */
   const authModal = useAuthModal();
   const setAuthModal = useSetAuthModal();
   const { sm } = useBreakpoints();
