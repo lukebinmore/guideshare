@@ -1,3 +1,4 @@
+/* Navbar container */
 .NavBar {
   position: sticky;
   top: 0;
@@ -6,6 +7,7 @@
   z-index: 5;
 }
 
+/* Navbar row container */
 .NavBarRow {
   padding: 0.5em 0;
   margin: 0;
@@ -14,20 +16,24 @@
   border-bottom: solid 2px var(--border);
 }
 
+/* Navigation menu */
 .NavMenu {
   width: 200px;
 }
 
+/* Mavigation menu items */
 .NavMenu a {
   text-align: left;
   margin: 0;
   width: 100%;
 }
 
+/* Account menu */
 .UserMenu {
   width: 200px;
 }
 
+/* Account menu items & buttons */
 .UserMenu a,
 .UserMenu button {
   text-align: right;
@@ -35,12 +41,14 @@
   width: 100%;
 }
 
+/* Profile Picture */
 .Profile {
   margin: 0 5px;
   border: none;
   width: 2.4em;
 }
 
+/* Logo */
 .Logo {
   min-height: 2.5em;
   height: 5vw;

@@ -1,13 +1,16 @@
+/* Post results list card */
 .QuickSearchItem {
   transition: transform 0.2s;
   white-space: normal;
   word-wrap: break-word;
 }
 
+/* Post results menu */
 .QuickSearchMenu {
   width: 100%;
 }
 
+/* Post results item */
 .QuickSearchItem:hover {
   border-color: var(--primary);
   box-shadow: 0 0 0 0.15rem var(--primary);
@@ -18,6 +21,7 @@
   line-height: 1.5rem;
 }
 
+/* Post searchbar remove zoom effect */
 .RemoveTransform {
   transform: none !important;
 }

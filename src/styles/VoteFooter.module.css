@@ -1,7 +1,9 @@
+/* Vote clicked icon */
 .Clicked i {
   color: var(--danger);
 }
 
+/* Comment Count color */
 .CommentsCount {
   color: var(--text);
 }

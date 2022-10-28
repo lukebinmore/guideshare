@@ -1,3 +1,4 @@
+/* Post page cover image */
 .CoverImage {
   height: auto;
   width: auto;
@@ -6,6 +7,7 @@
   margin-bottom: 0.5rem;
 }
 
+/* Post page follow and save buttons */
 .HeaderButton {
   min-width: 6rem;
   width: auto;

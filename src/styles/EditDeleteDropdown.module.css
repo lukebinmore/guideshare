@@ -1,9 +1,11 @@
+/* Edit & delete menu button */
 .MenuButton {
   position: absolute;
   top: 0;
   right: 0;
 }
 
+/* Menu button opacity */
 .MenuOpacity {
   opacity: 0.65;
 }
