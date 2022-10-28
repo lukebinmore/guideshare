@@ -20,6 +20,8 @@ import useBreakpoints from "../../hooks/useBreakpoints";
 import styles from "../../styles/ProfilePage.module.css";
 
 const ProfilePage = () => {
+  /* destructuring the useParams, useBreakpoints, useNavigate, and
+  useSetCurrentUser. */
   const { id } = useParams();
   const { sm } = useBreakpoints();
   const navigate = useNavigate();
@@ -29,6 +31,8 @@ const ProfilePage = () => {
   const [subPage, setSubPage] = useState("posts");
   const [edit, setEdit] = useState(false);
   const [errors, setErrors] = useState();
+
+  /* Destructuring the profile object. */
   const [profile, setProfile] = useState({ results: [] });
   const {
     owner,
@@ -48,6 +52,7 @@ const ProfilePage = () => {
   } = profile;
   const [profilePicture, setPicture] = useState(picture);
 
+  /* Function to get profile based on id passed in props. */
   useEffect(() => {
     const handleMount = async () => {
       try {
@@ -63,8 +68,10 @@ const ProfilePage = () => {
     handleMount();
   }, [id]);
 
+  /* Function to handle deleting users own profile. */
   const handleDelete = async () => {
     try {
+      /* Deletes profile, then logges user out, then redirects to home page. */
       await Promise.all([
         axiosReq.delete(`profiles/${id}/`),
         axios.post("auth/logout/"),
@@ -77,16 +84,21 @@ const ProfilePage = () => {
     }
   };
 
+  /* Function to handle submitting updates to users own profile. */
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    /* Collecting the form data from the event. */
     let formData = collectFormData(event);
 
+    /* Checking if the user has uploaded a new profile picture. If they
+    have, it will add the new picture to the formData. */
     if (event.target["picture"].files[0]) {
       formData.set("picture", event.target["picture"].files[0]);
     }
 
     try {
+      /* Attemptes to update profile data with provided form data. */
       const { data } = await axiosReq.put(`profiles/${id}/`, formData);
       await axiosReq.put(`profiles/${id}/`, {
         following: following,
@@ -95,26 +107,34 @@ const ProfilePage = () => {
       setProfile(data);
       setEdit(false);
     } catch (err) {
+      /* Sets errors on unsuccessful put request. */
       setErrors(err?.response?.err);
     }
   };
 
   return (
     <>
+      {/* Conditionally render page content if API call has returned data. */}
       {hasLoaded && (
         <>
+          {/* Update form assigning appropriate submit function. */}
           <Form className="card mb-3" onSubmit={handleSubmit}>
             <Card.Header>
+              {/* Conditionally renders content if edit state is true. */}
               {!edit && (
                 <>
+                  {/* Conditional renders content if current user is owner
+                  of profile. */}
                   {is_owner && (
                     <>
+                      {/* Renders edit and delete button dropdown. */}
                       <EditDeleteDropdown
                         opaque
                         handleEdit={() => setEdit(true)}
                         handleDelete={handleDelete}
                       />
 
+                      {/* Renders admin button for admin users. */}
                       <AdminButton
                         text="Open Profile Admin"
                         href={`profiles/profile/${id}/change/`}
@@ -130,6 +150,7 @@ const ProfilePage = () => {
 
             <Card.Body>
               <Row>
+                {/* Profile Picture display, with props for edit. */}
                 <Col sm={4} className={!sm && `w-50 mx-auto`}>
                   <FormInput
                     label="Profile Picture"
@@ -142,6 +163,8 @@ const ProfilePage = () => {
                   </FormInput>
                 </Col>
                 <Col className="mt-2">
+                  {/* Conditional display of posts, followers and followed
+                  profiles if edit state is false. */}
                   {!edit && (
                     <div className={styles.ProfileStats}>
                       <Button
@@ -170,6 +193,7 @@ const ProfilePage = () => {
                     </div>
                   )}
 
+                  {/* Conditionally renders first name if edit state is true or field has a value. */}
                   <Row xs={1} md={2} className={`g-2 ${styles.ProfileDetails}`}>
                     {(first_name || edit) && (
                       <Col>
@@ -184,6 +208,7 @@ const ProfilePage = () => {
                       </Col>
                     )}
 
+                    {/* Conditionally renders last name if edit state is true or field has a value. */}
                     {(last_name || edit) && (
                       <Col>
                         <p className="text-muted">Last Name</p>
@@ -197,6 +222,7 @@ const ProfilePage = () => {
                       </Col>
                     )}
 
+                    {/* Conditionally renders dob if edit state is true or field has a value. */}
                     {(dob || edit) && (
                       <Col>
                         <p className="text-muted">Date of Birth</p>
@@ -211,6 +237,7 @@ const ProfilePage = () => {
                       </Col>
                     )}
 
+                    {/* Conditionally renders email if edit state is true or field has a value. */}
                     {(email || edit) && (
                       <Col>
                         <p className="text-muted">Email Address</p>
@@ -228,6 +255,8 @@ const ProfilePage = () => {
               </Row>
             </Card.Body>
 
+            {/* Conditionally render user signup dates if edit state is
+            false, submit and cancel buttons if true. */}
             {!edit ? (
               <Card.Footer>
                 <Row xs={1} sm={2} className="my-2">
@@ -255,6 +284,7 @@ const ProfilePage = () => {
             )}
           </Form>
 
+          {/* Conditionally renders subpage content if edit state is false. */}
           {!edit && (
             <>
               {subPage === "posts" ? (
