@@ -28,19 +28,24 @@ const pageTitles = {
 const nonUserPages = ["feed", "saved", "wip", "new-post"];
 
 function App() {
+  /* Getting the current user and the pathname of the current page. */
   const currentUser = useCurrentUser();
   const { pathname } = useLocation();
   const profile_id = currentUser?.profile_id || "";
   const user_id = currentUser?.pk || "";
 
+  /* Checking if the current page is in the nonUserPages array and if it is it
+  redirects to the members page. */
   useRedirect(
     nonUserPages.some((page) => pathname.includes(page)) ? "members" : "pass"
   );
 
   return (
     <>
+      {/* Content found on all pages. */}
       <AuthModal />
       <NavBar titles={pageTitles} />
+      {/* Content specific to each page. */}
       <Container className="my-3 text-center g-0">
         <Routes>
           <Route

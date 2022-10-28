@@ -1,8 +1,10 @@
+/* Body overrides */
 body {
   background-color: var(--background);
   overflow-x: hidden;
 }
 
+/* Used to create a title */
 .Title {
   font-size: 1.3rem;
 }
