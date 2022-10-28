@@ -108,7 +108,7 @@ a:hover {
 
 .btn-secondary {
   background-color: var(--secondary);
-  color: var(--text-alt);
+  color: #000;
   border-color: var(--secondary);
   transition: transform 0.2s;
 }
