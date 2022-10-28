@@ -7,12 +7,15 @@ import Dropdown from "react-bootstrap/Dropdown";
 import IconText from "./IconText";
 
 const AuthButton = (props) => {
+  /* Destructuring the props object. */
   const { page, size, variant, left, right, dropdown, hr, className, refresh } =
     props;
 
+  /* Using the useSetAuthModal and useNavigate hooks. */
   const setAuthModal = useSetAuthModal();
   const navigate = useNavigate();
 
+  /* An object with location properties. */
   const locations = {
     joinUs: { page: "joinus", text: "Join Us", icon: "door-open" },
     login: { page: "login", text: "Login", icon: "right-to-bracket" },
@@ -36,11 +39,14 @@ const AuthButton = (props) => {
 
   return (
     <>
+      {/* Wrapper that wraps the children with
+      the wrapper if the condition is true. */}
       <ComponentParent
         condition={dropdown}
         wrapper={(children) => (
           <Dropdown.Item as="div">{children}</Dropdown.Item>
         )}>
+        {/* A button that is setting the state of the authModal on click */}
         <Button
           aria-label={target.text}
           variant={variant}
@@ -50,6 +56,7 @@ const AuthButton = (props) => {
             setAuthModal({ show: !!target.page, page: target.page });
             refresh && navigate(0);
           }}>
+          {/* A component that is rendering an icon and text. */}
           <IconText
             text={target.text}
             icon={target.icon}
@@ -58,6 +65,7 @@ const AuthButton = (props) => {
           />
         </Button>
       </ComponentParent>
+      {/* Rendering a hr or a dropdown divider if the hr prop is true. */}
       {hr && !dropdown && <hr />}
       {hr && dropdown && <Dropdown.Divider />}
     </>

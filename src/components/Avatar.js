@@ -12,12 +12,14 @@ const Avatar = ({ src, change }) => {
   const imgRef = useRef(null);
   const [size, setSize] = useState(0);
 
+  /* Setting the size of the image to the width of the image. */
   useLayoutEffect(() => {
     setSize(imgRef.current?.offsetWidth);
   }, [imgRef.current?.offsetWidth]);
 
   return (
     <div className={styles.Container}>
+      {/* Profile picture. */}
       <Image
         src={src || profilePlaceholder}
         alt="Profile Picture"
@@ -28,6 +30,7 @@ const Avatar = ({ src, change }) => {
         ref={imgRef}
       />
 
+      {/* Conditionally displayed hover icon. */}
       {change && (
         <>
           <Form.Label>

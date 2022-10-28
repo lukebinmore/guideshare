@@ -5,6 +5,7 @@ import FormError from "./FormError";
 import IconText from "./IconText";
 
 const FormInput = (props) => {
+  /* Destructuring the props object. */
   const {
     className,
     type,
@@ -26,6 +27,7 @@ const FormInput = (props) => {
   const [value, setValue] = useState(initialData);
   const [check, setCheck] = useState(initialData ? initialData : false);
 
+  /* Function to handle change of file. */
   const handleFileChange = (event) => {
     setPreview(
       event.target.files[0]
@@ -34,6 +36,7 @@ const FormInput = (props) => {
     );
   };
 
+  /* Bootstrap form control of type file with passed props. */
   const fileInput = (
     <>
       <Form.Control
@@ -50,6 +53,7 @@ const FormInput = (props) => {
     </>
   );
 
+  /* Bootstrap form select with passed props. */
   const selectInput = (
     <Form.Select
       className="text-center"
@@ -60,6 +64,7 @@ const FormInput = (props) => {
     </Form.Select>
   );
 
+  /* Custom Checkbox using Bootstrap Button and Fontawesome Icons. */
   const checkInput = (
     <>
       <Button
@@ -78,6 +83,7 @@ const FormInput = (props) => {
     </>
   );
 
+  /* Bootstrap form control as text, with passed props. */
   const textInput = (
     <Form.Control
       as={as}
@@ -94,8 +100,10 @@ const FormInput = (props) => {
 
   return (
     <Form.Group className={className} controlId={name}>
+      {/* Hidden label for form input. */}
       <Form.Label className="d-none">{label}</Form.Label>
 
+      {/* Conditional insert of appropriate form element. */}
       {type === "file"
         ? fileInput
         : type === "select"
@@ -104,7 +112,9 @@ const FormInput = (props) => {
         ? checkInput
         : textInput}
 
+      {/* FormError component with props passed. */}
       <FormError data={errorData} text={text} />
+      {/* Conditional hr dependant on props. */}
       {hr && <hr />}
     </Form.Group>
   );

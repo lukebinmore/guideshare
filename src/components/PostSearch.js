@@ -16,23 +16,30 @@ import useBreakpoints from "../hooks/useBreakpoints";
 import styles from "../styles/PostSearch.module.css";
 
 const PostSearch = () => {
+  /* Destructuring the useSearchFilterSort() hook and assigning it to the variable
+  query. */
   const { query } = useSearchFilterSort();
   const setSearchFilterSort = useSetSearchFilterSort();
   const { md } = useBreakpoints();
   const { pathname } = useLocation();
   const navigate = useNavigate();
 
+  /* Setting the state of the component. */
   const [searchQuery, setSearchQuery] = useState(query);
   const [posts, setPosts] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
 
+  /* Setting the state of the component on change of context data. */
   useEffect(() => {
     setSearchQuery(query);
   }, [query]);
 
+  /* A useEffect hook that is called when the searchQuery state changes. It is used
+  to fetch the posts from the server. */
   useEffect(() => {
     const fetchPosts = async () => {
       try {
+        /* Attempts to retrieve the related posts to the users query. */
         const { data } = await axiosReq.get(
           `/posts/?ordering=-title_length&search=${searchQuery}`
         );
@@ -44,6 +51,7 @@ const PostSearch = () => {
     };
 
     setHasLoaded(false);
+    /* Timer to stop API calls on every character change. */
     const timer = setTimeout(() => {
       fetchPosts();
     }, 1000);
@@ -52,11 +60,15 @@ const PostSearch = () => {
     };
   }, [searchQuery]);
 
+  /* Function to handle submitting of the search query. */
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    /* Checks if the current page is the home page, and 
+    navigates to it if not. */
     pathname !== "/" && navigate("/");
 
+    /* Sets the context data to the user's search query. */
     setSearchFilterSort((prevValues) => ({
       ...prevValues,
       query: searchQuery,
@@ -66,9 +78,13 @@ const PostSearch = () => {
   return (
     <Form className="d-flex h-100 align-items-center" onSubmit={handleSubmit}>
       <InputGroup>
+        {/* New Post button rendered on small screens only
+        using breakpoints hook. */}
         {!md && <NavButton to="newPost" left noText />}
 
         <Dropdown drop="down">
+          {/* Search input, wrapped in Dropdown toggle to trigger search
+          results dropdown. */}
           <Dropdown.Toggle
             className={`form-control p-0 ${styles.RemoveTransform}`}>
             <Form.Control
@@ -83,6 +99,8 @@ const PostSearch = () => {
             <Form.Label className="d-none">Search</Form.Label>
           </Dropdown.Toggle>
 
+          {/* QuickSearch dropdown menu with popperConfig offsets to
+          center menu. */}
           <Dropdown.Menu
             className={`pb-0 w-100 ${styles.QuickSearchMenu}`}
             align="start"
@@ -98,10 +116,13 @@ const PostSearch = () => {
                 ],
               }
             }>
+            {/* Check if the post data has been recieved. */}
             {hasLoaded ? (
               <>
+                {/* Check if the response data has any results. */}
                 {posts.results.length ? (
                   <>
+                    {/* Get first 5 results, and map them to dropdown items. */}
                     {posts.results.slice(0, 5).map((post) => (
                       <Dropdown.Item
                         as="div"
@@ -109,6 +130,7 @@ const PostSearch = () => {
                         className={`mb-2 text-center ${styles.QuickSearchItem}`}>
                         <NavLink to={`/posts/${post.id}`}>
                           <Card>
+                            {/* Card with post data. */}
                             <Card.Header>
                               <h4>{post.title}</h4>
                             </Card.Header>
@@ -124,15 +146,23 @@ const PostSearch = () => {
                     ))}
                   </>
                 ) : (
-                  <h3>No Results</h3>
+                  <>
+                    {/* No results heading loaded if no results are found. */}
+                    <h3>No Results</h3>
+                  </>
                 )}
               </>
             ) : (
-              <LoadingSpinner small />
+              <>
+                {/* Loading spinner loaded if response has not been
+                  received yet. */}
+                <LoadingSpinner small />
+              </>
             )}
           </Dropdown.Menu>
         </Dropdown>
 
+        {/* Search Button for submitting quicksearch to full search. */}
         <Form.Label className="d-none">Search</Form.Label>
         <Button type="submit" aria-label="Search">
           <i className="fa-solid fa-search" />

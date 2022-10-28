@@ -4,10 +4,12 @@ import Dropdown from "react-bootstrap/Dropdown";
 import styles from "../styles/EditDeleteDropdown.module.css";
 
 const EditDeleteDropdown = (props) => {
+  /* Destructuring the props object. */
   const { solid, opaque, handleEdit, handleDelete } = props;
 
   return (
     <Dropdown drop="down">
+      {/* Button to open the edit & delete dropdown, with prop based classes */}
       <Dropdown.Toggle
         aria-label="Edit & Delete Dropdown"
         className={`${!opaque && styles.MenuOpacity} ${
@@ -16,8 +18,11 @@ const EditDeleteDropdown = (props) => {
         <i className="fa-solid fa-bars" />
       </Dropdown.Toggle>
 
+      {/* Edit & delete dropdown menu. Buttons get their onClick functions
+      from props*/}
       <Dropdown.Menu>
         <div className="w-100 btn-group">
+          {/* Edit Button */}
           <Button
             aria-label="Edit"
             variant="secondary"
@@ -25,6 +30,7 @@ const EditDeleteDropdown = (props) => {
             onClick={handleEdit}>
             <i className="fa-solid fa-save" />
           </Button>
+          {/* Delete Button */}
           <Button
             aria-label="Delete"
             variant="danger"

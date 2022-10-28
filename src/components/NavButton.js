@@ -10,6 +10,7 @@ const NavButton = (props) => {
 
   const currentUser = useCurrentUser();
 
+  /* An object with location properties. */
   const locations = {
     home: { location: "/", text: "Home", icon: "house" },
     feed: { location: "/feed", text: "Feed", icon: "rss" },
@@ -30,17 +31,21 @@ const NavButton = (props) => {
 
   const target = locations[to];
 
+  // Checks if the current page is active, and sets the appropriate styles
   const setActive = (navData) => {
     return navData.isActive ? "btn btn-secondary" : "btn btn-primary";
   };
 
   return (
     <>
+      {/* Wrapper that will wrap the children
+          in the wrapper if the condition is true. */}
       <ComponentParent
         condition={dropdown}
         wrapper={(children) => (
           <Dropdown.Item as="div">{children}</Dropdown.Item>
         )}>
+        {/* A react-router-dom component that is used to create a link to a route. */}
         <NavLink
           end
           aria-label={target.text}
@@ -48,6 +53,7 @@ const NavButton = (props) => {
           className={(navData) =>
             setActive(navData) + (size ? ` btn-${size} ` : " ") + className
           }>
+          {/* A component that is used to render an icon and text. */}
           <IconText
             text={!noText && target.text}
             icon={target.icon}
@@ -56,6 +62,7 @@ const NavButton = (props) => {
           />
         </NavLink>
       </ComponentParent>
+      {/* Rendering a hr or a dropdown divider if the hr prop is true. */}
       {hr && !dropdown && <hr />}
       {hr && dropdown && <Dropdown.Divider />}
     </>

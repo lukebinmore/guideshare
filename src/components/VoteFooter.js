@@ -12,6 +12,8 @@ const voteValues = {
 };
 
 const VoteFooter = (props) => {
+  /* Destructuring the props object and setting default values for post_id and
+  comment_id. */
   const [voteData, setVoteData] = useState(props);
   const {
     post_id = null,
@@ -25,11 +27,14 @@ const VoteFooter = (props) => {
 
   const { md } = useBreakpoints();
 
+  /* Function to handle like and dislike button clicks. */
   const handleClick = async (event) => {
+    /* Creating variableS based on the button clicked. */
     const voteName = event.target.name + "_id";
     const voteCountName = event.target.name + "s_count";
     const voteValue = voteValues[event.target.name];
 
+    /* Creating a vote object with relevent data. */
     const vote = {
       post: post_id,
       comment: comment_id,
@@ -37,15 +42,20 @@ const VoteFooter = (props) => {
     };
 
     try {
+      /* Condition to determin if vote already exists. */
       if (voteData[voteName]) {
+        /* Attempt to delete vote. */
         await axiosReq.delete(`/votes/${voteData[voteName]}`);
+        /* Remove existing vote from vote data and reduce vote count. */
         setVoteData((prevData) => ({
           ...prevData,
           [voteName]: null,
           [voteCountName]: prevData[voteCountName] - 1,
         }));
       } else {
+        /* Attempt to create vote. */
         const { data } = await axiosRes.post("/votes/", vote);
+        /* Update vote data with new vote and increase vote count. */
         setVoteData((prevData) => ({
           ...prevData,
           [voteName]: data.id,
@@ -59,6 +69,7 @@ const VoteFooter = (props) => {
 
   return (
     <Card.Footer className="p-0 text-end">
+      {/* Button for dislikes. */}
       <Button
         aria-label="Dislike"
         name="dislike"
@@ -73,6 +84,7 @@ const VoteFooter = (props) => {
         />
       </Button>
 
+      {/* Conditionally loaded comments count based on provided props. */}
       {post_id && (
         <div className={`btn ${md && "btn-lg"} ${styles.CommentsCount}`}>
           <IconText
@@ -83,6 +95,7 @@ const VoteFooter = (props) => {
         </div>
       )}
 
+      {/* Button for likes. */}
       <Button
         aria-label="Like"
         name="like"
