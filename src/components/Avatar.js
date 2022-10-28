@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useLayoutEffect, useRef, useState } from "react";
 import Fade from "react-bootstrap/Fade";
 import Form from "react-bootstrap/Form";
 import Image from "react-bootstrap/Image";
@@ -9,6 +9,13 @@ import styles from "../styles/Avatar.module.css";
 const Avatar = ({ src, change }) => {
   const [showChange, setShowChange] = useState(false);
 
+  const imgRef = useRef(null);
+  const [size, setSize] = useState(0);
+
+  useLayoutEffect(() => {
+    setSize(imgRef.current?.offsetWidth);
+  }, [imgRef.current?.offsetWidth]);
+
   return (
     <div className={styles.Container}>
       <Image
@@ -16,6 +23,9 @@ const Avatar = ({ src, change }) => {
         alt="Profile Picture"
         roundedCircle
         className={styles.AvatarImage}
+        width={size}
+        height={size}
+        ref={imgRef}
       />
 
       {change && (
