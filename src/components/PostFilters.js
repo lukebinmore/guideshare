@@ -39,7 +39,6 @@ const PostFilters = (props) => {
       <Dropdown.Toggle aria-label="Filters" className={`w-25`}>
         <IconText text={md && "Filters"} icon="filter" left />
       </Dropdown.Toggle>
-      {/* <Form.Label className="d-none">Filters</Form.Label> */}
 
       <Dropdown.Menu>
         <Dropdown.Item as="div" className="btn-group">
