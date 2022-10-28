@@ -63,4 +63,38 @@ Before finalizing the product, a number of automated tests were carried out to e
 
 ## **Manual Testing**
 
+Manual testing of the code and site was carried out during development. Below is a summary of the manual tests completed both during and after project finalization.
+
+ - Page Loading / Layout
+   - All components and pages have been tested for responsiveness and have behave as expected.
+   - All components and pages have been tested for browser compatibility with the following:
+     - Chrome
+     - Firefox
+     - Edge
+     - Safari
+     - Opera
+   - All components and pages have been tested on both simulated and phsyical devices.
+     - Android Smartphone
+     - Apple Smartphone
+     - Windows Desktop
+     - Mac OSX Laptop
+     - Linux Desktop
+ - Color Scheme
+   - All content has been checked for coherent color scheme.
+   - All content has been checked for theme implementation coheasion.
+ - Navigation
+   - Navigation has been tested accross the site, and functions as expected.
+   - Error pages have been tested for correct display, and funciton as expected.
+   - User access has been tested across the site, and restricted content has been successfully blocked for non-authenticated users.
+   - Manual URL navigation has been tested for error management and access, and behaves as expected.
+ - Contexts
+   - All contexts have been tested for correct data, and function as expected.
+ - Components
+   - All components have been tested, and render as expected.
+   - All component functions have been tested, and operate as expected.
+   - All functions have been tested for error handling, and function as expected.
+ - User Access
+   - Users access to information or content has been checked, and confirmed to be limited where neccessary.
+   - Users ability to act on content has been tested for appropriate behaviour, and is restricted where neccessary as expected.
+
 ***
