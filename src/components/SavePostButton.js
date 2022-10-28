@@ -41,9 +41,7 @@ const SavePostButton = ({ id }) => {
         ...prevData,
         saved_posts: saveData,
       }));
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
 
   return (

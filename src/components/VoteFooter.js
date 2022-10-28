@@ -62,9 +62,7 @@ const VoteFooter = (props) => {
           [voteCountName]: prevData[voteCountName] + 1,
         }));
       }
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
 
   return (

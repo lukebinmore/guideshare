@@ -41,9 +41,7 @@ const PostCreateEditForm = ({ edit }) => {
         data.is_owner ? setPost(data) : navigate("/restricted");
         setCoverImage(data.cover_image);
         setHasLoaded(true);
-      } catch (err) {
-        console.log(err);
-      }
+      } catch (err) {}
     };
 
     setHasLoaded(false);

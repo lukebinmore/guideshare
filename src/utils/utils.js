@@ -47,9 +47,7 @@ export const fetchMoreData = async (resource, setResource) => {
           : [...acc, cur];
       }, prevResource.results),
     }));
-  } catch (err) {
-    console.log(err);
-  }
+  } catch (err) {}
 };
 
 /**
@@ -78,9 +76,7 @@ export const fetchCategories = async (setCategories) => {
   try {
     const { data } = await axiosReq.get("posts/categories/");
     setCategories(data);
-  } catch (err) {
-    console.log(err);
-  }
+  } catch (err) {}
 };
 
 /**

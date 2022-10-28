@@ -27,9 +27,7 @@ const Profiles = (props) => {
         );
         setProfiles(data);
         setHasLoaded(true);
-      } catch (err) {
-        console.log(err);
-      }
+      } catch (err) {}
     };
 
     setHasLoaded(false);

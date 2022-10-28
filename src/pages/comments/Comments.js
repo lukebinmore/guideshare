@@ -18,9 +18,7 @@ const Comments = ({ id }) => {
         const { data } = await axiosReq.get(`comments/?post=${id}`);
         setComments(data);
         setHasLoaded(true);
-      } catch (err) {
-        console.log(err);
-      }
+      } catch (err) {}
     };
 
     setHasLoaded(false);

@@ -29,9 +29,7 @@ const SignoutForm = () => {
       removeTokenTimestamp();
       setAuthModal({ show: false });
       navigate("/");
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
 
   return (

@@ -59,9 +59,7 @@ const ProfilePage = () => {
         const { data } = await axiosReq.get(`profiles/${id}/`);
         setProfile(data);
         setHasLoaded(true);
-      } catch (err) {
-        console.log(err);
-      }
+      } catch (err) {}
     };
 
     setHasLoaded(false);
@@ -79,9 +77,7 @@ const ProfilePage = () => {
       setCurrentUser(null);
       removeTokenTimestamp();
       navigate("/");
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
 
   /* Function to handle submitting updates to users own profile. */

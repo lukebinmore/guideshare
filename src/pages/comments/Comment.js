@@ -33,9 +33,7 @@ const Comment = (props) => {
     try {
       await axiosRes.delete(`/comments/${id}/`);
       setCommentData({});
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
 
   return (

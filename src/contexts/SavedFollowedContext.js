@@ -23,9 +23,7 @@ export const SavedFollowedProvider = ({ children }) => {
             `saved-following/${currentUser?.profile_id}/`
           );
           setSavedFollowed(data);
-        } catch (err) {
-          console.log(err);
-        }
+        } catch (err) {}
       }
     };
 

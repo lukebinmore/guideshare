@@ -52,9 +52,7 @@ const PostPage = () => {
         const { data } = await axiosReq.get(`posts/${id}/`);
         setPost(data);
         setHasLoaded(true);
-      } catch (err) {
-        console.log(err);
-      }
+      } catch (err) {}
     };
 
     setHasLoaded(false);
@@ -66,9 +64,7 @@ const PostPage = () => {
     try {
       await axiosRes.delete(`posts/${id}/`);
       navigate("/");
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
 
   return (

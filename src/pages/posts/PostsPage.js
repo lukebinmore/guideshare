@@ -40,9 +40,7 @@ const PostsPage = (props) => {
         const { data } = await axiosReq.get(buildUrl());
         setPosts(data);
         setHasLoaded(true);
-      } catch (err) {
-        console.log(err);
-      }
+      } catch (err) {}
     };
 
     setHasLoaded(false);
