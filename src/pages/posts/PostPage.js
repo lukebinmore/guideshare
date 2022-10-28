@@ -15,12 +15,14 @@ import useBreakpoints from "../../hooks/useBreakpoints";
 import styles from "../../styles/PostPage.module.css";
 import appStyles from "../../App.module.css";
 import Comments from "../comments/Comments";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 const PostPage = () => {
   /* Destructuring the useParams, useBreakpoints, and useNavigate hooks. */
   const { id } = useParams();
   const { sm, md } = useBreakpoints();
   const navigate = useNavigate();
+  const currentUser = useCurrentUser();
 
   /* Destructuring the useState hook. */
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -95,7 +97,9 @@ const PostPage = () => {
               <div className={`text-end ${md && styles.HeaderButton}`}>
                 {/* Conditionally render Follow button if not post owner and
                 profile still exists. */}
-                {!is_owner && profile_id && <FollowProfileButton id={id} />}
+                {currentUser && !is_owner && profile_id && (
+                  <FollowProfileButton id={id} />
+                )}
               </div>
               <p className={`mx-2 ${appStyles.Title}`}>
                 {/* Conditionally add WIP status to header. */}
@@ -103,7 +107,7 @@ const PostPage = () => {
                 {title}
               </p>
               <div className={`text-end ${md && styles.HeaderButton}`}>
-                <SavePostButton id={id} />
+                {currentUser && <SavePostButton id={id} />}
               </div>
             </Card.Header>
 
