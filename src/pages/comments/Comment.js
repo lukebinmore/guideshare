@@ -8,6 +8,7 @@ import useBreakpoints from "../../hooks/useBreakpoints";
 import CommentCreateEditForm from "./CommentCreateEditForm";
 
 const Comment = (props) => {
+  /* Destructuring the props object and assigning it to the commentData variable. */
   const [commentData, setCommentData] = useState(props);
   const {
     id,
@@ -26,6 +27,8 @@ const Comment = (props) => {
 
   const [edit, setEdit] = useState(false);
 
+  /* Function that uses the axiosRes.delete method to delete the comment with
+  the id of the comment that was clicked on. Clears comment data from state. */
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/comments/${id}/`);
@@ -37,8 +40,11 @@ const Comment = (props) => {
 
   return (
     <>
+      {/* Conditionally render content if content id exists in state. */}
       {commentData?.id && (
         <>
+          {/* Conditionally redner comment edit form if edit state is true,
+          renders comment details if false. */}
           {edit ? (
             <CommentCreateEditForm
               id={id}
@@ -60,6 +66,8 @@ const Comment = (props) => {
 
               <Card.Body className="d-flex justify-content-between align-items-center p-2">
                 <div className="text-start">{content}</div>
+                {/* Conditionally renders edit and delete dropdown if user
+                  is owner of comment, */}
                 {is_owner && (
                   <EditDeleteDropdown
                     solid
@@ -70,6 +78,8 @@ const Comment = (props) => {
                 )}
               </Card.Body>
 
+              {/* Renders vote footer with relevent props so users can like
+              and dislike comment. */}
               <VoteFooter
                 comment_id={id}
                 like_id={like_id}
