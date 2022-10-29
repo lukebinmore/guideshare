@@ -11,6 +11,7 @@ Please [Click Here](https://github.com/lukebinmore/guideshare-api) to view the G
 - [**Project Overview**](#project-overview)
 - [**Table Of Contents**](#table-of-contents)
 - [GuideShare](#guideshare)
+  - [**Font End Developer Role**](#font-end-developer-role)
   - [**Planning Phase**](#planning-phase)
   - [**Features/Future Development**](#featuresfuture-development)
   - [**Testing Results**](#testing-results)
@@ -22,6 +23,12 @@ Please [Click Here](https://github.com/lukebinmore/guideshare-api) to view the G
 ***
 
 # GuideShare
+
+## **Font End Developer Role**
+
+Front end developers are a vital cog in the machine that is the development of engaging user facing web applications. One of their many vital objectives is to ensure the user of the application remains on it, and returns to it for as long and as much as possible. A front end developers role is mainly centered around the user interface, and in turn, the user experience of a web application. This includes maintaining accissibility, responsiveness and fluency of the application. An understanding of the backend of the web application being worked on is a perfect addition to the process, as it provides the front end developer an opportunity to better understand and recognise the possibilities of the application.
+
+***
 
 ## [**Planning Phase**](/docs/PLANNING.md)
 
