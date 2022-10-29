@@ -140,7 +140,7 @@ const PostPage = () => {
 
               <hr />
 
-              <p>{content}</p>
+              <p className={styles.PreWrap}>{content}</p>
             </Card.Body>
 
             {/* Vote footer provided with relevent props to allow liking and

@@ -12,3 +12,8 @@
   min-width: 6rem;
   width: auto;
 }
+
+/* Post content wrapping */
+.PreWrap {
+  white-space: pre-wrap;
+}
