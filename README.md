@@ -1,5 +1,7 @@
 # **GuideShare** - [Live Site](https://guideshare-live.herokuapp.com/))
 
+![GuideShare](/docs/images/am-i-response.png)
+
 # **Project Overview**
 
 Please [Click Here](https://github.com/lukebinmore/guideshare-api) to view the GuideShare API repository.
