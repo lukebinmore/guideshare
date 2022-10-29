@@ -94,7 +94,7 @@ const PostPage = () => {
                 {/* Conditionally render Follow button if not post owner and
                 profile still exists. */}
                 {currentUser && !is_owner && profile_id && (
-                  <FollowProfileButton id={id} />
+                  <FollowProfileButton id={profile_id} />
                 )}
               </div>
               <p className={`mx-2 ${appStyles.Title}`}>
