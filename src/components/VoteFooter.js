@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import IconText from "./IconText";
 import useBreakpoints from "../hooks/useBreakpoints";
+import { useCurrentUser } from "../contexts/CurrentUserContext";
 import styles from "../styles/VoteFooter.module.css";
 
 const voteValues = {
@@ -26,6 +27,7 @@ const VoteFooter = (props) => {
   } = voteData;
 
   const { md } = useBreakpoints();
+  const currentUser = useCurrentUser();
 
   /* Function to handle like and dislike button clicks. */
   const handleClick = async (event) => {
@@ -68,19 +70,21 @@ const VoteFooter = (props) => {
   return (
     <Card.Footer className="p-0 text-end">
       {/* Button for dislikes. */}
-      <Button
-        aria-label="Dislike"
-        name="dislike"
-        variant="secondary"
-        className={dislike_id && styles.Clicked}
-        onClick={handleClick}
-        size={post_id && md && "lg"}>
-        <IconText
-          text={dislikes_count < 1000 ? dislikes_count : "999+"}
-          icon="thumbs-down"
-          right
-        />
-      </Button>
+      {currentUser && (
+        <Button
+          aria-label="Dislike"
+          name="dislike"
+          variant="secondary"
+          className={dislike_id && styles.Clicked}
+          onClick={handleClick}
+          size={post_id && md && "lg"}>
+          <IconText
+            text={dislikes_count < 1000 ? dislikes_count : "999+"}
+            icon="thumbs-down"
+            right
+          />
+        </Button>
+      )}
 
       {/* Conditionally loaded comments count based on provided props. */}
       {post_id && (
@@ -94,18 +98,20 @@ const VoteFooter = (props) => {
       )}
 
       {/* Button for likes. */}
-      <Button
-        aria-label="Like"
-        name="like"
-        className={like_id && styles.Clicked}
-        onClick={handleClick}
-        size={post_id && md && "lg"}>
-        <IconText
-          text={likes_count < 1000 ? likes_count : "999+"}
-          icon="thumbs-up"
-          right
-        />
-      </Button>
+      {currentUser && (
+        <Button
+          aria-label="Like"
+          name="like"
+          className={like_id && styles.Clicked}
+          onClick={handleClick}
+          size={post_id && md && "lg"}>
+          <IconText
+            text={likes_count < 1000 ? likes_count : "999+"}
+            icon="thumbs-up"
+            right
+          />
+        </Button>
+      )}
     </Card.Footer>
   );
 };
